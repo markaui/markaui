@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { ArrowUpRight, Gem, Github, Linkedin } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin } from "lucide-react";
 
 import { Separator } from "@/components/ui/separator";
 import { SOCIAL } from "@/lib/site";
+import { LogoMark } from "@/components/site/logo";
 
 const COLUMNS: { heading: string; links: { label: string; href: string; external?: boolean }[] }[] = [
   {
@@ -37,7 +38,7 @@ const CONNECT = [
   {
     label: "GitHub",
     hint: "Star the repo, file issues & contribute",
-    href: SOCIAL.github,
+    href: SOCIAL.githubRepo,
     icon: Github,
   },
   {
@@ -55,9 +56,7 @@ export function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-[minmax(0,1.4fr)_repeat(3,minmax(0,1fr))]">
           <div>
             <div className="flex items-center gap-2.5">
-              <span className="flex size-9 items-center justify-center rounded-xl bg-[linear-gradient(135deg,var(--primary),var(--gold))] text-primary-foreground shadow-md">
-                <Gem className="size-4" aria-hidden />
-              </span>
+              <LogoMark className="size-9 shadow-md" />
               <span className="font-serif text-lg font-bold tracking-tight text-foreground">
                 MarkaUI
               </span>

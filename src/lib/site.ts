@@ -16,6 +16,8 @@ export const SITE_DESCRIPTION =
 export const SOCIAL = {
   /** GitHub account used across footer, JSON-LD and structured data */
   github: "https://github.com/akram6t",
+  /** The open-source repository — navbar star button, README badges, GitHub icon links */
+  githubRepo: "https://github.com/markaui/markaui",
   /** LinkedIn profile — username akram6t */
   linkedin: "https://www.linkedin.com/in/akram6t",
   npm: "https://www.npmjs.com/package/markaui",

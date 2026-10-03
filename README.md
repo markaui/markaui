@@ -1,19 +1,24 @@
 <div align="center">
 
-<img src="public/logo.svg" alt="MarkaUI" width="96" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="public/logo-wordmark-dark.svg" />
+  <img src="public/logo-wordmark.svg" alt="markaui — premium React component library" width="420" />
+</picture>
 
-# MarkaUI
+# markaui
 
+[![CI](https://github.com/markaui/markaui/actions/workflows/ci.yml/badge.svg)](https://github.com/markaui/markaui/actions/workflows/ci.yml)
+[![GitHub stars](https://img.shields.io/github/stars/markaui/markaui?style=social)](https://github.com/markaui/markaui/stargazers)
 [![npm version](https://img.shields.io/npm/v/markaui.svg)](https://www.npmjs.com/package/markaui)
 [![npm downloads](https://img.shields.io/npm/dm/markaui.svg)](https://www.npmjs.com/package/markaui)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
-[![React 18+](https://img.shields.io/badge/React-18%2B-61DAFB.svg)](https://react.dev/)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/markaui/markaui/pulls)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6.svg)](https://www.typescriptlang.org/)
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind-v4-38BDF8.svg)](https://tailwindcss.com/)
 
-**A premium, themeable React component library — 339+ accessible components, 12 luxury themes × light & dark.**
+**A premium, open-source React component library — 339+ accessible components, 12 luxury themes × light & dark.**
 
-[📦 npm](https://www.npmjs.com/package/markaui) · [📚 Components](src/components/ui) · [🎓 Demo](src/app/demo) · [🐛 Report a bug](https://github.com/markaui/markaui/issues)
+[📦 npm](https://www.npmjs.com/package/markaui) · [📚 Components](src/components/ui) · [🎓 Demo](src/app/demo) · [🐛 Report a bug](https://github.com/markaui/markaui/issues) · [⭐ Star this repo](https://github.com/markaui/markaui)
 
 </div>
 
@@ -149,12 +154,18 @@ npm publish
 
 ## Contributing
 
-Contributions are welcome! If you're adding or changing a component:
+MarkaUI is open source (MIT) and contributions of every size are welcome — typo fixes, new themes, docs improvements and components alike.
 
-1. Edit the component in `src/components/ui/` — the app is the source of truth
-2. Verify it renders in the docs shell (`bun run dev` → `/components`)
-3. Run `cd packages/markaui && bun run sync && bun run build` and make sure the package builds
-4. Open a pull request
+1. Fork the repo and create your branch from `main`
+2. Edit the component in `src/components/ui/` — the app is the source of truth
+3. Verify it renders in the docs shell (`bun run dev` → `/components`)
+4. Run `cd packages/markaui && bun run sync && bun run build` and make sure the package builds
+5. Open a pull request — CI runs lint + build on every PR
+
+🐛 Found a bug? [Open an issue](https://github.com/markaui/markaui/issues/new/choose).
+💡 Want a new component or theme? [Start a discussion](https://github.com/markaui/markaui/discussions).
+
+If MarkaUI saves you time, please consider **starring the repo ⭐** — it helps others discover the project.
 
 ## License
 

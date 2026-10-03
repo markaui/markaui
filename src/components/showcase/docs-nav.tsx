@@ -6,7 +6,6 @@ import {
   Box,
   ChevronRight,
   Compass,
-  Gem,
   GraduationCap,
   Heart,
   KeyRound,
@@ -43,6 +42,7 @@ import {
 } from "./registry";
 import type { FamilyDef } from "./registry";
 import { GUIDES, type GuideDef } from "./guides-data";
+import { LogoMark } from "@/components/site/logo";
 
 const GROUPS_KEY = "markaui-docs-nav-groups";
 const GROUPS_LEGACY_KEY = "saptapadi-docs-nav-groups";
@@ -309,9 +309,7 @@ export function DocsNav({
           onClick={() => onNavigate?.()}
           className="group flex min-w-0 flex-1 items-center gap-2.5 rounded-lg"
         >
-          <span className="flex size-8 items-center justify-center rounded-lg bg-[linear-gradient(135deg,var(--primary),var(--gold))] text-primary-foreground shadow-sm transition-transform group-hover:scale-105">
-            <Gem className="size-4" />
-          </span>
+          <LogoMark className="size-8 transition-transform group-hover:scale-105 group-hover:rotate-3" />
           <span className="min-w-0 flex-1">
             <span className="block truncate font-serif text-sm font-bold tracking-tight text-foreground">
               MarkaUI

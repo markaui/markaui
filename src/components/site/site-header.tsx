@@ -2,13 +2,15 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Gem, Menu, Moon, Sun } from "lucide-react";
+import { Menu, Moon, Sun } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useTheme } from "@/components/theme/theme-provider";
+import { LogoMark } from "./logo";
+import { GitHubButton } from "./github-button";
 
 const NAV_LINKS = [
   { href: "/components", label: "Components" },
@@ -53,9 +55,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center gap-3 px-4 sm:px-6">
         {/* Brand */}
         <Link href="/" aria-label="MarkaUI home" className="group flex items-center gap-2.5">
-          <span className="flex size-9 items-center justify-center rounded-xl bg-[linear-gradient(135deg,var(--primary),var(--gold))] text-primary-foreground shadow-md transition-transform group-hover:scale-105">
-            <Gem className="size-4" />
-          </span>
+          <LogoMark className="size-9 shadow-md transition-transform group-hover:scale-105 group-hover:rotate-3" />
           <span className="flex flex-col leading-none">
             <span className="font-serif text-lg font-bold tracking-tight text-foreground">
               MarkaUI
@@ -80,6 +80,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
+          <GitHubButton className="hidden sm:flex" />
           <Badge variant="gold" className="hidden text-[10px] lg:inline-flex">
             v1.0.0
           </Badge>
@@ -122,6 +123,7 @@ export function SiteHeader() {
                     Get Started
                   </Link>
                 </Button>
+                <GitHubButton className="mt-3 w-full justify-center sm:hidden" showLabel />
               </nav>
             </SheetContent>
           </Sheet>

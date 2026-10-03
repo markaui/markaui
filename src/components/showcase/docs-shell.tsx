@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { CommandPalette, type CommandPaletteGroup } from "@/components/ui/command-palette";
 import { useTheme } from "@/components/theme/theme-provider";
+import { GitHubButton } from "@/components/site/github-button";
 import { ThemeSwitcher } from "./theme-switcher";
 import { DocsNav } from "./docs-nav";
 import { GUIDES, getGuide } from "./guides-data";
@@ -216,6 +217,7 @@ export function DocsShell({ children }: { children: React.ReactNode }) {
           </button>
 
           <div className="ml-auto flex items-center gap-2">
+            <GitHubButton className="hidden sm:flex" />
             <Badge variant="soft" className="hidden md:inline-flex gap-1">
               <Sparkles className="size-3" />
               {TOTAL_COMPONENTS} components · {FAMILIES.length} families
