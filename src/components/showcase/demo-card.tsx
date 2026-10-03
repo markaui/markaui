@@ -149,9 +149,9 @@ export function DemoCard({ demo }: { demo: DemoDef }) {
               data-stage={stage}
               style={constrained ? { width: STAGE_PX[stage] } : undefined}
               className={cn(
-                "w-full max-w-full origin-top overflow-hidden bg-background transition-[width,box-shadow] duration-500 ease-out",
+                "w-full max-w-full origin-top overflow-hidden bg-background transition-[width,box-shadow,padding] duration-500 ease-out",
                 constrained
-                  ? "rounded-xl border border-border shadow-lg ring-1 ring-black/5"
+                  ? "rounded-xl border border-border p-3 shadow-lg ring-1 ring-black/5 sm:p-4"
                   : "rounded-md"
               )}
             >
