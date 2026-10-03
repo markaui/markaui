@@ -481,7 +481,7 @@ function ProfileFormDemo() {
             <FormItem>
               <FormLabel>Full name</FormLabel>
               <FormControl>
-                <Input placeholder="e.g. Rohan Mehta" {...field} />
+                <Input placeholder="e.g. John Doe" {...field} />
               </FormControl>
               <FormDescription>Shown on your Saptapadi profile.</FormDescription>
               <FormMessage />
@@ -562,8 +562,8 @@ import { BadgeCheck, Mail, Search, User } from "lucide-react"
 export function Demo() {
   return (
     <div className="w-full max-w-sm space-y-4">
-      <Input leadingIcon={<User className="size-4" />} defaultValue="Ananya Sharma" />
-      <Input leadingIcon={<Mail className="size-4" />} placeholder="ananya@example.com" />
+      <Input leadingIcon={<User className="size-4" />} defaultValue="Emma Wilson" />
+      <Input leadingIcon={<Mail className="size-4" />} placeholder="emma@example.com" />
       <Input
         leadingIcon={<Search className="size-4" />}
         placeholder="Search by city or surname"
@@ -576,12 +576,12 @@ export function Demo() {
           <div className="w-full max-w-sm space-y-4">
             <Input
               leadingIcon={<User className="size-4" />}
-              defaultValue="Ananya Sharma"
+              defaultValue="Emma Wilson"
               aria-label="Full name"
             />
             <Input
               leadingIcon={<Mail className="size-4" />}
-              placeholder="ananya@example.com"
+              placeholder="emma@example.com"
             />
             <Input
               leadingIcon={<Search className="size-4" />}
@@ -602,7 +602,7 @@ export function Demo() {
   return (
     <div className="w-full max-w-sm space-y-2">
       <Label htmlFor="email">Email</Label>
-      <Input id="email" defaultValue="ananya@sharma" error placeholder="you@example.com" />
+      <Input id="email" defaultValue="emma@wilson" error placeholder="you@example.com" />
       <p className="text-destructive text-xs">Please enter a valid email address.</p>
     </div>
   )
@@ -612,7 +612,7 @@ export function Demo() {
             <Label htmlFor="input-error-email">Email</Label>
             <Input
               id="input-error-email"
-              defaultValue="ananya@sharma"
+              defaultValue="emma@wilson"
               error
               placeholder="you@example.com"
             />
@@ -701,7 +701,7 @@ export function Demo() {
     <div className="w-full max-w-sm space-y-4">
       <div className="space-y-2">
         <Label htmlFor="invite">Invitation note (fixed 4 rows)</Label>
-        <Textarea id="invite" rows={4} className="field-sizing-fixed" placeholder="Dear Sharma family,…" />
+        <Textarea id="invite" rows={4} className="field-sizing-fixed" placeholder="Dear Wilson family,…" />
       </div>
       <div className="space-y-2">
         <Label htmlFor="note">Note (resize disabled)</Label>
@@ -718,7 +718,7 @@ export function Demo() {
                 id="textarea-invite"
                 rows={4}
                 className="field-sizing-fixed"
-                placeholder="Dear Sharma family,…"
+                placeholder="Dear Wilson family,…"
               />
             </div>
             <div className="space-y-2">
@@ -1016,7 +1016,7 @@ import { Input } from "@/components/ui/input"
 export function Demo() {
   return (
     <InputGroup suffix=".com">
-      <Input defaultValue="ananya-sharma" />
+      <Input defaultValue="emma-wilson" />
     </InputGroup>
   )
 }`,
@@ -1024,7 +1024,7 @@ export function Demo() {
           <div className="w-full max-w-sm space-y-2">
             <Label htmlFor="ig-site">Personal website</Label>
             <InputGroup suffix=".com">
-              <Input id="ig-site" defaultValue="ananya-sharma" />
+              <Input id="ig-site" defaultValue="emma-wilson" />
             </InputGroup>
           </div>
         ),
@@ -1089,7 +1089,7 @@ export function Demo() {
       <Label htmlFor="full-name">
         Full Name <span aria-hidden="true" className="text-destructive">*</span>
       </Label>
-      <Input id="full-name" placeholder="e.g. Ananya Sharma" />
+      <Input id="full-name" placeholder="e.g. Emma Wilson" />
     </div>
   )
 }`,
@@ -1098,7 +1098,7 @@ export function Demo() {
             <Label htmlFor="label-full-name">
               Full Name <span aria-hidden="true" className="text-destructive">*</span>
             </Label>
-            <Input id="label-full-name" placeholder="e.g. Ananya Sharma" />
+            <Input id="label-full-name" placeholder="e.g. Emma Wilson" />
             <p className="text-muted-foreground text-xs">
               Clicking the label focuses the linked control.
             </p>
@@ -1757,7 +1757,7 @@ export function Demo() {
             <FormItem>
               <FormLabel>Full name</FormLabel>
               <FormControl>
-                <Input placeholder="e.g. Rohan Mehta" {...field} />
+                <Input placeholder="e.g. John Doe" {...field} />
               </FormControl>
               <FormDescription>Shown on your Saptapadi profile.</FormDescription>
               <FormMessage />
@@ -1819,7 +1819,7 @@ export function Demo() {
         required
         hint="We never share your email with anyone."
       >
-        <Input id="ff-email" placeholder="ananya@example.com" />
+        <Input id="ff-email" placeholder="emma@example.com" />
       </FormField>
       <FormField
         label="Profile headline"
@@ -1839,7 +1839,7 @@ export function Demo() {
               required
               hint="We never share your email with anyone."
             >
-              <Input id="ff-email" placeholder="ananya@example.com" />
+              <Input id="ff-email" placeholder="emma@example.com" />
             </FormField>
             <FormField
               label="Profile headline"
@@ -1890,7 +1890,7 @@ export function Demo() {
       className="w-full max-w-2xl rounded-xl border p-6"
     >
       <FormField label="Full name" htmlFor="ps-name" required>
-        <Input id="ps-name" defaultValue="Ananya Sharma" />
+        <Input id="ps-name" defaultValue="Emma Wilson" />
       </FormField>
       <FormField label="Date of birth" htmlFor="ps-dob" required>
         <Input id="ps-dob" placeholder="DD / MM / YYYY" />
@@ -1912,7 +1912,7 @@ export function Demo() {
             className="w-full max-w-2xl rounded-xl border bg-card p-6"
           >
             <FormField label="Full name" htmlFor="ps-name" required>
-              <Input id="ps-name" defaultValue="Ananya Sharma" />
+              <Input id="ps-name" defaultValue="Emma Wilson" />
             </FormField>
             <FormField label="Date of birth" htmlFor="ps-dob" required>
               <Input id="ps-dob" placeholder="DD / MM / YYYY" />

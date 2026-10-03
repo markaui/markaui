@@ -202,7 +202,7 @@ const PROFESSIONS = [
   "DJ & Sound",
   "Ghazal Singer",
   "Banquet Manager",
-  "Pandit / Purohit",
+  "Pandit / Puchris",
 ]
 
 function AutocompleteDemo() {
@@ -370,7 +370,7 @@ function AvatarPickerDemo() {
       <AvatarPicker
         value={avatar}
         onValueChange={setAvatar}
-        name="Aarav Sharma"
+        name="Noah Bennett"
         size={88}
       />
       <p className="text-xs text-muted-foreground">
@@ -403,7 +403,7 @@ export function ProfilePhoto() {
     <AvatarPicker
       value={avatar}
       onValueChange={setAvatar}
-      name="Aarav Sharma"
+      name="Noah Bennett"
       size={88}
     />
   )

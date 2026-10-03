@@ -142,8 +142,8 @@ export function filterProfiles(
 
 export const MATRIMONY_PROFILES: MatrimonyProfile[] = [
   {
-    id: "ananya-sharma",
-    name: "Ananya Sharma",
+    id: "emma-wilson",
+    name: "Emma Wilson",
     age: 27,
     gender: "female",
     city: "Jaipur",
@@ -157,8 +157,8 @@ export const MATRIMONY_PROFILES: MatrimonyProfile[] = [
     matchScore: 96,
     premium: true,
     verified: true,
-    image: "/images/profile-1.png?v=2",
-    gallery: ["/images/profile-1.png?v=2", "/images/profile-3.png", "/images/profile-5.png"],
+    image: "https://picsum.photos/seed/markaui-face-1/400/400",
+    gallery: ["https://picsum.photos/seed/markaui-face-1/400/400", "https://picsum.photos/seed/markaui-face-3/400/400", "https://picsum.photos/seed/markaui-face-5/400/400"],
     about:
       "A Jaipur girl with a big love for heritage architecture, Sunday flea markets and filter coffee. I run a boutique design studio and spend my free time restoring old havelis with my father. Looking for a partner who values family, laughter and long conversations over chai.",
     horoscope: {
@@ -193,8 +193,8 @@ export const MATRIMONY_PROFILES: MatrimonyProfile[] = [
     },
   },
   {
-    id: "rohan-mehta",
-    name: "Rohan Mehta",
+    id: "john-doe",
+    name: "John Doe",
     age: 31,
     gender: "male",
     city: "Mumbai",
@@ -208,8 +208,8 @@ export const MATRIMONY_PROFILES: MatrimonyProfile[] = [
     matchScore: 92,
     premium: false,
     verified: true,
-    image: "/images/profile-2.png",
-    gallery: ["/images/profile-2.png", "/images/profile-4.png", "/images/profile-6.png"],
+    image: "https://picsum.photos/seed/markaui-face-2/400/400",
+    gallery: ["https://picsum.photos/seed/markaui-face-2/400/400", "https://picsum.photos/seed/markaui-face-4/400/400", "https://picsum.photos/seed/markaui-face-6/400/400"],
     about:
       "Mumbai-based banker by profession, marathoner by obsession. I believe in working hard, eating clean and calling my parents every evening. Seeking a warm, independent partner to build a calm, happy home away from the city's rush.",
     horoscope: {
@@ -244,8 +244,8 @@ export const MATRIMONY_PROFILES: MatrimonyProfile[] = [
     },
   },
   {
-    id: "ishita-iyer",
-    name: "Ishita Iyer",
+    id: "hannah-watson",
+    name: "Hannah Lee",
     age: 25,
     gender: "female",
     city: "Bengaluru",
@@ -259,8 +259,8 @@ export const MATRIMONY_PROFILES: MatrimonyProfile[] = [
     matchScore: 94,
     premium: true,
     verified: true,
-    image: "/images/profile-3.png",
-    gallery: ["/images/profile-3.png", "/images/profile-7.png", "/images/profile-1.png?v=2"],
+    image: "https://picsum.photos/seed/markaui-face-3/400/400",
+    gallery: ["https://picsum.photos/seed/markaui-face-3/400/400", "https://picsum.photos/seed/markaui-face-7/400/400", "https://picsum.photos/seed/markaui-face-1/400/400"],
     about:
       "Product manager at a fintech unicorn, Tamil at heart, Bengaluru by choice. Carnatic playlists, weekend badminton and a perpetually unfinished novel. My family is Tamil-Hindi fusion, so love across communities feels like home to us.",
     horoscope: {
@@ -295,8 +295,8 @@ export const MATRIMONY_PROFILES: MatrimonyProfile[] = [
     },
   },
   {
-    id: "vikram-singhania",
-    name: "Vikram Singhania",
+    id: "david-sterling",
+    name: "David Sterling",
     age: 29,
     gender: "male",
     city: "Delhi NCR",
@@ -310,17 +310,17 @@ export const MATRIMONY_PROFILES: MatrimonyProfile[] = [
     matchScore: 90,
     premium: false,
     verified: true,
-    image: "/images/profile-4.png",
-    gallery: ["/images/profile-4.png", "/images/profile-2.png", "/images/profile-8.png"],
+    image: "https://picsum.photos/seed/markaui-face-4/400/400",
+    gallery: ["https://picsum.photos/seed/markaui-face-4/400/400", "https://picsum.photos/seed/markaui-face-2/400/400", "https://picsum.photos/seed/markaui-face-8/400/400"],
     about:
       "Third-generation textile exporter from Delhi. Sundays are for cricket with cousins, Saturdays for our family's langar seva. I would love a partner who becomes my best friend first and enjoys the beautiful chaos of a big Punjabi-Hindu family.",
     horoscope: {
       birthDate: "19 Jan 1997",
       birthTime: "09:05 AM",
       birthPlace: "Delhi",
-      moonSign: "Vrishabha (Taurus)",
+      moonSign: "Vririsbha (Taurus)",
       nakshatra: "Rohini",
-      gotra: "Singhal",
+      gotra: "Stoneal",
       manglik: "No",
     },
     family: {
@@ -346,8 +346,8 @@ export const MATRIMONY_PROFILES: MatrimonyProfile[] = [
     },
   },
   {
-    id: "meera-kulkarni",
-    name: "Meera Kulkarni",
+    id: "jane-brooks",
+    name: "Maya Brooks",
     age: 31,
     gender: "female",
     city: "Pune",
@@ -361,8 +361,8 @@ export const MATRIMONY_PROFILES: MatrimonyProfile[] = [
     matchScore: 91,
     premium: true,
     verified: true,
-    image: "/images/profile-5.png",
-    gallery: ["/images/profile-5.png", "/images/profile-9.png", "/images/profile-3.png"],
+    image: "https://picsum.photos/seed/markaui-face-5/400/400",
+    gallery: ["https://picsum.photos/seed/markaui-face-5/400/400", "https://picsum.photos/seed/markaui-face-9/400/400", "https://picsum.photos/seed/markaui-face-3/400/400"],
     about:
       "Pediatrician who sings lullabies better than prescriptions. Pune root, Wari devotee, absolute sucker for my grandmother's puran poli. Seeking a kind, grounded partner — doctors welcome but not mandatory!",
     horoscope: {
@@ -397,8 +397,8 @@ export const MATRIMONY_PROFILES: MatrimonyProfile[] = [
     },
   },
   {
-    id: "aditya-chauhan",
-    name: "Aditya Chauhan",
+    id: "daniel-cole",
+    name: "Henry Cole",
     age: 28,
     gender: "male",
     city: "Jaipur",
@@ -412,8 +412,8 @@ export const MATRIMONY_PROFILES: MatrimonyProfile[] = [
     matchScore: 89,
     premium: false,
     verified: true,
-    image: "/images/profile-6.png",
-    gallery: ["/images/profile-6.png", "/images/profile-4.png", "/images/profile-10.png"],
+    image: "https://picsum.photos/seed/markaui-face-6/400/400",
+    gallery: ["https://picsum.photos/seed/markaui-face-6/400/400", "https://picsum.photos/seed/markaui-face-4/400/400", "https://picsum.photos/seed/markaui-face-10/400/400"],
     about:
       "IRS officer posted in Jaipur, Rajput by lineage, reader by habit. I cook a mean dal baati and spend mornings at the gym and evenings with Premchand. Looking for a partner to share a simple, honest, service-oriented life.",
     horoscope: {
@@ -448,8 +448,8 @@ export const MATRIMONY_PROFILES: MatrimonyProfile[] = [
     },
   },
   {
-    id: "kavya-nair",
-    name: "Kavya Nair",
+    id: "olivia-davis",
+    name: "Olivia Davis",
     age: 26,
     gender: "female",
     city: "Kochi",
@@ -463,8 +463,8 @@ export const MATRIMONY_PROFILES: MatrimonyProfile[] = [
     matchScore: 88,
     premium: false,
     verified: true,
-    image: "/images/profile-7.png",
-    gallery: ["/images/profile-7.png", "/images/profile-3.png", "/images/profile-1.png?v=2"],
+    image: "https://picsum.photos/seed/markaui-face-7/400/400",
+    gallery: ["https://picsum.photos/seed/markaui-face-7/400/400", "https://picsum.photos/seed/markaui-face-3/400/400", "https://picsum.photos/seed/markaui-face-1/400/400"],
     about:
       "Mohiniyattam dancer running an academy by the backwaters. Church choir on Sundays, houseboats on holidays. My ideal partner respects art, joins family prayers and doesn't mind an audience of seventy students on open-house days.",
     horoscope: {
@@ -499,8 +499,8 @@ export const MATRIMONY_PROFILES: MatrimonyProfile[] = [
     },
   },
   {
-    id: "arjun-malhotra",
-    name: "Arjun Malhotra",
+    id: "liam-blake",
+    name: "Owen Blake",
     age: 30,
     gender: "male",
     city: "Gurugram",
@@ -514,8 +514,8 @@ export const MATRIMONY_PROFILES: MatrimonyProfile[] = [
     matchScore: 93,
     premium: true,
     verified: true,
-    image: "/images/profile-8.png",
-    gallery: ["/images/profile-8.png", "/images/profile-2.png", "/images/profile-6.png"],
+    image: "https://picsum.photos/seed/markaui-face-8/400/400",
+    gallery: ["https://picsum.photos/seed/markaui-face-8/400/400", "https://picsum.photos/seed/markaui-face-2/400/400", "https://picsum.photos/seed/markaui-face-6/400/400"],
     about:
       "Founder of a 40-person SaaS startup, turbaned techie who still does langar duty every Guru Nanak Jayanti. Weekends mean drives to Kasauli and matches at the gurudwara cricket ground. Seeking a partner who balances ambition with warmth.",
     horoscope: {
@@ -550,8 +550,8 @@ export const MATRIMONY_PROFILES: MatrimonyProfile[] = [
     },
   },
   {
-    id: "diya-patel",
-    name: "Diya Patel",
+    id: "ava-thompson",
+    name: "Ava Thompson",
     age: 24,
     gender: "female",
     city: "Ahmedabad",
@@ -565,8 +565,8 @@ export const MATRIMONY_PROFILES: MatrimonyProfile[] = [
     matchScore: 87,
     premium: false,
     verified: true,
-    image: "/images/profile-9.png",
-    gallery: ["/images/profile-9.png", "/images/profile-5.png", "/images/profile-7.png"],
+    image: "https://picsum.photos/seed/markaui-face-9/400/400",
+    gallery: ["https://picsum.photos/seed/markaui-face-9/400/400", "https://picsum.photos/seed/markaui-face-5/400/400", "https://picsum.photos/seed/markaui-face-7/400/400"],
     about:
       "Newest CA in a family of accountants — I balance books by day and garba steps by night. Big joint family, bigger weddings. Looking for a Gujarati boy who loves festivals, food and family group chats that never sleep.",
     horoscope: {
@@ -601,8 +601,8 @@ export const MATRIMONY_PROFILES: MatrimonyProfile[] = [
     },
   },
   {
-    id: "kabir-khan",
-    name: "Kabir Khan",
+    id: "alex-turner",
+    name: "Max Turner",
     age: 32,
     gender: "male",
     city: "Lucknow",
@@ -616,8 +616,8 @@ export const MATRIMONY_PROFILES: MatrimonyProfile[] = [
     matchScore: 90,
     premium: false,
     verified: true,
-    image: "/images/profile-10.png",
-    gallery: ["/images/profile-10.png", "/images/profile-8.png", "/images/profile-4.png"],
+    image: "https://picsum.photos/seed/markaui-face-10/400/400",
+    gallery: ["https://picsum.photos/seed/markaui-face-10/400/400", "https://picsum.photos/seed/markaui-face-8/400/400", "https://picsum.photos/seed/markaui-face-4/400/400"],
     about:
       "I restore heritage havelis into boutique stays in old Lucknow. Sherwani collector, Urdu poet at mushairas, kebab connoisseur. Namaz five times, family always first. Seeking a partner who finds magic in slow evenings and real conversations.",
     horoscope: {

@@ -86,7 +86,7 @@ export function AnnouncementBar() {
       <p className="flex items-center justify-center gap-2 text-xs font-medium tracking-wide sm:text-sm">
         <Sparkles className="size-3.5 shrink-0 text-gold" aria-hidden="true" />
         <span className="truncate">
-          <span className="font-serif font-semibold">New:</span> Meet Meera — our AI matchmaking
+          <span className="font-serif font-semibold">New:</span> Meet Jane — our AI matchmaking
           concierge. Chat with her from the sparkle button, free for everyone.
         </span>
       </p>

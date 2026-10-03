@@ -163,7 +163,7 @@ export function PlanCheckout({ plan, price, onOpenChange }: PlanCheckoutProps) {
                   id="checkout-name"
                   value={details.fullName}
                   onChange={(e) => setDetails((d) => ({ ...d, fullName: e.target.value }))}
-                  placeholder="e.g. Aarav Sharma"
+                  placeholder="e.g. Noah Bennett"
                   autoComplete="name"
                 />
               </div>

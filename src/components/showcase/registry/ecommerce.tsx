@@ -23,7 +23,7 @@ import { Input } from "@/components/ui/input"
 
 const FEATURED_PRODUCTS: ProductCardProps[] = [
   {
-    image: "/images/profile-3.png",
+    image: "https://picsum.photos/seed/markaui-face-3/400/400",
     name: "Kanchipuram Silk Saree",
     category: "Bridal Sarees",
     price: 24999,
@@ -33,7 +33,7 @@ const FEATURED_PRODUCTS: ProductCardProps[] = [
     badge: "New",
   },
   {
-    image: "/images/profile-5.png",
+    image: "https://picsum.photos/seed/markaui-face-5/400/400",
     name: "Banarasi Georgette Saree",
     category: "Festive Wear",
     price: 12499,
@@ -44,7 +44,7 @@ const FEATURED_PRODUCTS: ProductCardProps[] = [
 
 const GRID_PRODUCTS: ProductCardProps[] = [
   {
-    image: "/images/profile-1.png",
+    image: "https://picsum.photos/seed/markaui-face-1/400/400",
     name: "Chanderi Silk Saree",
     category: "Everyday Elegance",
     price: 8999,
@@ -52,7 +52,7 @@ const GRID_PRODUCTS: ProductCardProps[] = [
     reviewCount: 132,
   },
   {
-    image: "/images/profile-2.png",
+    image: "https://picsum.photos/seed/markaui-face-2/400/400",
     name: "Bandhani Silk Dupatta",
     category: "Accessories",
     price: 3499,
@@ -62,7 +62,7 @@ const GRID_PRODUCTS: ProductCardProps[] = [
     badge: "Bestseller",
   },
   {
-    image: "/images/profile-4.png",
+    image: "https://picsum.photos/seed/markaui-face-4/400/400",
     name: "Zardozi Bridal Lehenga",
     category: "Bridal Couture",
     price: 48999,
@@ -71,7 +71,7 @@ const GRID_PRODUCTS: ProductCardProps[] = [
     reviewCount: 51,
   },
   {
-    image: "/images/profile-6.png",
+    image: "https://picsum.photos/seed/markaui-face-6/400/400",
     name: "Chikankari Anarkali",
     category: "Festive Wear",
     price: 15999,
@@ -86,7 +86,7 @@ const CAROUSEL_PRODUCTS: ProductCardProps[] = [
   FEATURED_PRODUCTS[1],
   GRID_PRODUCTS[2],
   {
-    image: "/images/profile-6.png",
+    image: "https://picsum.photos/seed/markaui-face-6/400/400",
     name: "Kota Doria Kurta Set",
     category: "Everyday Elegance",
     price: 5499,
@@ -96,15 +96,15 @@ const CAROUSEL_PRODUCTS: ProductCardProps[] = [
 ]
 
 const GALLERY_IMAGES = [
-  { src: "/images/profile-1.png", alt: "Ivory drape, full look" },
-  { src: "/images/profile-2.png", alt: "Gold zari border detail" },
-  { src: "/images/profile-4.png", alt: "Pleated pallu styling" },
+  { src: "https://picsum.photos/seed/markaui-face-1/400/400", alt: "Ivory drape, full look" },
+  { src: "https://picsum.photos/seed/markaui-face-2/400/400", alt: "Gold zari border detail" },
+  { src: "https://picsum.photos/seed/markaui-face-4/400/400", alt: "Pleated pallu styling" },
 ]
 
 const CART_SEED = [
   {
     id: "saree",
-    image: "/images/profile-5.png",
+    image: "https://picsum.photos/seed/markaui-face-5/400/400",
     name: "Banarasi Georgette Saree",
     variant: "Rani Pink · Unstitched blouse",
     price: 12499,
@@ -112,7 +112,7 @@ const CART_SEED = [
   },
   {
     id: "dupatta",
-    image: "/images/profile-2.png",
+    image: "https://picsum.photos/seed/markaui-face-2/400/400",
     name: "Bandhani Silk Dupatta",
     variant: "Gujarati tie-dye · Gold foil",
     price: 3499,
@@ -297,7 +297,7 @@ export const ecommerceDocs: ComponentDoc[] = [
         code: `import { ProductCard } from "@/components/ui/product"
 
 <ProductCard
-  image="/images/profile-3.png"
+  image="https://picsum.photos/seed/markaui-face-3/400/400"
   name="Kanchipuram Silk Saree"
   category="Bridal Sarees"
   price={24999}
@@ -369,9 +369,9 @@ export const ecommerceDocs: ComponentDoc[] = [
 
 <ProductGallery
   images={[
-    { src: "/images/profile-1.png", alt: "Front drape" },
-    { src: "/images/profile-2.png", alt: "Blouse detail" },
-    { src: "/images/profile-4.png", alt: "Full look" },
+    { src: "https://picsum.photos/seed/markaui-face-1/400/400", alt: "Front drape" },
+    { src: "https://picsum.photos/seed/markaui-face-2/400/400", alt: "Blouse detail" },
+    { src: "https://picsum.photos/seed/markaui-face-4/400/400", alt: "Full look" },
   ]}
 />`,
         render: () => (
@@ -521,7 +521,7 @@ export const ecommerceDocs: ComponentDoc[] = [
         code: `import { CartItem } from "@/components/ui/cart"
 
 <CartItem
-  image="/images/profile-5.png"
+  image="https://picsum.photos/seed/markaui-face-5/400/400"
   name="Banarasi Georgette Saree"
   variant="Rani Pink · Unstitched blouse"
   price={12499}

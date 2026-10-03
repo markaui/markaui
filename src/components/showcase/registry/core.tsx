@@ -669,32 +669,32 @@ import { Check, Crown, Sparkles, Heart, MapPin } from "lucide-react"
           "Set size with size-* utilities; AvatarFallback renders initials while (or when no) image loads.",
         code: `import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 
-<Avatar className="size-8"><AvatarFallback className="text-xs">AS</AvatarFallback></Avatar>
-<Avatar className="size-10"><AvatarFallback>RM</AvatarFallback></Avatar>
-<Avatar className="size-12"><AvatarFallback className="bg-primary text-primary-foreground">AS</AvatarFallback></Avatar>
-<Avatar className="size-14"><AvatarFallback className="bg-gold text-gold-foreground">RM</AvatarFallback></Avatar>
-<Avatar className="size-14"><AvatarFallback className="bg-chart-1/15 text-chart-1">PK</AvatarFallback></Avatar>`,
+<Avatar className="size-8"><AvatarFallback className="text-xs">EW</AvatarFallback></Avatar>
+<Avatar className="size-10"><AvatarFallback>JD</AvatarFallback></Avatar>
+<Avatar className="size-12"><AvatarFallback className="bg-primary text-primary-foreground">EW</AvatarFallback></Avatar>
+<Avatar className="size-14"><AvatarFallback className="bg-gold text-gold-foreground">JD</AvatarFallback></Avatar>
+<Avatar className="size-14"><AvatarFallback className="bg-chart-1/15 text-chart-1">SM</AvatarFallback></Avatar>`,
         render: () => (
           <div className="flex flex-wrap items-center gap-4">
             <Avatar className="size-8">
-              <AvatarFallback className="text-xs">AS</AvatarFallback>
+              <AvatarFallback className="text-xs">EW</AvatarFallback>
             </Avatar>
             <Avatar className="size-10">
-              <AvatarFallback>RM</AvatarFallback>
+              <AvatarFallback>JD</AvatarFallback>
             </Avatar>
             <Avatar className="size-12">
               <AvatarFallback className="bg-primary text-primary-foreground">
-                AS
+                EW
               </AvatarFallback>
             </Avatar>
             <Avatar className="size-14">
               <AvatarFallback className="bg-gold text-gold-foreground">
-                RM
+                JD
               </AvatarFallback>
             </Avatar>
             <Avatar className="size-14">
               <AvatarFallback className="bg-chart-1/15 text-chart-1">
-                PK
+                SM
               </AvatarFallback>
             </Avatar>
           </div>
@@ -710,14 +710,14 @@ import { Check, Crown, Sparkles, Heart, MapPin } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 
 <div className="flex -space-x-2 *:ring-2 *:ring-background">
-  <Avatar className="size-10"><AvatarFallback className="text-xs">AS</AvatarFallback></Avatar>
-  <Avatar className="size-10"><AvatarFallback className="text-xs">RM</AvatarFallback></Avatar>
-  <Avatar className="size-10"><AvatarFallback className="text-xs">PK</AvatarFallback></Avatar>
+  <Avatar className="size-10"><AvatarFallback className="text-xs">EW</AvatarFallback></Avatar>
+  <Avatar className="size-10"><AvatarFallback className="text-xs">JD</AvatarFallback></Avatar>
+  <Avatar className="size-10"><AvatarFallback className="text-xs">SM</AvatarFallback></Avatar>
   <Avatar className="size-10"><AvatarFallback className="text-xs">+9</AvatarFallback></Avatar>
 </div>
 
 <div className="relative w-fit">
-  <Avatar className="size-12"><AvatarFallback className="bg-primary/15 text-primary">AS</AvatarFallback></Avatar>
+  <Avatar className="size-12"><AvatarFallback className="bg-primary/15 text-primary">EW</AvatarFallback></Avatar>
   <span className="absolute right-0 bottom-0 size-3 rounded-full bg-success ring-2 ring-background" />
 </div>`,
         render: () => (
@@ -725,17 +725,17 @@ import { Badge } from "@/components/ui/badge"
             <div className="flex -space-x-2 *:ring-2 *:ring-background">
               <Avatar className="size-10">
                 <AvatarFallback className="bg-chart-1/15 text-chart-1 text-xs">
-                  AS
+                  EW
                 </AvatarFallback>
               </Avatar>
               <Avatar className="size-10">
                 <AvatarFallback className="bg-chart-2/15 text-chart-2 text-xs">
-                  RM
+                  JD
                 </AvatarFallback>
               </Avatar>
               <Avatar className="size-10">
                 <AvatarFallback className="bg-chart-3/15 text-chart-3 text-xs">
-                  PK
+                  SM
                 </AvatarFallback>
               </Avatar>
               <Avatar className="size-10">
@@ -751,7 +751,7 @@ import { Badge } from "@/components/ui/badge"
               <div className="relative w-fit">
                 <Avatar className="size-12">
                   <AvatarFallback className="bg-primary/15 text-primary">
-                    AS
+                    EW
                   </AvatarFallback>
                 </Avatar>
                 <span
@@ -762,7 +762,7 @@ import { Badge } from "@/components/ui/badge"
               <div className="relative w-fit">
                 <Avatar className="size-12">
                   <AvatarFallback className="bg-gold/20 text-gold-foreground dark:text-gold">
-                    RM
+                    JD
                   </AvatarFallback>
                 </Avatar>
                 <Badge className="absolute -top-1.5 -right-2 px-1.5" variant="gold">
@@ -832,7 +832,7 @@ import { Badge } from "@/components/ui/badge"
         render: () => (
           <div className="flex w-full max-w-md flex-col gap-6">
             <div className="flex flex-col gap-3">
-              <p className="font-serif text-sm font-medium">Ananya &amp; Rohit</p>
+              <p className="font-serif text-sm font-medium">Emma &amp; Chris</p>
               <Separator />
               <div className="flex items-center justify-between text-xs text-muted-foreground">
                 <span>Horoscope matched</span>
@@ -1391,9 +1391,9 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar"
   <PopoverTrigger asChild><Button variant="outline">View profile</Button></PopoverTrigger>
   <PopoverContent className="w-72">
     <div className="flex items-start gap-3">
-      <Avatar className="size-12"><AvatarFallback className="bg-primary/15 text-primary">AS</AvatarFallback></Avatar>
+      <Avatar className="size-12"><AvatarFallback className="bg-primary/15 text-primary">EW</AvatarFallback></Avatar>
       <div>
-        <p className="text-sm font-semibold">Ananya Sharma</p>
+        <p className="text-sm font-semibold">Emma Wilson</p>
         <p className="text-xs text-muted-foreground">Jaipur, Rajasthan</p>
       </div>
       <Badge variant="gold">Pro</Badge>
@@ -1416,12 +1416,12 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar"
                 <div className="flex items-start gap-3">
                   <Avatar className="size-12">
                     <AvatarFallback className="bg-primary/15 text-primary">
-                      AS
+                      EW
                     </AvatarFallback>
                   </Avatar>
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-semibold">
-                      Ananya Sharma
+                      Emma Wilson
                     </p>
                     <p className="flex items-center gap-1 text-xs text-muted-foreground">
                       <MapPin className="size-3" />
@@ -1558,14 +1558,14 @@ import { Heart, MessageCircle, Star } from "lucide-react"
 
 <HoverCard>
   <HoverCardTrigger asChild>
-    <button type="button" className="...">@rohit.mehta</button>
+    <button type="button" className="...">@chris.doe</button>
   </HoverCardTrigger>
   <HoverCardContent className="w-72">
     <div className="flex items-start gap-3">
-      <Avatar className="size-12"><AvatarFallback className="bg-gold/20 text-gold-foreground dark:text-gold">RM</AvatarFallback></Avatar>
+      <Avatar className="size-12"><AvatarFallback className="bg-gold/20 text-gold-foreground dark:text-gold">JD</AvatarFallback></Avatar>
       <div>
-        <p className="text-sm font-semibold">Rohit Mehta</p>
-        <p className="text-xs text-muted-foreground">@rohit.mehta</p>
+        <p className="text-sm font-semibold">Chris Miller</p>
+        <p className="text-xs text-muted-foreground">@chris.doe</p>
       </div>
       <Badge variant="success" dot>Online</Badge>
     </div>
@@ -1587,23 +1587,23 @@ import { Heart, MessageCircle, Star } from "lucide-react"
                 >
                   <Avatar className="size-6">
                     <AvatarFallback className="bg-gold/20 text-gold-foreground dark:text-gold text-[10px]">
-                      RM
+                      JD
                     </AvatarFallback>
                   </Avatar>
-                  @rohit.mehta
+                  @chris.doe
                 </button>
               </HoverCardTrigger>
               <HoverCardContent className="w-72">
                 <div className="flex items-start gap-3">
                   <Avatar className="size-12">
                     <AvatarFallback className="bg-gold/20 text-gold-foreground dark:text-gold">
-                      RM
+                      JD
                     </AvatarFallback>
                   </Avatar>
                   <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm font-semibold">Rohit Mehta</p>
+                    <p className="truncate text-sm font-semibold">Chris Miller</p>
                     <p className="text-xs text-muted-foreground">
-                      @rohit.mehta
+                      @chris.doe
                     </p>
                   </div>
                   <Badge variant="success" dot>

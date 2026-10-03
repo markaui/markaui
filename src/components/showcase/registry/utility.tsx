@@ -38,7 +38,7 @@ export function Page() {
 
 const POST_BODY = JSON.stringify(
   {
-    email: "aarav.sharma@example.com",
+    email: "noah.wilson@example.com",
     plan: "gold",
     preferences: { ageMin: 24, ageMax: 30, city: "Mumbai" },
   },
@@ -49,7 +49,7 @@ const POST_BODY = JSON.stringify(
 const RESPONSE_BODY = JSON.stringify(
   {
     id: "usr_8241",
-    name: "Aarav Sharma",
+    name: "Noah Bennett",
     verified: true,
     plan: "gold",
     matchScore: 92,

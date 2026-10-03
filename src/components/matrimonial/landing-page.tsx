@@ -213,10 +213,10 @@ export function LandingPage() {
               variant="gradient"
               size="lg"
               className="gap-2 rounded-full shadow-xl shadow-primary/25 transition-transform hover:scale-105"
-              aria-label="Chat with Meera, our AI matchmaking concierge"
+              aria-label="Chat with Jane, our AI matchmaking concierge"
             >
               <Sparkles className="size-4" />
-              <span className="hidden sm:inline">Ask Meera</span>
+              <span className="hidden sm:inline">Ask Jane</span>
             </Button>
             <Button
               size="lg"

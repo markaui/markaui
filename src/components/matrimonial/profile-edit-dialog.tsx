@@ -153,7 +153,7 @@ export function ProfileEditDialog({ open, onOpenChange }: ProfileEditDialogProps
                     id="profile-edit-name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="e.g. Devika Menon"
+                    placeholder="e.g. Nadia Brooks"
                     autoComplete="name"
                     maxLength={60}
                   />

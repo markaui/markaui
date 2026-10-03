@@ -429,7 +429,7 @@ const DEFAULT_NOTIFICATIONS: Notification[] = [
   {
     id: "n1",
     title: "New match found",
-    description: "Priya S. matches 9 of your 10 preferences.",
+    description: "Sophia S. matches 9 of your 10 preferences.",
     time: "2m",
   },
   {
@@ -441,7 +441,7 @@ const DEFAULT_NOTIFICATIONS: Notification[] = [
   {
     id: "n3",
     title: "Interest received",
-    description: "Arjun R. sent you an interest with a personal note.",
+    description: "Liam R. sent you an interest with a personal note.",
     time: "3h",
   },
   {

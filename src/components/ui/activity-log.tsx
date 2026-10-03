@@ -34,7 +34,7 @@ export interface ActivityEntry {
   actor: { name: string; avatar?: string }
   /** Verb phrase, e.g. "shortlisted" */
   action: string
-  /** Object of the action, rendered bold, e.g. "Arjun Nair" */
+  /** Object of the action, rendered bold, e.g. "Liam Carter" */
   target?: string
   /** Display time, e.g. "2:45 PM" */
   time: string

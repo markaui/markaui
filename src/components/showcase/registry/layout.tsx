@@ -53,16 +53,16 @@ import { SplitPane } from "@/components/ui/split-pane"
 /* ------------------------------------------------------------------ */
 
 const PENDING_INTERESTS = [
-  { name: "Aarav Mehta", city: "Mumbai" },
-  { name: "Ishita Verma", city: "Delhi" },
-  { name: "Rohan Iyer", city: "Bengaluru" },
-  { name: "Meera Nair", city: "Kochi" },
-  { name: "Kabir Singh", city: "Chandigarh" },
-  { name: "Diya Patel", city: "Ahmedabad" },
-  { name: "Aditya Rao", city: "Hyderabad" },
-  { name: "Sneha Kulkarni", city: "Pune" },
-  { name: "Vikram Joshi", city: "Indore" },
-  { name: "Tara Bose", city: "Kolkata" },
+  { name: "Leo Parker", city: "Mumbai" },
+  { name: "Zoe Perry", city: "Delhi" },
+  { name: "James Carter", city: "Bengaluru" },
+  { name: "Lily Adams", city: "Kochi" },
+  { name: "Alex Stone", city: "Chandigarh" },
+  { name: "Ava Thompson", city: "Ahmedabad" },
+  { name: "Daniel Reed", city: "Hyderabad" },
+  { name: "Grace Hall", city: "Pune" },
+  { name: "Thomas Grey", city: "Indore" },
+  { name: "Chloe Foster", city: "Kolkata" },
 ]
 
 const SAMPLE_CODE = `import { createProfile } from "@saptapadi/api"
@@ -98,14 +98,14 @@ const SAMPLE_HTML =
   "<h3>The Seven Vows</h3><p>The <strong>Saptapadi</strong> is the most sacred ritual of a Hindu wedding — seven steps taken together around the <em>sacred fire</em>, each one a promise for the life ahead.</p><ul><li>Ganesh Puja opens every ceremony</li><li>Kanyadaan is the gift of trust</li><li>Mangalsutra seals the bond</li></ul><blockquote>A wedding blessed by families lasts a lifetime.</blockquote>"
 
 const SAMPLE_HTML_LONG =
-  "<p>Ananya and Rohan met through their families on Saptapadi in October. Their first conversation lasted three hours — about music, mountains and their grandmothers' recipes.</p><p>After six months of conversations, both families met at a small temple in Jaipur. The kundli matched 32 of 36 gunas, and a wedding date was fixed for the first week of February.</p><p>Today they credit the platform's careful, family-first process for a match that felt less like an algorithm and more like destiny.</p><p>They still walk the same temple path every Sunday — their own eighth vow.</p>"
+  "<p>Emma and John met through their families on Saptapadi in October. Their first conversation lasted three hours — about music, mountains and their grandmothers' recipes.</p><p>After six months of conversations, both families met at a small temple in Jaipur. The kundli matched 32 of 36 gunas, and a wedding date was fixed for the first week of February.</p><p>Today they credit the platform's careful, family-first process for a match that felt less like an algorithm and more like destiny.</p><p>They still walk the same temple path every Sunday — their own eighth vow.</p>"
 
 const CAROUSEL_SLIDES = [
-  { src: "/images/story-1.png", title: "Aarav & Meera", place: "Udaipur" },
-  { src: "/images/story-2.png", title: "Vikram & Diya", place: "Jaipur" },
-  { src: "/images/story-3.png", title: "Kabir & Sana", place: "Jodhpur" },
-  { src: "/images/hero-couple.png", title: "Rohan & Ananya", place: "Jaipur" },
-  { src: "/images/hero-bride.png", title: "Ishita's Mehndi", place: "Delhi" },
+  { src: "/images/story-1.png", title: "Noah & Jane", place: "Udaipur" },
+  { src: "/images/story-2.png", title: "David & Ava", place: "Jaipur" },
+  { src: "/images/story-3.png", title: "Alex & Sana", place: "Jodhpur" },
+  { src: "https://picsum.photos/seed/markaui-couple/600/800", title: "John & Emma", place: "Jaipur" },
+  { src: "https://picsum.photos/seed/markaui-bride/600/800", title: "Hannah's Mehndi", place: "Delhi" },
 ]
 
 /* ------------------------------------------------------------------ */
@@ -188,7 +188,7 @@ import { Badge } from "@/components/ui/badge"
 
 <HStack gap="lg" align="center" className="w-full rounded-xl border bg-muted/20 p-4">
   <VStack gap="none">
-    <span className="font-serif text-base font-semibold">Aarav & Meera</span>
+    <span className="font-serif text-base font-semibold">Noah & Jane</span>
     <span className="text-xs text-muted-foreground">Married 12 March 2024</span>
   </VStack>
   <Spacer />
@@ -197,7 +197,7 @@ import { Badge } from "@/components/ui/badge"
         render: () => (
           <HStack gap="lg" align="center" className="w-full rounded-xl border bg-muted/20 p-4">
             <VStack gap="none">
-              <span className="font-serif text-base font-semibold">Aarav & Meera</span>
+              <span className="font-serif text-base font-semibold">Noah & Jane</span>
               <span className="text-xs text-muted-foreground">Married 12 March 2024</span>
             </VStack>
             <Spacer />
@@ -238,7 +238,7 @@ import { Badge } from "@/components/ui/badge"
 </Grid>`,
         render: () => (
           <Grid cols={1} smCols={2} lgCols={3} gap="sm" className="w-full">
-            {["Ananya, 27", "Arjun, 31", "Ishita, 29", "Rohan, 28", "Meera, 26", "Kabir, 30"].map((label) => (
+            {["Emma, 27", "Liam, 31", "Hannah, 29", "John, 28", "Jane, 26", "Alex, 30"].map((label) => (
               <div
                 key={label}
                 className="flex h-16 items-center justify-center rounded-lg border bg-muted/30 text-sm"
@@ -357,7 +357,7 @@ import { Button } from "@/components/ui/button"
               <img src="/images/story-1.png" alt="Newlywed couple laughing in a garden" className="size-full object-cover" />
             </AspectRatio>
             <AspectRatio ratio={1} className="overflow-hidden rounded-xl border">
-              <img src="/images/profile-1.png" alt="Portrait of a bride" className="size-full object-cover" />
+              <img src="https://picsum.photos/seed/markaui-face-1/400/400" alt="Portrait of a bride" className="size-full object-cover" />
             </AspectRatio>
           </Grid>
         ),
@@ -433,14 +433,14 @@ import { Button } from "@/components/ui/button"
   <ResizablePanel defaultSize={40} minSize={20}>
     <div className="flex h-full flex-col items-center justify-center gap-1 p-4 text-center">
       <p className="font-serif text-base font-semibold">Bride's family</p>
-      <p className="text-xs text-muted-foreground">Sharma Niwas, Jaipur</p>
+      <p className="text-xs text-muted-foreground">Wilson Niwas, Jaipur</p>
     </div>
   </ResizablePanel>
   <ResizableHandle withHandle />
   <ResizablePanel defaultSize={60}>
     <div className="flex h-full flex-col items-center justify-center gap-1 p-4 text-center">
       <p className="font-serif text-base font-semibold">Groom's family</p>
-      <p className="text-xs text-muted-foreground">Kapoor Villa, Delhi</p>
+      <p className="text-xs text-muted-foreground">Sanders Villa, Delhi</p>
     </div>
   </ResizablePanel>
 </ResizablePanelGroup>`,
@@ -450,14 +450,14 @@ import { Button } from "@/components/ui/button"
             <ResizablePanel defaultSize={40} minSize={20}>
               <div className="flex h-full flex-col items-center justify-center gap-1 p-4 text-center">
                 <p className="font-serif text-base font-semibold">Bride's family</p>
-                <p className="text-xs text-muted-foreground">Sharma Niwas, Jaipur</p>
+                <p className="text-xs text-muted-foreground">Wilson Niwas, Jaipur</p>
               </div>
             </ResizablePanel>
             <ResizableHandle withHandle />
             <ResizablePanel defaultSize={60}>
               <div className="flex h-full flex-col items-center justify-center gap-1 p-4 text-center">
                 <p className="font-serif text-base font-semibold">Groom's family</p>
-                <p className="text-xs text-muted-foreground">Kapoor Villa, Delhi</p>
+                <p className="text-xs text-muted-foreground">Sanders Villa, Delhi</p>
               </div>
             </ResizablePanel>
           </ResizablePanelGroup>
@@ -498,7 +498,7 @@ import { Button } from "@/components/ui/button"
   }
   right={
     <div className="flex h-full flex-col justify-center gap-2 p-6">
-      <p className="font-serif text-xl font-semibold">Ananya Sharma</p>
+      <p className="font-serif text-xl font-semibold">Emma Wilson</p>
       <p className="text-sm text-muted-foreground">Drag the divider to rebalance the panes.</p>
     </div>
   }
@@ -516,15 +516,15 @@ import { Button } from "@/components/ui/button"
                   Shortlisted
                 </p>
                 <List variant="divide">
-                  <ListItem title="Ananya Sharma" description="27 · Jaipur" />
-                  <ListItem title="Ishita Verma" description="29 · Delhi" />
-                  <ListItem title="Meera Iyer" description="26 · Chennai" />
+                  <ListItem title="Emma Wilson" description="27 · Jaipur" />
+                  <ListItem title="Zoe Perry" description="29 · Delhi" />
+                  <ListItem title="Jane Smith" description="26 · Chennai" />
                 </List>
               </div>
             }
             right={
               <div className="flex h-full flex-col justify-center gap-2 p-6">
-                <p className="font-serif text-xl font-semibold">Ananya Sharma</p>
+                <p className="font-serif text-xl font-semibold">Emma Wilson</p>
                 <p className="text-sm text-muted-foreground">
                   Drag the divider, or focus it and use the arrow keys.
                 </p>
@@ -625,7 +625,7 @@ import { Badge } from "@/components/ui/badge"
             className="w-full rounded-xl border border-dashed border-gold/40"
           >
             <Grid cols={1} smCols={3} gap="sm">
-              {["Ananya, 27 — Jaipur", "Arjun, 31 — Pune", "Ishita, 29 — Delhi"].map((label) => (
+              {["Emma, 27 — Jaipur", "Liam, 31 — Pune", "Hannah, 29 — Delhi"].map((label) => (
                 <div key={label} className="rounded-lg bg-muted/30 p-4 text-center text-sm">
                   {label}
                 </div>
@@ -698,11 +698,11 @@ import { Heart, MapPin } from "lucide-react"
 
 <Card className="w-full max-w-sm gap-0 overflow-hidden py-0">
   <div className="relative">
-    <img src="/images/profile-1.png" alt="Ananya Sharma" className="h-52 w-full object-cover" />
+    <img src="https://picsum.photos/seed/markaui-face-1/400/400" alt="Emma Wilson" className="h-52 w-full object-cover" />
     <Badge variant="gold" className="absolute top-3 left-3">Premium</Badge>
   </div>
   <CardHeader className="pt-5">
-    <CardTitle className="font-serif text-lg">Ananya Sharma, 27</CardTitle>
+    <CardTitle className="font-serif text-lg">Emma Wilson, 27</CardTitle>
     <CardDescription className="flex items-center gap-1">
       <MapPin className="size-3.5" /> Jaipur, Rajasthan
     </CardDescription>
@@ -724,13 +724,13 @@ import { Heart, MapPin } from "lucide-react"
           <div className="flex w-full justify-center">
             <Card className="w-full max-w-sm gap-0 overflow-hidden py-0">
               <div className="relative">
-                <img src="/images/profile-1.png" alt="Ananya Sharma" className="h-52 w-full object-cover" />
+                <img src="https://picsum.photos/seed/markaui-face-1/400/400" alt="Emma Wilson" className="h-52 w-full object-cover" />
                 <Badge variant="gold" className="absolute top-3 left-3">
                   Premium
                 </Badge>
               </div>
               <CardHeader className="pt-5">
-                <CardTitle className="font-serif text-lg">Ananya Sharma, 27</CardTitle>
+                <CardTitle className="font-serif text-lg">Emma Wilson, 27</CardTitle>
                 <CardDescription className="flex items-center gap-1">
                   <MapPin className="size-3.5" /> Jaipur, Rajasthan
                 </CardDescription>
@@ -896,7 +896,7 @@ import { CalendarDays, ChevronRight, Mail, Users } from "lucide-react"
 <List variant="card" hoverable className="w-full max-w-md">
   <ListItem
     icon={<Users />}
-    title="Sharma & Kapoor families met"
+    title="Wilson & Sanders families met"
     description="Sunday, 11:00 AM · Jaipur"
     action={<Badge variant="success" dot>Confirmed</Badge>}
   />
@@ -908,7 +908,7 @@ import { CalendarDays, ChevronRight, Mail, Users } from "lucide-react"
   />
   <ListItem
     icon={<Mail />}
-    title="New interest from Rohan"
+    title="New interest from John"
     description="Received 2 hours ago"
     action={<Button size="sm" variant="gold">Reply</Button>}
   />
@@ -917,7 +917,7 @@ import { CalendarDays, ChevronRight, Mail, Users } from "lucide-react"
           <List variant="card" hoverable className="w-full max-w-md">
             <ListItem
               icon={<Users />}
-              title="Sharma & Kapoor families met"
+              title="Wilson & Sanders families met"
               description="Sunday, 11:00 AM · Jaipur"
               action={
                 <Badge variant="success" dot>
@@ -933,7 +933,7 @@ import { CalendarDays, ChevronRight, Mail, Users } from "lucide-react"
             />
             <ListItem
               icon={<Mail />}
-              title="New interest from Rohan"
+              title="New interest from John"
               description="Received 2 hours ago"
               action={
                 <Button size="sm" variant="gold">
@@ -954,8 +954,8 @@ import { Badge } from "@/components/ui/badge"
 
 <List variant="divide" className="w-full max-w-md rounded-xl border px-3">
   <ListItem
-    icon={<Avatar className="size-9"><AvatarImage src="/images/profile-1.png" alt="Ananya" /><AvatarFallback>AS</AvatarFallback></Avatar>}
-    title="Ananya Sharma"
+    icon={<Avatar className="size-9"><AvatarImage src="https://picsum.photos/seed/markaui-face-1/400/400" alt="Emma" /><AvatarFallback>EW</AvatarFallback></Avatar>}
+    title="Emma Wilson"
     description="27 · Jaipur · Music teacher"
     action={<Badge variant="soft">92% match</Badge>}
   />
@@ -965,33 +965,33 @@ import { Badge } from "@/components/ui/badge"
             <ListItem
               icon={
                 <Avatar className="size-9">
-                  <AvatarImage src="/images/profile-1.png" alt="Ananya Sharma" />
-                  <AvatarFallback>AS</AvatarFallback>
+                  <AvatarImage src="https://picsum.photos/seed/markaui-face-1/400/400" alt="Emma Wilson" />
+                  <AvatarFallback>EW</AvatarFallback>
                 </Avatar>
               }
-              title="Ananya Sharma"
+              title="Emma Wilson"
               description="27 · Jaipur · Music teacher"
               action={<Badge variant="soft">92% match</Badge>}
             />
             <ListItem
               icon={
                 <Avatar className="size-9">
-                  <AvatarImage src="/images/profile-3.png" alt="Ishita Verma" />
-                  <AvatarFallback>IV</AvatarFallback>
+                  <AvatarImage src="https://picsum.photos/seed/markaui-face-3/400/400" alt="Zoe Perry" />
+                  <AvatarFallback>ZP</AvatarFallback>
                 </Avatar>
               }
-              title="Ishita Verma"
+              title="Zoe Perry"
               description="29 · Delhi · Architect"
               action={<Badge variant="soft">88% match</Badge>}
             />
             <ListItem
               icon={
                 <Avatar className="size-9">
-                  <AvatarImage src="/images/profile-5.png" alt="Meera Iyer" />
-                  <AvatarFallback>MI</AvatarFallback>
+                  <AvatarImage src="https://picsum.photos/seed/markaui-face-5/400/400" alt="Jane Smith" />
+                  <AvatarFallback>JS</AvatarFallback>
                 </Avatar>
               }
-              title="Meera Iyer"
+              title="Jane Smith"
               description="26 · Chennai · Doctor"
               action={<Badge variant="soft">85% match</Badge>}
             />
@@ -1065,7 +1065,7 @@ import { Search } from "lucide-react"
 <Callout variant="info" title="Profile under review">Our team verifies new profiles within 24 hours.</Callout>
 <Callout variant="success" title="Horoscope matched">Guna score 32 / 36 — an excellent match.</Callout>
 <Callout variant="warning" title="Incomplete profile">Add your education details to rank higher.</Callout>
-<Callout variant="destructive" title="Interest declined">Rohan politely declined your interest.</Callout>
+<Callout variant="destructive" title="Interest declined">John politely declined your interest.</Callout>
 <Callout variant="gold" title="Premium member">You have unlimited interests this month.</Callout>`,
         wide: true,
         render: () => (
@@ -1080,7 +1080,7 @@ import { Search } from "lucide-react"
               Add your education details to rank higher in search.
             </Callout>
             <Callout variant="destructive" title="Interest declined">
-              Rohan politely declined your interest.
+              John politely declined your interest.
             </Callout>
             <Callout variant="gold" title="Premium member">
               You have unlimited interests this month.
@@ -1155,9 +1155,9 @@ import { Sparkles } from "lucide-react"
         code: `import { Quote } from "@/components/ui/quote"
 
 <Quote
-  author="Ananya Sharma"
+  author="Emma Wilson"
   role="Bride · Jaipur"
-  avatar="/images/profile-3.png"
+  avatar="https://picsum.photos/seed/markaui-face-3/400/400"
   className="max-w-xl"
 >
   Saptapadi understood that marriage is not just two people — it is two
@@ -1167,9 +1167,9 @@ import { Sparkles } from "lucide-react"
         render: () => (
           <div className="flex w-full justify-center">
             <Quote
-              author="Ananya Sharma"
+              author="Emma Wilson"
               role="Bride · Jaipur"
-              avatar="/images/profile-3.png"
+              avatar="https://picsum.photos/seed/markaui-face-3/400/400"
               className="max-w-xl"
             >
               Saptapadi understood that marriage is not just two people — it is two families, two cultures and
@@ -1301,20 +1301,20 @@ const html = "<p>The <strong>Saptapadi</strong> seals seven promises.</p>"
         code: `import { Image } from "@/components/ui/media"
 
 <Image
-  src="/images/profile-2.png"
-  alt="Arjun Mehta"
+  src="https://picsum.photos/seed/markaui-face-2/400/400"
+  alt="Ethan Brooks"
   width={400}
   height={300}
-  caption="Arjun Mehta · Product Designer, Pune"
+  caption="Ethan Brooks · Product Designer, Pune"
 />`,
         render: () => (
           <div className="flex w-full justify-center">
             <MediaImage
-              src="/images/profile-2.png"
-              alt="Arjun Mehta"
+              src="https://picsum.photos/seed/markaui-face-2/400/400"
+              alt="Ethan Brooks"
               width={400}
               height={300}
-              caption="Arjun Mehta · Product Designer, Pune"
+              caption="Ethan Brooks · Product Designer, Pune"
               className="w-full max-w-sm"
             />
           </div>

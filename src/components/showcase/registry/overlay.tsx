@@ -86,7 +86,7 @@ function DialogDemo() {
       <DialogContent className="rounded-2xl border-gold/40 sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="font-serif text-xl">
-            Send Interest to Ananya
+            Send Interest to Emma
           </DialogTitle>
           <DialogDescription>
             She will be notified instantly. Interests with a short note get 3x
@@ -180,7 +180,7 @@ function ModalFooterDemo() {
           if (!next) setSending(false)
         }}
         title="Confirm your attendance"
-        description="Ananya and Rohan would love to have you at the sangeet night."
+        description="Emma and John would love to have you at the sangeet night."
         footer={
           <ModalFooter>
             <Button
@@ -226,13 +226,13 @@ function DrawerProfileDemo() {
         <DrawerHeader className="items-center gap-2">
           <Avatar className="size-16 ring-gold-soft">
             <AvatarImage
-              src="/images/profile-1.png"
-              alt="Ananya Sharma"
+              src="https://picsum.photos/seed/markaui-face-1/400/400"
+              alt="Emma Wilson"
             />
-            <AvatarFallback>AS</AvatarFallback>
+            <AvatarFallback>EW</AvatarFallback>
           </Avatar>
           <DrawerTitle className="font-serif text-lg">
-            Ananya Sharma, 26
+            Emma Wilson, 26
           </DrawerTitle>
           <DrawerDescription>
             Mumbai, India • Content strategist • 5 ft 4 in • Vegetarian
@@ -297,7 +297,7 @@ function SheetNavDemo() {
         <SheetContent side="right">
           <SheetHeader>
             <SheetTitle className="font-serif">
-              Namaste, Ananya
+              Namaste, Emma
             </SheetTitle>
             <SheetDescription>Your Saptapadi account</SheetDescription>
           </SheetHeader>
@@ -383,7 +383,7 @@ function AlertDialogDemo() {
             Remove from shortlist?
           </AlertDialogTitle>
           <AlertDialogDescription>
-            Priya Desai will be removed from your shortlist. You can send an
+            Isla Morgan will be removed from your shortlist. You can send an
             interest again later, but she will not be notified of this change.
           </AlertDialogDescription>
         </AlertDialogHeader>
@@ -561,7 +561,7 @@ function LightboxDemo() {
     <div className="flex flex-wrap items-center gap-4">
       <Lightbox
         images={storyImages}
-        caption="Ananya and Rohan — a wedding in three frames"
+        caption="Emma and John — a wedding in three frames"
       >
         { }
         <img
@@ -587,7 +587,7 @@ function ToastDemo() {
         onClick={() =>
           toast({
             title: "Interest sent",
-            description: "Ananya has been notified about your interest.",
+            description: "Emma has been notified about your interest.",
           })
         }
       >
@@ -634,7 +634,7 @@ const seedNotifications: NotificationItem[] = [
     variant: "info",
     unread: true,
     title: "Interest received",
-    description: "Karan Patel sent you an interest with a short note.",
+    description: "Karan Thompson sent you an interest with a short note.",
     time: "8:20 am",
     actions: (
       <Button size="sm" variant="outline">
@@ -667,7 +667,7 @@ function NotificationItemsDemo() {
       id: "match",
       variant: "info" as const,
       title: "New match for you",
-      description: "Riya Mehta from Pune just joined with 92% compatibility.",
+      description: "Riley Miller from Pune just joined with 92% compatibility.",
       time: "2 min ago",
       unread: true,
       actions: (
@@ -692,7 +692,7 @@ function NotificationItemsDemo() {
       id: "kundli",
       variant: "success" as const,
       title: "Kundli match completed",
-      description: "Pandit-verified horoscope matching is ready for Aarav and Diya.",
+      description: "Pandit-verified horoscope matching is ready for Noah and Ava.",
       time: "Yesterday",
     },
   ]
@@ -770,7 +770,7 @@ import {
   </DialogTrigger>
   <DialogContent className="sm:max-w-md">
     <DialogHeader>
-      <DialogTitle>Send Interest to Ananya</DialogTitle>
+      <DialogTitle>Send Interest to Emma</DialogTitle>
       <DialogDescription>
         She will be notified instantly. Interests with a note get 3x more responses.
       </DialogDescription>
@@ -888,7 +888,7 @@ function RsvpModal() {
         open={open}
         onOpenChange={setOpen}
         title="Confirm your attendance"
-        description="Ananya and Rohan would love to have you at the sangeet night."
+        description="Emma and John would love to have you at the sangeet night."
         footer={
           <ModalFooter>
             <Button variant="outline" disabled={sending} onClick={() => setOpen(false)}>
@@ -975,7 +975,7 @@ import {
   </DrawerTrigger>
   <DrawerContent className="rounded-t-2xl">
     <DrawerHeader>
-      <DrawerTitle>Ananya Sharma, 26</DrawerTitle>
+      <DrawerTitle>Emma Wilson, 26</DrawerTitle>
       <DrawerDescription>Mumbai, India • Content strategist</DrawerDescription>
     </DrawerHeader>
     <div className="grid grid-cols-3 gap-2 px-4 pb-2">
@@ -1061,7 +1061,7 @@ import {
   </SheetTrigger>
   <SheetContent side="right">
     <SheetHeader>
-      <SheetTitle>Namaste, Ananya</SheetTitle>
+      <SheetTitle>Namaste, Emma</SheetTitle>
       <SheetDescription>Your Saptapadi account</SheetDescription>
     </SheetHeader>
     <nav className="flex flex-col gap-1 px-3">
@@ -1409,7 +1409,7 @@ const images = [
 
 <Lightbox
   images={images}
-  caption="Ananya and Rohan — a wedding in three frames"
+  caption="Emma and John — a wedding in three frames"
 >
   <img
     src="/images/story-1.png"
@@ -1476,7 +1476,7 @@ import { toast } from "@/hooks/use-toast"
     onClick={() =>
       toast({
         title: "Interest sent",
-        description: "Ananya has been notified about your interest.",
+        description: "Emma has been notified about your interest.",
       })
     }
   >
@@ -1548,7 +1548,7 @@ import { Notification } from "@/components/ui/notification"
     variant="info"
     unread
     title="New match for you"
-    description="Riya Mehta from Pune just joined with 92% compatibility."
+    description="Riley Miller from Pune just joined with 92% compatibility."
     time="2 min ago"
     actions={<Button size="sm" variant="gold">View match</Button>}
   />
@@ -1578,7 +1578,7 @@ import { NotificationList } from "@/components/ui/notification"
 
 const seed = [
   { id: "n1", variant: "gold", unread: true, title: "Gold membership expiring", description: "Renew to keep unlimited contact views.", time: "9:00 am" },
-  { id: "n2", variant: "info", unread: true, title: "Interest received", description: "Karan Patel sent you an interest.", time: "8:20 am" },
+  { id: "n2", variant: "info", unread: true, title: "Interest received", description: "Karan Thompson sent you an interest.", time: "8:20 am" },
   { id: "n3", variant: "warning", unread: true, title: "Incomplete profile", description: "Add education details for 40% more searches.", time: "Yesterday" },
   { id: "n4", variant: "success", title: "Photo approved", description: "Your third photo is now live.", time: "Monday" },
 ]

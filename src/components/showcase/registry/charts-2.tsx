@@ -169,14 +169,14 @@ const seasonTasks = [
 ]
 
 const familyNodes = [
-  { id: 0, label: "Aarav", size: 20 },
-  { id: 1, label: "Diya", size: 16 },
-  { id: 2, label: "Kabir", size: 14 },
-  { id: 3, label: "Meera", size: 16 },
-  { id: 4, label: "Rohan", size: 12 },
-  { id: 5, label: "Anaya", size: 14 },
-  { id: 6, label: "Vikram", size: 12 },
-  { id: 7, label: "Ishita", size: 10 },
+  { id: 0, label: "Noah", size: 20 },
+  { id: 1, label: "Ava", size: 16 },
+  { id: 2, label: "Alex", size: 14 },
+  { id: 3, label: "Jane", size: 16 },
+  { id: 4, label: "John", size: 12 },
+  { id: 5, label: "Amy", size: 14 },
+  { id: 6, label: "David", size: 12 },
+  { id: 7, label: "Hannah", size: 10 },
 ]
 
 const familyEdges: Array<[number, number]> = [
@@ -793,14 +793,14 @@ const tasks = [
         code: `import { NetworkChart } from "@/components/ui/charts/special"
 
 const nodes = [
-  { id: 0, label: "Aarav", size: 20 },
-  { id: 1, label: "Diya", size: 16 },
-  { id: 2, label: "Kabir", size: 14 },
-  { id: 3, label: "Meera", size: 16 },
-  { id: 4, label: "Rohan", size: 12 },
-  { id: 5, label: "Anaya", size: 14 },
-  { id: 6, label: "Vikram", size: 12 },
-  { id: 7, label: "Ishita", size: 10 },
+  { id: 0, label: "Noah", size: 20 },
+  { id: 1, label: "Ava", size: 16 },
+  { id: 2, label: "Alex", size: 14 },
+  { id: 3, label: "Jane", size: 16 },
+  { id: 4, label: "John", size: 12 },
+  { id: 5, label: "Amy", size: 14 },
+  { id: 6, label: "David", size: 12 },
+  { id: 7, label: "Hannah", size: 10 },
 ]
 const edges: Array<[number, number]> = [
   [0, 1], [0, 2], [1, 3], [2, 3], [2, 4],

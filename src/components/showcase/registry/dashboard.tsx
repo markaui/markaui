@@ -27,18 +27,18 @@ import {
 } from "lucide-react"
 
 const ACTIVITY_ITEMS = [
-  { id: "a1", name: "Priya S.", action: "verified her profile", time: "2m ago" },
-  { id: "a2", name: "Arjun R.", action: "sent 3 new interests", time: "18m ago" },
-  { id: "a3", name: "Neha K.", action: "updated her partner preferences", time: "1h ago" },
-  { id: "a4", name: "Vikram M.", action: "subscribed to the Gold plan", time: "3h ago" },
-  { id: "a5", name: "Ananya D.", action: "completed horoscope matching", time: "5h ago" },
-  { id: "a6", name: "Rahul V.", action: "joined via family invite", time: "8h ago" },
+  { id: "a1", name: "Sophia S.", action: "verified her profile", time: "2m ago" },
+  { id: "a2", name: "Liam R.", action: "sent 3 new interests", time: "18m ago" },
+  { id: "a3", name: "Nina K.", action: "updated her partner preferences", time: "1h ago" },
+  { id: "a4", name: "David M.", action: "subscribed to the Gold plan", time: "3h ago" },
+  { id: "a5", name: "Emma D.", action: "completed horoscope matching", time: "5h ago" },
+  { id: "a6", name: "Mark V.", action: "joined via family invite", time: "8h ago" },
 ]
 
 const RECENT_ITEMS = [
   {
     id: "r1",
-    name: "Wedding storyline — Meera & Rohan",
+    name: "Wedding storyline — Jane & John",
     meta: "Edited 12 minutes ago by Sana",
     time: "12m",
   },
@@ -50,7 +50,7 @@ const RECENT_ITEMS = [
   },
   {
     id: "r3",
-    name: "Engagement shoot — Priya & Arjun",
+    name: "Engagement shoot — Sophia & Liam",
     meta: "18 photos awaiting review",
     time: "1d",
   },
@@ -465,8 +465,8 @@ import { LineChart } from "@/components/ui/charts/basic"
         code: `import { ActivityCard } from "@/components/ui/dashboard"
 
 const items = [
-  { id: "a1", name: "Priya S.", action: "verified her profile", time: "2m ago" },
-  { id: "a2", name: "Arjun R.", action: "sent 3 new interests", time: "18m ago" },
+  { id: "a1", name: "Sophia S.", action: "verified her profile", time: "2m ago" },
+  { id: "a2", name: "Liam R.", action: "sent 3 new interests", time: "18m ago" },
 ]
 
 <ActivityCard title="Today" items={items} />`,
@@ -533,7 +533,7 @@ const items = [
               items={[
                 {
                   id: "r1",
-                  name: "Wedding storyline — Meera & Rohan",
+                  name: "Wedding storyline — Jane & John",
                   meta: "Edited 12 minutes ago by Sana",
                   time: "12m",
                   thumb: (
@@ -544,7 +544,7 @@ const items = [
                 },
                 {
                   id: "r2",
-                  name: "Engagement shoot — Priya & Arjun",
+                  name: "Engagement shoot — Sophia & Liam",
                   meta: "18 photos awaiting review",
                   time: "1d",
                   thumb: (

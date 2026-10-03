@@ -224,7 +224,7 @@ export function SignupForm({ className, onSubmit, ...props }: SignupFormProps) {
         <Label htmlFor="signup-name">Full name</Label>
         <Input
           id="signup-name"
-          placeholder="Aarav Sharma"
+          placeholder="Noah Bennett"
           autoComplete="name"
           leadingIcon={<User />}
           required

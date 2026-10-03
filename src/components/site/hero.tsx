@@ -137,9 +137,9 @@ function ProfileCard() {
       <CardContent className="flex flex-col items-center gap-3 p-6 text-center">
         <div className="relative">
           <Avatar className="size-16 border-2 border-gold/40">
-            <AvatarImage src="" alt="Portrait of Ananya Sharma" />
+            <AvatarImage src="" alt="Portrait of Emma Wilson" />
             <AvatarFallback className="bg-gold/15 font-serif text-lg text-gold-foreground dark:text-gold">
-              AS
+              EW
             </AvatarFallback>
           </Avatar>
           <span className="absolute -bottom-1 -right-1 flex size-5 items-center justify-center rounded-full bg-gold text-gold-foreground shadow">
@@ -147,7 +147,7 @@ function ProfileCard() {
           </span>
         </div>
         <div>
-          <p className="font-serif text-base font-bold text-foreground">Ananya Sharma</p>
+          <p className="font-serif text-base font-bold text-foreground">Emma Wilson</p>
           <p className="mt-0.5 flex items-center justify-center gap-1 text-xs text-muted-foreground">
             <MapPin className="size-3" aria-hidden />
             Jaipur · Interior Designer, 26
@@ -189,9 +189,9 @@ function ChartCard() {
 
 function NotificationsCard() {
   const items = [
-    { name: "Priya K.", action: "sent you an interest", time: "2m", tint: "bg-gold/20 text-gold-foreground dark:text-gold" },
-    { name: "Meera AI", action: "found 4 new matches", time: "1h", tint: "bg-primary/15 text-primary" },
-    { name: "Rahul V.", action: "accepted your request", time: "3h", tint: "bg-success/15 text-success" },
+    { name: "Sophia K.", action: "sent you an interest", time: "2m", tint: "bg-gold/20 text-gold-foreground dark:text-gold" },
+    { name: "Jane AI", action: "found 4 new matches", time: "1h", tint: "bg-primary/15 text-primary" },
+    { name: "Mark V.", action: "accepted your request", time: "3h", tint: "bg-success/15 text-success" },
   ];
   return (
     <Card className="mk-float-delayed">

@@ -841,7 +841,7 @@ export function MemberDashboard({
               Need a hand with your journey?
             </p>
             <p className="text-xs text-muted-foreground">
-              Meera, our AI concierge, can curate matches just for you.
+              Jane, our AI concierge, can curate matches just for you.
             </p>
           </div>
         </div>

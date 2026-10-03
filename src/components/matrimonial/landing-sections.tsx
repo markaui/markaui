@@ -193,14 +193,14 @@ export function TrustStats() {
 /* ---------------------------------- Featured profiles ---------------------------------- */
 
 const FEATURED_IDS = [
-  "ananya-sharma",
-  "rohan-mehta",
-  "ishita-iyer",
-  "vikram-singhania",
-  "meera-kulkarni",
-  "kavya-nair",
-  "arjun-malhotra",
-  "diya-patel",
+  "emma-wilson",
+  "john-doe",
+  "hannah-watson",
+  "david-sterling",
+  "jane-brooks",
+  "olivia-davis",
+  "liam-blake",
+  "ava-thompson",
 ];
 
 export function FeaturedProfiles({
@@ -356,7 +356,7 @@ const STORIES = [
     image: "/images/story-1.png",
     quote:
       "We were matched within three weeks. The concierge understood our families even better than we did.",
-    names: "Priya & Arjun",
+    names: "Sophia & Liam",
     city: "Chennai",
     date: "Married Dec 2024",
   },
@@ -364,7 +364,7 @@ const STORIES = [
     image: "/images/story-2.png",
     quote:
       "From the first phone call to the varmala, Saptapadi handled every detail with so much grace.",
-    names: "Simran & Karan",
+    names: "Sara & Karan",
     city: "Amritsar",
     date: "Married Feb 2025",
   },
@@ -372,7 +372,7 @@ const STORIES = [
     image: "/images/story-3.png",
     quote:
       "Both our families approved within a month. It truly felt like destiny, organised beautifully.",
-    names: "Nisha & Dev",
+    names: "Nora & Dev",
     city: "Udaipur",
     date: "Married Nov 2024",
   },

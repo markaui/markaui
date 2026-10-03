@@ -18,7 +18,7 @@ type Message = { role: "user" | "assistant"; content: string };
 const WELCOME: Message = {
   role: "assistant",
   content:
-    "Namaste 🙏 I'm Meera, your AI matchmaking concierge. Tell me about the partner you're dreaming of — city, community, profession — and I'll curate matches from our verified families.",
+    "Namaste 🙏 I'm Jane, your AI matchmaking concierge. Tell me about the partner you're dreaming of — city, community, profession — and I'll curate matches from our verified families.",
 };
 
 const SUGGESTIONS = [
@@ -30,7 +30,7 @@ const SUGGESTIONS = [
 
 function TypingDots() {
   return (
-    <span className="inline-flex items-center gap-1 py-1.5" aria-label="Meera is typing">
+    <span className="inline-flex items-center gap-1 py-1.5" aria-label="Jane is typing">
       {[0, 1, 2].map((i) => (
         <span
           key={i}
@@ -90,7 +90,7 @@ export function ConciergeChat({ open, onOpenChange }: ConciergeChatProps) {
   const { toast } = useToast();
   const savedSearches = useSavedSearches();
 
-  // Proactive Meera: when the visitor already curates saved searches, greet
+  // Proactive Jane: when the visitor already curates saved searches, greet
   // them with the freshest one instead of the generic welcome.
   const latestSaved = React.useMemo(() => {
     if (savedSearches.records.length === 0) return undefined;
@@ -190,7 +190,7 @@ export function ConciergeChat({ open, onOpenChange }: ConciergeChatProps) {
     setMessages([welcome]);
     setRestored(false);
     toast({
-      title: "Fresh start with Meera",
+      title: "Fresh start with Jane",
       description: "The conversation was cleared on this device and our servers.",
     });
   };
@@ -251,7 +251,7 @@ export function ConciergeChat({ open, onOpenChange }: ConciergeChatProps) {
           </span>
           <div className="min-w-0 flex-1">
             <DrawerTitle className="font-serif text-base font-bold leading-tight">
-              Meera
+              Jane
             </DrawerTitle>
             <p className="flex items-center gap-1.5 text-xs text-primary-foreground/80">
               <Sparkles className="size-3" />
@@ -283,7 +283,7 @@ export function ConciergeChat({ open, onOpenChange }: ConciergeChatProps) {
           className="scrollbar-thin flex-1 space-y-3 overflow-y-auto bg-secondary/40 px-4 py-4"
           role="log"
           aria-live="polite"
-          aria-label="Chat with Meera"
+          aria-label="Chat with Jane"
         >
           {restored && !restoring && messages.length > 0 && (
             <p className="flex items-center justify-center gap-1.5 pt-1 text-[11px] text-muted-foreground">
@@ -346,8 +346,8 @@ export function ConciergeChat({ open, onOpenChange }: ConciergeChatProps) {
           <Input
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Ask Meera about matches, plans, kundli…"
-            aria-label="Message to Meera"
+            placeholder="Ask Jane about matches, plans, kundli…"
+            aria-label="Message to Jane"
             disabled={sending}
             className="flex-1 rounded-full"
           />

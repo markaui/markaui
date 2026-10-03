@@ -79,7 +79,7 @@ export function AuthLayout({
                 ))}
               </span>
               <span>
-                Meera &amp; Rohan —
+                Jane &amp; John —
                 <span className="text-primary-foreground/60"> married December 2024</span>
               </span>
             </figcaption>

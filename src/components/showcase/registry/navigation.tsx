@@ -324,7 +324,7 @@ function BreadcrumbDemo() {
           <span className="text-muted-foreground/60">/</span>
         </BreadcrumbSeparator>
         <BreadcrumbItem>
-          <BreadcrumbPage>Ananya Sharma</BreadcrumbPage>
+          <BreadcrumbPage>Emma Wilson</BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>
@@ -333,26 +333,26 @@ function BreadcrumbDemo() {
 
 const tabProfiles = [
   {
-    name: "Ananya Sharma",
+    name: "Emma Wilson",
     meta: "26 · Mumbai · Product Designer",
-    initials: "AS",
+    initials: "EW",
   },
   {
-    name: "Meera Iyer",
+    name: "Jane Smith",
     meta: "28 · Chennai · Classical Dancer",
-    initials: "MI",
+    initials: "JS",
   },
 ]
 
 const tabMessages = [
   {
-    name: "Rohan Mehta",
+    name: "John Doe",
     snippet: "Namaste! Really liked your profile — shall we connect?",
     time: "2m",
     unread: true,
   },
   {
-    name: "Iyer Family",
+    name: "Watson Family",
     snippet: "We would love to arrange a call this weekend.",
     time: "1h",
     unread: false,
@@ -438,10 +438,10 @@ function TabsDemo() {
             You received 12 new interests this week.
           </p>
           <div className="flex flex-wrap gap-2">
-            <Badge variant="gold">Ananya · 2h ago</Badge>
-            <Badge variant="soft">Meera · 5h ago</Badge>
-            <Badge variant="soft">Diya · Yesterday</Badge>
-            <Badge variant="soft">Kavya · 2d ago</Badge>
+            <Badge variant="gold">Emma · 2h ago</Badge>
+            <Badge variant="soft">Jane · 5h ago</Badge>
+            <Badge variant="soft">Ava · Yesterday</Badge>
+            <Badge variant="soft">Olivia · 2d ago</Badge>
           </div>
         </div>
       </TabsContent>
@@ -690,7 +690,7 @@ function ContextMenuDemo() {
     <div className="flex w-full flex-col items-center gap-3">
       <ContextMenu>
         <ContextMenuTrigger className="flex w-full max-w-md cursor-context-menu flex-col items-center justify-center gap-2 rounded-xl border border-dashed p-10 text-center outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50">
-          <p className="text-sm font-medium">Ananya Sharma · Profile #4821</p>
+          <p className="text-sm font-medium">Emma Wilson · Profile #4821</p>
           <p className="text-xs text-muted-foreground">
             Right-click here to open the profile context menu.
           </p>
@@ -739,11 +739,11 @@ function DropdownMenuDemo() {
           <Button variant="ghost" className="gap-2 rounded-full border pr-3">
             <Avatar className="size-8">
               <AvatarFallback className="bg-primary/10 text-sm font-medium text-primary">
-                AS
+                EW
               </AvatarFallback>
             </Avatar>
             <span className="flex flex-col items-start leading-none">
-              <span className="text-sm font-medium">Ananya Sharma</span>
+              <span className="text-sm font-medium">Emma Wilson</span>
               <span className="text-[10px] text-muted-foreground">
                 Premium member
               </span>
@@ -753,9 +753,9 @@ function DropdownMenuDemo() {
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-60">
           <DropdownMenuLabel>
-            <p className="text-sm font-medium">Ananya Sharma</p>
+            <p className="text-sm font-medium">Emma Wilson</p>
             <p className="text-xs font-normal text-muted-foreground">
-              ananya@saptapadi.in
+              emma@saptapadi.in
             </p>
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
@@ -1125,7 +1125,7 @@ import {
         id: "profile",
         title: "Profile trail",
         description:
-          "Home → Profiles → Ananya Sharma, with the last crumb rendered as the current page and a custom slash separator.",
+          "Home → Profiles → Emma Wilson, with the last crumb rendered as the current page and a custom slash separator.",
         code: `import { Home } from "lucide-react"
 import {
   Breadcrumb, BreadcrumbList, BreadcrumbItem,
@@ -1147,7 +1147,7 @@ import {
       <span className="text-muted-foreground/60">/</span>
     </BreadcrumbSeparator>
     <BreadcrumbItem>
-      <BreadcrumbPage>Ananya Sharma</BreadcrumbPage>
+      <BreadcrumbPage>Emma Wilson</BreadcrumbPage>
     </BreadcrumbItem>
   </BreadcrumbList>
 </Breadcrumb>`,
@@ -1669,15 +1669,15 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar"
   <DropdownMenuTrigger asChild>
     <Button variant="ghost" className="gap-2 rounded-full border pr-3">
       <Avatar className="size-8">
-        <AvatarFallback className="bg-primary/10 text-primary">AS</AvatarFallback>
+        <AvatarFallback className="bg-primary/10 text-primary">EW</AvatarFallback>
       </Avatar>
       <ChevronsUpDown className="size-4 text-muted-foreground" />
     </Button>
   </DropdownMenuTrigger>
   <DropdownMenuContent className="w-60">
     <DropdownMenuLabel>
-      <p className="text-sm font-medium">Ananya Sharma</p>
-      <p className="text-xs text-muted-foreground">ananya@saptapadi.in</p>
+      <p className="text-sm font-medium">Emma Wilson</p>
+      <p className="text-xs text-muted-foreground">emma@saptapadi.in</p>
     </DropdownMenuLabel>
     <DropdownMenuSeparator />
     <DropdownMenuItem>

@@ -59,33 +59,33 @@ import { CalendarView } from "@/components/ui/calendar-view"
 
 const members = [
   {
-    name: "Ananya Iyer",
-    initials: "AI",
-    avatar: "/images/profile-1.png",
+    name: "Emily Watson",
+    initials: "EW",
+    avatar: "https://picsum.photos/seed/markaui-face-1/400/400",
     city: "Chennai",
     membership: "Gold",
     completion: 92,
   },
   {
-    name: "Rohan Mehta",
-    initials: "RM",
-    avatar: "/images/profile-2.png",
+    name: "John Doe",
+    initials: "JD",
+    avatar: "https://picsum.photos/seed/markaui-face-2/400/400",
     city: "Mumbai",
     membership: "Platinum",
     completion: 97,
   },
   {
-    name: "Kavya Nair",
-    initials: "KN",
-    avatar: "/images/profile-3.png",
+    name: "Olivia Davis",
+    initials: "OD",
+    avatar: "https://picsum.photos/seed/markaui-face-3/400/400",
     city: "Kochi",
     membership: "Gold",
     completion: 88,
   },
   {
-    name: "Arjun Reddy",
-    initials: "AR",
-    avatar: "/images/profile-4.png",
+    name: "Ryan Cooper",
+    initials: "RC",
+    avatar: "https://picsum.photos/seed/markaui-face-4/400/400",
     city: "Hyderabad",
     membership: "Silver",
     completion: 74,
@@ -104,12 +104,12 @@ type Profile = {
 }
 
 const profiles: Profile[] = [
-  { id: "p1", name: "Ananya Iyer", age: 26, city: "Chennai", profession: "Bharatanatyam artist", match: 92, verified: true, avatar: "/images/profile-1.png" },
-  { id: "p2", name: "Rohan Mehta", age: 29, city: "Mumbai", profession: "Investment banker", match: 87, verified: true, avatar: "/images/profile-2.png" },
-  { id: "p3", name: "Kavya Nair", age: 25, city: "Kochi", profession: "UX designer", match: 84, verified: false, avatar: "/images/profile-3.png" },
-  { id: "p4", name: "Arjun Reddy", age: 31, city: "Hyderabad", profession: "Chartered accountant", match: 78, verified: true, avatar: "/images/profile-4.png" },
-  { id: "p5", name: "Ishita Bose", age: 27, city: "Kolkata", profession: "Classical vocalist", match: 81, verified: false, avatar: "/images/profile-5.png" },
-  { id: "p6", name: "Vikram Singh", age: 30, city: "Jaipur", profession: "Hotelier", match: 76, verified: true, avatar: "/images/profile-6.png" },
+  { id: "p1", name: "Emily Watson", age: 26, city: "Chennai", profession: "Bharatanatyam artist", match: 92, verified: true, avatar: "https://picsum.photos/seed/markaui-face-1/400/400" },
+  { id: "p2", name: "John Doe", age: 29, city: "Mumbai", profession: "Investment banker", match: 87, verified: true, avatar: "https://picsum.photos/seed/markaui-face-2/400/400" },
+  { id: "p3", name: "Olivia Davis", age: 25, city: "Kochi", profession: "UX designer", match: 84, verified: false, avatar: "https://picsum.photos/seed/markaui-face-3/400/400" },
+  { id: "p4", name: "Ryan Cooper", age: 31, city: "Hyderabad", profession: "Chartered accountant", match: 78, verified: true, avatar: "https://picsum.photos/seed/markaui-face-4/400/400" },
+  { id: "p5", name: "Hannah Foster", age: 27, city: "Kolkata", profession: "Classical vocalist", match: 81, verified: false, avatar: "https://picsum.photos/seed/markaui-face-5/400/400" },
+  { id: "p6", name: "Richard Hayes", age: 30, city: "Jaipur", profession: "Hotelier", match: 76, verified: true, avatar: "https://picsum.photos/seed/markaui-face-6/400/400" },
 ]
 
 const profileColumns: ColumnDef<Profile>[] = [
@@ -164,12 +164,12 @@ type Shortlist = {
 }
 
 const shortlists: Shortlist[] = [
-  { id: "s1", name: "Diya Kapoor", age: 26, city: "Delhi", status: "Contacted" },
-  { id: "s2", name: "Aditya Rao", age: 28, city: "Bengaluru", status: "Interest sent" },
-  { id: "s3", name: "Meera Joshi", age: 25, city: "Pune", status: "Shortlisted" },
-  { id: "s4", name: "Karan Malhotra", age: 30, city: "Gurugram", status: "Viewed" },
-  { id: "s5", name: "Riya Chatterjee", age: 27, city: "Kolkata", status: "Shortlisted" },
-  { id: "s6", name: "Nikhil Pillai", age: 29, city: "Chennai", status: "Contacted" },
+  { id: "s1", name: "Mia Sanders", age: 26, city: "Delhi", status: "Contacted" },
+  { id: "s2", name: "Daniel Reed", age: 28, city: "Bengaluru", status: "Interest sent" },
+  { id: "s3", name: "Nora Reed", age: 25, city: "Pune", status: "Shortlisted" },
+  { id: "s4", name: "Karan Blake", age: 30, city: "Gurugram", status: "Viewed" },
+  { id: "s5", name: "Riley Chatterjee", age: 27, city: "Kolkata", status: "Shortlisted" },
+  { id: "s6", name: "Nick Pillai", age: 29, city: "Chennai", status: "Contacted" },
 ]
 
 const shortlistColumns: ColumnDef<Shortlist>[] = [
@@ -210,7 +210,7 @@ const journeyItems = [
   {
     id: "j3",
     title: "First match received",
-    description: "Ananya Iyer sent you an interest — 92% compatibility.",
+    description: "Emily Watson sent you an interest — 92% compatibility.",
     time: "2 Feb 2025",
     icon: <HeartHandshake className="size-4" />,
     tone: "gold" as const,
@@ -228,9 +228,9 @@ const journeyItems = [
 const feedItems = [
   {
     id: "a1",
-    avatarSrc: "/images/profile-1.png",
+    avatarSrc: "https://picsum.photos/seed/markaui-face-1/400/400",
     avatarFallback: "AI",
-    name: "Ananya Iyer",
+    name: "Emily Watson",
     action: "sent you an interest",
     target: "92% match",
     time: "2 min ago",
@@ -244,31 +244,31 @@ const feedItems = [
   },
   {
     id: "a2",
-    avatarSrc: "/images/profile-2.png",
+    avatarSrc: "https://picsum.photos/seed/markaui-face-2/400/400",
     avatarFallback: "RM",
-    name: "Rohan Mehta",
+    name: "John Doe",
     action: "viewed your full profile",
     time: "1 hr ago",
     unread: true,
-    image: "/images/profile-2.png",
+    image: "https://picsum.photos/seed/markaui-face-2/400/400",
   },
   {
     id: "a3",
-    avatarSrc: "/images/profile-3.png",
+    avatarSrc: "https://picsum.photos/seed/markaui-face-3/400/400",
     avatarFallback: "KN",
-    name: "Kavya Nair",
+    name: "Olivia Davis",
     action: "shortlisted your profile",
     time: "Yesterday",
   },
   {
     id: "a4",
-    avatarSrc: "/images/profile-4.png",
+    avatarSrc: "https://picsum.photos/seed/markaui-face-4/400/400",
     avatarFallback: "AR",
-    name: "Arjun Reddy",
+    name: "Ryan Cooper",
     action: "responded to your message —",
     target: "Namaste!",
     time: "2 days ago",
-    image: "/images/profile-4.png",
+    image: "https://picsum.photos/seed/markaui-face-4/400/400",
   },
 ]
 
@@ -340,7 +340,7 @@ function TreeDemo() {
         nodes={[
           {
             id: "about",
-            label: "About Ananya",
+            label: "About Emma",
             icon: <UserRound className="size-4" />,
             children: [
               { id: "basics", label: "Basic details", badge: "Complete" },
@@ -465,7 +465,7 @@ function CalendarDemo() {
         defaultMonth={new Date(2025, 5, 1)}
         onDateClick={(date) => setSelectedDate(format(date, "d MMM yyyy"))}
         events={[
-          { date: "2025-06-05", title: "Match meet — Ananya", tone: "gold" },
+          { date: "2025-06-05", title: "Match meet — Emma", tone: "gold" },
           { date: "2025-06-12", title: "Family call", tone: "info" },
           { date: "2025-06-12", title: "Horoscope review", tone: "default" },
           { date: "2025-06-21", title: "Temple visit", tone: "success" },
@@ -516,10 +516,10 @@ import { Badge } from "@/components/ui/badge"
       <TableCell>
         <div className="flex items-center gap-3">
           <Avatar>
-            <AvatarImage src="/images/profile-1.png" />
-            <AvatarFallback>AI</AvatarFallback>
+            <AvatarImage src="https://picsum.photos/seed/markaui-face-1/400/400" />
+            <AvatarFallback>EW</AvatarFallback>
           </Avatar>
-          <span className="font-medium">Ananya Iyer</span>
+          <span className="font-medium">Emily Watson</span>
         </div>
       </TableCell>
       <TableCell><Badge variant="gold">Gold</Badge></TableCell>
@@ -795,7 +795,7 @@ import { ShieldCheck } from "lucide-react"
     {
       id: "1",
       avatarFallback: "AI",
-      name: "Ananya Iyer",
+      name: "Emily Watson",
       action: "sent you an interest",
       target: "92% match",
       time: "2 min ago",
@@ -996,13 +996,13 @@ import { Heart } from "lucide-react"
       {
         id: "profile-details",
         title: "Profile details",
-        description: "Boxed variant showing Ananya's profile facts.",
+        description: "Boxed variant showing Emma's profile facts.",
         code: `import { DescriptionList } from "@/components/ui/description-list"
 
 <DescriptionList
   variant="boxed"
   items={[
-    { term: "Name", description: "Ananya Iyer" },
+    { term: "Name", description: "Emily Watson" },
     { term: "Birth star", description: "Rohini" },
     { term: "Height", description: "5 ft 4 in" },
     { term: "Profession", description: "Bharatanatyam artist" },
@@ -1013,7 +1013,7 @@ import { Heart } from "lucide-react"
             variant="boxed"
             className="max-w-md"
             items={[
-              { term: "Name", description: "Ananya Iyer" },
+              { term: "Name", description: "Emily Watson" },
               { term: "Birth star", description: "Rohini" },
               { term: "Height", description: "5 ft 4 in" },
               { term: "Education", description: "M.A. Carnatic Music" },

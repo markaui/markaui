@@ -142,7 +142,7 @@ function CheckoutForm({ onOrderPlaced, className, ...props }: CheckoutFormProps)
             id="checkout-name"
             value={name}
             onChange={(event) => setName(event.target.value)}
-            placeholder="Ananya Sharma"
+            placeholder="Emma Wilson"
             leadingIcon={<User />}
             required
           />
@@ -154,7 +154,7 @@ function CheckoutForm({ onOrderPlaced, className, ...props }: CheckoutFormProps)
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-            placeholder="ananya@example.com"
+            placeholder="emma@example.com"
             leadingIcon={<Mail />}
             required
           />

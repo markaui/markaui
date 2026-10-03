@@ -401,9 +401,9 @@ export function MatchmakerDesk({ onBack, startUnlocked = false }: MatchmakerDesk
       {
         id: "demo-1",
         profileId: MATRIMONY_PROFILES[0]?.id ?? "p1",
-        profileName: MATRIMONY_PROFILES[0]?.name ?? "Ananya Sharma",
+        profileName: MATRIMONY_PROFILES[0]?.name ?? "Emma Wilson",
         note: "Family verified on call — strong match for Jaipur members.",
-        owner: "devika@example.com",
+        owner: "nadia@example.com",
         status: "accepted",
         decided: true,
         createdAt: new Date(Date.now() - 1000 * 60 * 42).toISOString(),
@@ -411,7 +411,7 @@ export function MatchmakerDesk({ onBack, startUnlocked = false }: MatchmakerDesk
       {
         id: "demo-2",
         profileId: MATRIMONY_PROFILES[1]?.id ?? "p2",
-        profileName: MATRIMONY_PROFILES[1]?.name ?? "Rohan Mehta",
+        profileName: MATRIMONY_PROFILES[1]?.name ?? "John Doe",
         note: null,
         owner: "guest",
         status: "seen",
@@ -421,9 +421,9 @@ export function MatchmakerDesk({ onBack, startUnlocked = false }: MatchmakerDesk
       {
         id: "demo-3",
         profileId: MATRIMONY_PROFILES[2]?.id ?? "p3",
-        profileName: MATRIMONY_PROFILES[2]?.name ?? "Meera Iyer",
+        profileName: MATRIMONY_PROFILES[2]?.name ?? "Jane Smith",
         note: "Loved her work with the community kitchen — please prioritise.",
-        owner: "aarav@example.com",
+        owner: "noah@example.com",
         status: "sent",
         decided: false,
         createdAt: new Date().toISOString(),

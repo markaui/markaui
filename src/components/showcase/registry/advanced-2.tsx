@@ -32,7 +32,7 @@ const initialKanbanColumns: KanbanColumnData[] = [
     cards: [
       {
         id: "m1",
-        title: "Aarav Mehta",
+        title: "Leo Parker",
         description: "32 · Mumbai · Product Designer",
         tag: "94% match",
         priority: "high",
@@ -40,14 +40,14 @@ const initialKanbanColumns: KanbanColumnData[] = [
       },
       {
         id: "m2",
-        title: "Ishita Rao",
+        title: "Hannah Reed",
         description: "29 · Bengaluru · Kathak dancer",
         tag: "Verified",
         priority: "medium",
       },
       {
         id: "m3",
-        title: "Vikram Singhania",
+        title: "David Sterling",
         description: "34 · Jaipur · Family business",
         priority: "low",
       },
@@ -60,14 +60,14 @@ const initialKanbanColumns: KanbanColumnData[] = [
     cards: [
       {
         id: "c1",
-        title: "Chat with Priya Kulkarni",
+        title: "Chat with Sophia Moore",
         description: "Horoscopes matched — schedule the first call.",
         priority: "medium",
         dueDate: "Tomorrow",
       },
       {
         id: "c2",
-        title: "Intro call · Meera & Rohan",
+        title: "Intro call · Jane & John",
         description: "Families introduced by Pandit Ramakant-ji.",
         tag: "Family approved",
         priority: "high",
@@ -88,7 +88,7 @@ const initialKanbanColumns: KanbanColumnData[] = [
       },
       {
         id: "p2",
-        title: "Temple visit with Sharmas",
+        title: "Temple visit with Wilsons",
         description: "Siddhivinayak darshan followed by lunch.",
         tag: "Confirmed",
         priority: "medium",
@@ -100,7 +100,7 @@ const initialKanbanColumns: KanbanColumnData[] = [
 
 const schedulerEvents: SchedulerEvent[] = [
   { id: "e1", title: "Kundli call with Pandit-ji", day: 0, start: 10, duration: 1, color: "gold" },
-  { id: "e2", title: "Family intro — Sharma-ji", day: 0, start: 17, duration: 2, color: "primary" },
+  { id: "e2", title: "Family intro — Wilson-ji", day: 0, start: 17, duration: 2, color: "primary" },
   { id: "e3", title: "Pre-wedding photoshoot", day: 1, start: 9, duration: 3, color: "info" },
   { id: "e4", title: "Mehendi artist trial", day: 2, start: 12, duration: 2, color: "success" },
   { id: "e5", title: "Venue visit · Udaipur palace", day: 3, start: 11, duration: 2, color: "primary" },
@@ -125,7 +125,7 @@ const fileItems: FileManagerItem[] = [
 ]
 
 const bioHtml =
-  "<p>Namaste! I am <strong>Aditi Verma</strong>, 27, a Kathak dancer from Lucknow.</p>" +
+  "<p>Namaste! I am <strong>Aditi Perry</strong>, 27, a Kathak dancer from Lucknow.</p>" +
   "<p>My family values <em>simplicity</em>, laughter and good food.</p>" +
   "<ul><li>Vegetarian household</li><li>Sunday satsang together</li></ul>"
 
@@ -148,14 +148,14 @@ const editorSnippet = [
 
 const profileData = {
   id: "SAP-2025-0847",
-  name: "Ananya Deshpande",
+  name: "Ella Hayes",
   age: 28,
   city: "Pune",
   verified: true,
   gotra: null,
   horoscope: {
     nakshatra: "Rohini",
-    rashi: "Vrishabha",
+    rashi: "Vririsbha",
     manglik: false,
     matchScore: 92,
   },
@@ -165,8 +165,8 @@ const profileData = {
     openToRemarriage: false,
   },
   family: {
-    father: "Prof. S. Deshpande",
-    mother: "Dr. K. Deshpande",
+    father: "Prof. S. Hayes",
+    mother: "Dr. K. Hayes",
     siblings: 1,
     contact: "+91 98••• •••••",
   },
@@ -193,12 +193,12 @@ const newBio =
 const logEntries: LogEntry[] = [
   { id: "l1", time: "09:41:22", level: "info", message: "Match engine synced 1,248 new profiles" },
   { id: "l2", time: "09:41:35", level: "debug", message: "Redis cache warm-up completed in 412ms" },
-  { id: "l3", time: "09:42:03", level: "info", message: "Priya & Aarav started a conversation" },
+  { id: "l3", time: "09:42:03", level: "info", message: "Sophia & Noah started a conversation" },
   { id: "l4", time: "09:44:19", level: "warn", message: "Photo moderation queue backlog: 32 items" },
   { id: "l5", time: "09:47:56", level: "error", message: "Payment gateway timeout on order SAP-8842" },
   { id: "l6", time: "09:48:10", level: "info", message: "Retry succeeded for order SAP-8842" },
   { id: "l7", time: "09:51:44", level: "debug", message: "Horoscope model batch inference: p95 = 0.9s" },
-  { id: "l8", time: "09:53:27", level: "warn", message: "Vikram Singhania profile flagged for review" },
+  { id: "l8", time: "09:53:27", level: "warn", message: "David Sterling profile flagged for review" },
   { id: "l9", time: "09:58:02", level: "error", message: "SMS OTP provider unreachable — failing over" },
   { id: "l10", time: "10:00:00", level: "info", message: "Daily kundli reports dispatched (1,930)" },
 ]
@@ -212,9 +212,9 @@ const activityEntries: ActivityEntry[] = [
   {
     id: "a1",
     type: "match",
-    actor: { name: "Shreya Kapoor" },
+    actor: { name: "Shreya Sanders" },
     action: "shortlisted",
-    target: "Arjun Nair",
+    target: "Liam Carter",
     time: "8:24 PM",
     day: "Today",
     ip: "103.21.58.14",
@@ -223,9 +223,9 @@ const activityEntries: ActivityEntry[] = [
   {
     id: "a2",
     type: "message",
-    actor: { name: "Arjun Nair" },
+    actor: { name: "Liam Carter" },
     action: "replied to",
-    target: "Shreya Kapoor",
+    target: "Shreya Sanders",
     time: "6:02 PM",
     day: "Today",
     ip: "49.36.180.22",
@@ -234,7 +234,7 @@ const activityEntries: ActivityEntry[] = [
   {
     id: "a3",
     type: "verification",
-    actor: { name: "Meera Iyer" },
+    actor: { name: "Jane Smith" },
     action: "completed verification for",
     target: "Aadhaar + phone",
     time: "2:47 PM",
@@ -245,7 +245,7 @@ const activityEntries: ActivityEntry[] = [
   {
     id: "a4",
     type: "payment",
-    actor: { name: "Rohan Malhotra" },
+    actor: { name: "Jack Miller" },
     action: "upgraded to",
     target: "Gold Annual plan",
     time: "11:15 PM",
@@ -256,7 +256,7 @@ const activityEntries: ActivityEntry[] = [
   {
     id: "a5",
     type: "profile",
-    actor: { name: "Ishita Rao" },
+    actor: { name: "Hannah Reed" },
     action: "updated",
     target: "partner preferences",
     time: "9:38 AM",
@@ -369,8 +369,8 @@ const initialColumns = [
     title: "New Matches",
     tone: "gold",
     cards: [
-      { id: "m1", title: "Aarav Mehta", description: "32 · Mumbai", tag: "94% match", priority: "high", dueDate: "Today" },
-      { id: "m2", title: "Ishita Rao", description: "29 · Bengaluru", priority: "medium" },
+      { id: "m1", title: "Leo Parker", description: "32 · Mumbai", tag: "94% match", priority: "high", dueDate: "Today" },
+      { id: "m2", title: "Hannah Reed", description: "29 · Bengaluru", priority: "medium" },
     ],
   },
   { id: "chat", title: "Conversations", tone: "primary", cards: [] },
@@ -410,7 +410,7 @@ export function MatchPipeline() {
 
 const events = [
   { id: "e1", title: "Kundli call with Pandit-ji", day: 0, start: 10, duration: 1, color: "gold" },
-  { id: "e2", title: "Family intro — Sharma-ji", day: 0, start: 17, duration: 2, color: "primary" },
+  { id: "e2", title: "Family intro — Wilson-ji", day: 0, start: 17, duration: 2, color: "primary" },
   { id: "e3", title: "Mehendi artist trial", day: 2, start: 12, duration: 2, color: "success" },
   { id: "e4", title: "Sangeet choreography", day: 5, start: 16, duration: 2, color: "gold" },
 ]
@@ -498,7 +498,7 @@ import { RichTextEditor } from "@/components/ui/rich-text-editor"
 
 export function BioEditor() {
   const [html, setHtml] = useState(
-    "<p>Namaste! I am <strong>Aditi Verma</strong>, 27, from Lucknow.</p>"
+    "<p>Namaste! I am <strong>Aditi Perry</strong>, 27, from Lucknow.</p>"
   )
   return (
     <RichTextEditor
@@ -576,7 +576,7 @@ export function SnippetEditor() {
         code: `import { JsonViewer } from "@/components/ui/json-viewer"
 
 const profile = {
-  name: "Ananya Deshpande",
+  name: "Ella Hayes",
   verified: true,
   horoscope: { nakshatra: "Rohini", matchScore: 92 },
   cities: ["Pune", "Mumbai"],
@@ -595,7 +595,7 @@ export function ProfilePayload() {
         render: () => (
           <JsonViewer
             data={profileData}
-            label="ananya-deshpande.json"
+            label="emma-hayes.json"
             maxHeight={380}
           />
         ),
@@ -747,9 +747,9 @@ const entries = [
   {
     id: "a1",
     type: "match",
-    actor: { name: "Shreya Kapoor" },
+    actor: { name: "Shreya Sanders" },
     action: "shortlisted",
-    target: "Arjun Nair",
+    target: "Liam Carter",
     time: "8:24 PM",
     day: "Today",
     ip: "103.21.58.14",

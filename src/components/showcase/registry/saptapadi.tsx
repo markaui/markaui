@@ -39,10 +39,10 @@ function DetailModalDemo() {
         <InterestsProvider>
           <div className="flex flex-col items-center gap-3 py-2">
             <Button variant="gold" onClick={() => setOpen(true)}>
-              Open Ananya&apos;s profile
+              Open Emma&apos;s profile
             </Button>
             <ProfileDetailModal
-              profile={open ? pick("ananya-sharma") : null}
+              profile={open ? pick("emma-wilson") : null}
               open={open}
               onOpenChange={setOpen}
             />
@@ -96,7 +96,7 @@ function ConciergeDemo() {
       <SavedSearchesProvider>
         <div className="flex flex-col items-center gap-2 py-2">
           <Button variant="gradient" onClick={() => setOpen(true)}>
-            Chat with Meera
+            Chat with Jane
           </Button>
           <ConciergeChat open={open} onOpenChange={setOpen} />
         </div>
@@ -305,7 +305,7 @@ export const saptapadiDocs: ComponentDoc[] = [
     name: "ConciergeChat",
     category: "saptapadi",
     description:
-      "Meera — the AI matchmaking concierge in a right-side Drawer. Streaming-style replies from /api/concierge (catalogue-aware), typing dots, quick-suggestion chips and persisted transcripts.",
+      "Jane — the AI matchmaking concierge in a right-side Drawer. Streaming-style replies from /api/concierge (catalogue-aware), typing dots, quick-suggestion chips and persisted transcripts.",
     demos: [
       {
         id: "concierge-demo",

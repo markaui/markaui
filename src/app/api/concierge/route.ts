@@ -7,7 +7,7 @@ import { MATRIMONY_PROFILES } from "@/lib/matrimony-data";
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
 
-const CONCIERGE_NAME = "Meera";
+const CONCIERGE_NAME = "Jane";
 
 /** Compact profile catalogue so the concierge recommends real, accurate profiles. */
 function profileCatalogue() {
@@ -114,7 +114,7 @@ export async function POST(request: NextRequest) {
     const reply = completion.choices[0]?.message?.content?.trim();
     if (!reply) {
       return NextResponse.json(
-        { reply: "Namaste 🙏 I'm Meera, your matchmaking concierge. Tell me a little about the partner you're dreaming of, and I'll curate matches for you." },
+        { reply: "Namaste 🙏 I'm Jane, your matchmaking concierge. Tell me a little about the partner you're dreaming of, and I'll curate matches for you." },
         { status: 200 }
       );
     }
@@ -140,7 +140,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         reply:
-          "Namaste 🙏 I'm Meera, your matchmaking concierge. I'm having a brief connection moment — please try again in a few seconds.",
+          "Namaste 🙏 I'm Jane, your matchmaking concierge. I'm having a brief connection moment — please try again in a few seconds.",
       },
       { status: 200 }
     );

@@ -171,7 +171,7 @@ export function LandingHero({ onSearch }: LandingHeroProps) {
           {/* Trust row */}
           <div className="mt-7 flex flex-wrap items-center gap-4">
             <div className="flex -space-x-2.5">
-              {["/images/profile-1.png", "/images/profile-2.png", "/images/profile-3.png", "/images/profile-4.png"].map(
+              {["https://picsum.photos/seed/markaui-face-1/400/400", "https://picsum.photos/seed/markaui-face-2/400/400", "https://picsum.photos/seed/markaui-face-3/400/400", "https://picsum.photos/seed/markaui-face-4/400/400"].map(
                 (src, i) => (
                   <span
                     key={src}
@@ -198,7 +198,7 @@ export function LandingHero({ onSearch }: LandingHeroProps) {
             {/* Main image */}
             <figure className="absolute left-1/2 top-6 z-10 h-[88%] w-[62%] -translate-x-1/2 rotate-2 overflow-hidden rounded-3xl border border-gold/30 shadow-2xl shadow-black/40">
               <Image
-                src="/images/hero-couple.png"
+                src="https://picsum.photos/seed/markaui-couple/600/800"
                 alt="Saptapadi couple in traditional maroon and gold wedding attire"
                 fill
                 priority
@@ -207,7 +207,7 @@ export function LandingHero({ onSearch }: LandingHeroProps) {
               />
               <figcaption className="absolute inset-x-0 bottom-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.75),transparent)] p-4 pt-10">
                 <p className="font-serif text-sm font-semibold text-white">
-                  Aarav &nbsp;&amp;&nbsp; Meera
+                  Noah &nbsp;&amp;&nbsp; Jane
                 </p>
                 <p className="text-xs text-white/70">Matched 94% · Married Jan 2025</p>
               </figcaption>
@@ -216,7 +216,7 @@ export function LandingHero({ onSearch }: LandingHeroProps) {
             {/* Left image */}
             <figure className="absolute left-0 top-0 z-0 h-[58%] w-[42%] -rotate-6 overflow-hidden rounded-3xl border border-white/10 shadow-xl shadow-black/30">
               <Image
-                src="/images/hero-bride.png"
+                src="https://picsum.photos/seed/markaui-bride/600/800"
                 alt="Bride in maroon and gold lehenga"
                 fill
                 sizes="20vw"
@@ -227,7 +227,7 @@ export function LandingHero({ onSearch }: LandingHeroProps) {
             {/* Right image */}
             <figure className="absolute bottom-0 right-0 z-20 h-[54%] w-[40%] rotate-6 overflow-hidden rounded-3xl border border-white/10 shadow-xl shadow-black/30">
               <Image
-                src="/images/hero-groom.png"
+                src="https://picsum.photos/seed/markaui-groom/600/800"
                 alt="Groom in ivory and gold sherwani"
                 fill
                 sizes="20vw"

@@ -88,14 +88,14 @@ export function ThemeLab() {
                   <CardContent className="p-5">
                     <div className="flex items-center gap-3">
                       <Avatar className="size-11 border border-gold/40">
-                        <AvatarImage src="" alt="Portrait of Ananya Sharma" />
+                        <AvatarImage src="" alt="Portrait of Emma Wilson" />
                         <AvatarFallback className="bg-gold/15 text-sm text-gold-foreground dark:text-gold">
-                          AS
+                          EW
                         </AvatarFallback>
                       </Avatar>
                       <div className="min-w-0">
                         <p className="truncate text-sm font-semibold text-foreground">
-                          Ananya Sharma
+                          Emma Wilson
                         </p>
                         <p className="text-xs text-muted-foreground">Jaipur · 26</p>
                       </div>

@@ -317,7 +317,7 @@ function SortControlDemo() {
 
 function ViewSwitcherDemo() {
   const [view, setView] = React.useState<ViewMode>("grid")
-  const NAMES = ["Aarav", "Diya", "Kabir", "Meera", "Rohan", "Sanya"]
+  const NAMES = ["Noah", "Ava", "Alex", "Jane", "John", "Sanya"]
 
   return (
     <div className="flex w-full flex-col gap-4">
@@ -373,7 +373,7 @@ function ViewSwitcherDemo() {
 }
 
 function BulkActionsDemo() {
-  const PROFILES = ["Aarav Sharma", "Diya Patel", "Kabir Singh", "Meera Iyer", "Rohan Mehta"]
+  const PROFILES = ["Noah Bennett", "Ava Thompson", "Alex Stone", "Jane Smith", "John Doe"]
   const [selected, setSelected] = React.useState<string[]>([])
   const [note, setNote] = React.useState("")
 
@@ -466,7 +466,7 @@ function QueryBuilderDemo() {
     { id: "city", label: "City", type: "select", options: CITY_LIST.slice(0, 4) },
   ]
   const [rules, setRules] = React.useState<QueryRule[]>([
-    { id: "r1", field: "name", operator: "contains", value: "Sharma" },
+    { id: "r1", field: "name", operator: "contains", value: "Wilson" },
     { id: "r2", field: "age", operator: "lt", value: "32" },
   ])
 
@@ -489,12 +489,12 @@ function QueryBuilderDemo() {
 
 function DataToolbarDemo() {
   const PROFILES = [
-    { name: "Aarav Sharma", age: 28, city: "Mumbai" },
-    { name: "Diya Patel", age: 26, city: "Bengaluru" },
-    { name: "Kabir Singh", age: 30, city: "Delhi" },
-    { name: "Meera Iyer", age: 27, city: "Chennai" },
-    { name: "Rohan Mehta", age: 31, city: "Pune" },
-    { name: "Sanya Kapoor", age: 25, city: "Mumbai" },
+    { name: "Noah Bennett", age: 28, city: "Mumbai" },
+    { name: "Ava Thompson", age: 26, city: "Bengaluru" },
+    { name: "Alex Stone", age: 30, city: "Delhi" },
+    { name: "Jane Smith", age: 27, city: "Chennai" },
+    { name: "John Doe", age: 31, city: "Pune" },
+    { name: "Sanya Sanders", age: 25, city: "Mumbai" },
   ]
   const [query, setQuery] = React.useState("")
   const [sort, setSort] = React.useState<SortValue | null>(null)
@@ -882,7 +882,7 @@ const matches = cities.filter((city) =>
         title: "Name / Age / City rules",
         description: "Text fields get contains/equals, numbers get >,<,= and selects get is — fully interactive.",
         code: `const [rules, setRules] = React.useState<QueryRule[]>([
-  { id: "r1", field: "name", operator: "contains", value: "Sharma" },
+  { id: "r1", field: "name", operator: "contains", value: "Wilson" },
   { id: "r2", field: "age", operator: "lt", value: "32" },
 ])
 
