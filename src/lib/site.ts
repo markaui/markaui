@@ -21,4 +21,7 @@ export const SOCIAL = {
   /** LinkedIn profile — username akram6t */
   linkedin: "https://www.linkedin.com/in/akram6t",
   npm: "https://www.npmjs.com/package/markaui",
+  /** Contact email — footer connect cards, JSON-LD contactPoint */
+  emailAddress: "developeruniqe@gmail.com",
+  email: "mailto:developeruniqe@gmail.com",
 } as const;

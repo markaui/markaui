@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, Github, Linkedin } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 
 import { Separator } from "@/components/ui/separator";
 import { SOCIAL } from "@/lib/site";
@@ -33,7 +33,8 @@ const COLUMNS: { heading: string; links: { label: string; href: string; external
   },
 ];
 
-/** Contact cards — usernames stay in the href, never rendered as text */
+/** Contact cards — usernames stay in the href, never rendered as text.
+ *  Exception: a contact email is meant to be readable, so the address IS the hint. */
 const CONNECT = [
   {
     label: "GitHub",
@@ -46,6 +47,13 @@ const CONNECT = [
     hint: "Connect with the team & follow updates",
     href: SOCIAL.linkedin,
     icon: Linkedin,
+  },
+  {
+    label: "Email",
+    hint: SOCIAL.emailAddress,
+    href: SOCIAL.email,
+    icon: Mail,
+    mailto: true,
   },
 ] as const;
 
@@ -105,16 +113,19 @@ export function SiteFooter() {
           <p className="mb-3 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
             Connect with us
           </p>
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {CONNECT.map((item) => {
               const Icon = item.icon;
               return (
                 <a
                   key={item.label}
                   href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${item.label} (opens in a new tab)`}
+                  {...(item.mailto
+                    ? {}
+                    : { target: "_blank", rel: "noopener noreferrer" })}
+                  aria-label={
+                    item.mailto ? `Email ${SOCIAL.emailAddress}` : `${item.label} (opens in a new tab)`
+                  }
                   className="group flex items-center gap-3 rounded-xl border border-border bg-card p-4 transition-all duration-200 hover:border-gold/50 hover:shadow-md"
                 >
                   <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[linear-gradient(135deg,var(--primary),var(--gold))] text-primary-foreground shadow-sm transition-transform duration-200 group-hover:scale-105">

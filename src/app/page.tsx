@@ -18,6 +18,12 @@ const jsonLd = {
       url: SITE_URL,
       logo: `${SITE_URL}/logo.svg`,
       sameAs: [SOCIAL.github, SOCIAL.linkedin, SOCIAL.npm],
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: SOCIAL.emailAddress,
+        availableLanguage: ["English"],
+      },
     },
     {
       "@type": "WebSite",
