@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { IconButton } from "@/components/ui/icon-button";
 import { highlightCodeElement } from "./syntax-highlight";
+import { toPackageCode } from "./package-code";
 import type { DemoDef } from "./registry/types";
 
 type StageWidth = "full" | "tablet" | "mobile";
@@ -68,24 +69,29 @@ export function DemoCard({ demo }: { demo: DemoDef }) {
   const constrained = demo.responsive && stage !== "full";
   const codeRef = React.useRef<HTMLElement>(null);
 
+  // Display + copy use the package-facing snippet: local "@/components/ui/*"
+  // imports are rewritten/merged to the published "markaui" package so what
+  // users see and copy works in their own app out of the box.
+  const displayCode = React.useMemo(() => toPackageCode(demo.code), [demo.code]);
+
   // CDN syntax highlighting (Prism + tsx) — applied once the code panel is
   // opened; falls back to the existing plain-text render if the CDN is down.
   React.useEffect(() => {
     if (!showCode) return;
     const el = codeRef.current;
     if (!el) return;
-    void highlightCodeElement(el, demo.code);
-  }, [showCode, demo.code]);
+    void highlightCodeElement(el, displayCode);
+  }, [showCode, displayCode]);
 
   const copy = React.useCallback(async () => {
     try {
-      await navigator.clipboard.writeText(demo.code);
+      await navigator.clipboard.writeText(displayCode);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1800);
     } catch {
       /* clipboard unavailable */
     }
-  }, [demo.code]);
+  }, [displayCode]);
 
   return (
     <div
@@ -177,7 +183,7 @@ export function DemoCard({ demo }: { demo: DemoDef }) {
             </button>
           </div>
           <pre className="max-h-96 overflow-auto scrollbar-thin bg-[color-mix(in_srgb,var(--card)_92%,var(--primary))] px-4 py-3 font-mono text-xs leading-relaxed text-foreground/90">
-            <code ref={codeRef}>{demo.code}</code>
+            <code ref={codeRef}>{displayCode}</code>
           </pre>
         </div>
       )}
