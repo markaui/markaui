@@ -1,10 +1,9 @@
 "use client";
 
 import * as React from "react";
-import { useRouter } from "next/navigation";
-import { ChevronLeft, ChevronRight, Command, Gem, Home, Menu, Moon, Sparkles, Sun } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { ChevronRight, Command, Gem, Home, Menu, Moon, Sparkles, Sun } from "lucide-react";
 
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
@@ -12,8 +11,6 @@ import { CommandPalette, type CommandPaletteGroup } from "@/components/ui/comman
 import { useTheme } from "@/components/theme/theme-provider";
 import { ThemeSwitcher } from "./theme-switcher";
 import { DocsNav } from "./docs-nav";
-import { FamilyDocView } from "./component-doc";
-import { GuideDocView } from "./guide-doc";
 import { GUIDES, getGuide } from "./guides-data";
 import {
   CATEGORIES,
@@ -22,18 +19,19 @@ import {
   TOTAL_COMPONENTS,
   getFamily,
   getFamilyForDoc,
-  getFamilyMembers,
 } from "./registry";
+import { familyHref, guideHref } from "./urls";
 
-const ACTIVE_KEY = "markaui-active-family";
-const ACTIVE_GUIDE_KEY = "markaui-active-guide";
-const DEFAULT_GUIDE_ID = "installation";
-
-export function DocsShell() {
+/**
+ * Persistent docs shell (sidebar + topbar + scroll container) rendered by
+ * src/app/components/layout.tsx. The active page is derived from the URL —
+ * every family and guide is a real route (/components/<family>,
+ * /components/guides/<guide>) and all navigation performs real router
+ * navigation, so every view is shareable, crawlable and history-friendly.
+ */
+export function DocsShell({ children }: { children: React.ReactNode }) {
   const router = useRouter();
-  const [activeFamilyId, setActiveFamilyId] = React.useState<string | null>(null);
-  const [activeGuideId, setActiveGuideId] = React.useState<string | null>(null);
-  const [focusMemberId, setFocusMemberId] = React.useState<string | null>(null);
+  const pathname = usePathname();
   const [query, setQuery] = React.useState("");
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [paletteOpen, setPaletteOpen] = React.useState(false);
@@ -52,93 +50,45 @@ export function DocsShell() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  // hydrate last visited page — precedence: ?guide= URL param > stored guide >
-  // stored family > default (Installation guide). Deterministic initial state
-  // (null) keeps SSR and first client render identical; localStorage/URL are
-  // only read AFTER hydration to avoid the mismatch crash fixed in Round 23.
+  // Active page derived from the URL — the single source of truth.
+  const { activeFamily, activeGuide } = React.useMemo(() => {
+    const seg = pathname.split("/").filter(Boolean);
+    if (seg[0] !== "components") return { activeFamily: null, activeGuide: null };
+    if (seg[1] === "guides") {
+      return { activeFamily: null, activeGuide: (seg[2] ? getGuide(seg[2]) : null) ?? null };
+    }
+    if (seg[1]) {
+      const family = getFamily(seg[1]) ?? (seg[1].startsWith("doc-") ? getFamilyForDoc(seg[1].slice(4)) : undefined);
+      return { activeFamily: family ?? null, activeGuide: null };
+    }
+    return { activeFamily: null, activeGuide: null };
+  }, [pathname]);
+  const isIndex = !activeFamily && !activeGuide;
+
+  // reset the scroll container on navigation (member deep links re-scroll
+  // themselves via FamilyDocView's focus effect, which runs after this)
   React.useEffect(() => {
-    try {
-      const legacyFamily = localStorage.getItem("saptapadi-active-family");
-      const legacyDoc = localStorage.getItem("saptapadi-active-doc");
-      localStorage.removeItem("saptapadi-active-family");
-      localStorage.removeItem("saptapadi-active-doc");
-
-      const urlGuide = new URLSearchParams(window.location.search).get("guide");
-      if (urlGuide && getGuide(urlGuide)) {
-        setActiveGuideId(urlGuide);
-        localStorage.setItem(ACTIVE_GUIDE_KEY, urlGuide);
-        return;
-      }
-      const storedGuide = localStorage.getItem(ACTIVE_GUIDE_KEY);
-      if (storedGuide && getGuide(storedGuide)) {
-        setActiveGuideId(storedGuide);
-        return;
-      }
-      const storedFamily = localStorage.getItem(ACTIVE_KEY);
-      if (storedFamily && getFamily(storedFamily)) {
-        setActiveFamilyId(storedFamily);
-        return;
-      }
-      if (legacyFamily && getFamily(legacyFamily)) {
-        setActiveFamilyId(legacyFamily);
-        localStorage.setItem(ACTIVE_KEY, legacyFamily);
-        return;
-      }
-      if (legacyDoc) {
-        const family = getFamilyForDoc(legacyDoc);
-        if (family) {
-          setActiveFamilyId(family.id);
-          localStorage.setItem(ACTIVE_KEY, family.id);
-          return;
-        }
-      }
-      // first visit → start on the Installation guide (docs convention)
-      setActiveGuideId(DEFAULT_GUIDE_ID);
-      localStorage.setItem(ACTIVE_GUIDE_KEY, DEFAULT_GUIDE_ID);
-    } catch {
-      /* ignore */
-    }
-  }, []);
-
-  // fall back to a valid page once state has hydrated
-  const guide = getGuide(activeGuideId) ?? null;
-  const family = (activeFamilyId ? getFamily(activeFamilyId) : null) ?? FAMILIES[0];
-  const docs = React.useMemo(() => getFamilyMembers(family), [family]);
-
-  const selectFamily = React.useCallback((familyId: string, memberId?: string) => {
-    setActiveFamilyId(familyId);
-    setActiveGuideId(null);
-    setFocusMemberId(memberId ?? null);
-    try {
-      localStorage.setItem(ACTIVE_KEY, familyId);
-      localStorage.removeItem(ACTIVE_GUIDE_KEY);
-    } catch {
-      /* ignore */
-    }
-    window.history.replaceState(null, "", "/components");
-    if (!memberId) {
-      scrollRef.current?.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
-    }
-  }, []);
-
-  const selectGuide = React.useCallback((guideId: string) => {
-    if (!getGuide(guideId)) return;
-    setActiveGuideId(guideId);
-    setFocusMemberId(null);
-    try {
-      localStorage.setItem(ACTIVE_GUIDE_KEY, guideId);
-    } catch {
-      /* ignore */
-    }
-    window.history.replaceState(null, "", `/components?guide=${guideId}`);
     scrollRef.current?.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
-  }, []);
+  }, [pathname]);
 
-  const currentIndex = FAMILIES.findIndex((f) => f.id === family.id);
-  const prevFamily = currentIndex > 0 ? FAMILIES[currentIndex - 1] : null;
-  const nextFamily =
-    currentIndex >= 0 && currentIndex < FAMILIES.length - 1 ? FAMILIES[currentIndex + 1] : null;
-  const category = CATEGORIES.find((c) => c.id === family.category);
+  // All navigation is real URL navigation — back/forward and sharing work.
+  const selectFamily = React.useCallback(
+    (familyId: string, memberId?: string) => {
+      router.push(familyHref(familyId, memberId));
+    },
+    [router]
+  );
+
+  const selectGuide = React.useCallback(
+    (guideId: string) => {
+      router.push(guideHref(guideId));
+    },
+    [router]
+  );
+
+  const category = activeFamily
+    ? CATEGORIES.find((c) => c.id === activeFamily.category)
+    : null;
 
   const paletteGroups = React.useMemo<CommandPaletteGroup[]>(
     () => [
@@ -198,8 +148,8 @@ export function DocsShell() {
       {/* Desktop sidebar */}
       <aside className="hidden w-72 shrink-0 border-r border-border bg-sidebar lg:block">
         <DocsNav
-          activeFamilyId={guide ? null : family.id}
-          activeGuideId={guide?.id ?? null}
+          activeFamilyId={activeGuide ? null : (activeFamily?.id ?? null)}
+          activeGuideId={activeGuide?.id ?? null}
           onSelectFamily={selectFamily}
           onSelectGuide={selectGuide}
           query={query}
@@ -212,8 +162,8 @@ export function DocsShell() {
         <SheetContent side="left" className="w-80 bg-sidebar p-0">
           <SheetTitle className="sr-only">Component navigation</SheetTitle>
           <DocsNav
-            activeFamilyId={guide ? null : family.id}
-            activeGuideId={guide?.id ?? null}
+            activeFamilyId={activeGuide ? null : (activeFamily?.id ?? null)}
+            activeGuideId={activeGuide?.id ?? null}
             onSelectFamily={selectFamily}
             onSelectGuide={selectGuide}
             query={query}
@@ -237,18 +187,16 @@ export function DocsShell() {
 
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="flex min-w-0 items-center gap-1.5 text-sm">
-            <span className="hidden text-muted-foreground sm:inline">
-              {guide ? "Guides" : (category?.label ?? "Components")}
-            </span>
-            <ChevronRight className="hidden size-3.5 text-muted-foreground/60 sm:inline" />
-            <span className="truncate font-medium text-foreground">
-              {guide ? guide.title : family.name}
-            </span>
-            {!guide && focusMemberId && (
+            {isIndex ? (
+              <span className="truncate font-medium text-foreground">All components</span>
+            ) : (
               <>
+                <span className="hidden text-muted-foreground sm:inline">
+                  {activeGuide ? "Guides" : (category?.label ?? "Components")}
+                </span>
                 <ChevronRight className="hidden size-3.5 text-muted-foreground/60 sm:inline" />
-                <span className="hidden truncate text-muted-foreground sm:inline">
-                  {docs.find((d) => d.id === focusMemberId)?.name}
+                <span className="truncate font-medium text-foreground">
+                  {activeGuide ? activeGuide.title : (activeFamily?.name ?? "Components")}
                 </span>
               </>
             )}
@@ -285,60 +233,9 @@ export function DocsShell() {
           </div>
         </header>
 
-        {/* Scrollable content */}
+        {/* Scrollable content — swapped by the active route */}
         <div ref={scrollRef} className="min-h-0 flex-1 overflow-y-auto scrollbar-thin">
-          {guide ? (
-            <GuideDocView key={guide.id} guide={guide} onSelectGuide={selectGuide} />
-          ) : (
-            <>
-              <FamilyDocView
-                key={family.id}
-                family={family}
-                docs={docs}
-                focusMemberId={focusMemberId}
-              />
-
-              {/* Prev / Next family */}
-              <div className="mx-auto grid w-full max-w-6xl grid-cols-2 gap-3 px-4 pb-16 sm:px-6">
-                {prevFamily ? (
-                  <button
-                    onClick={() => selectFamily(prevFamily.id)}
-                    className="group flex items-center gap-3 rounded-xl border border-border bg-card p-4 text-left transition-all hover:border-gold/40 hover:shadow-md cursor-pointer"
-                  >
-                    <ChevronLeft className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:-translate-x-0.5" />
-                    <span className="min-w-0">
-                      <span className="block text-[10px] uppercase tracking-widest text-muted-foreground">
-                        Previous family
-                      </span>
-                      <span className="block truncate text-sm font-medium text-foreground">
-                        {prevFamily.name}
-                      </span>
-                    </span>
-                  </button>
-                ) : (
-                  <span />
-                )}
-                {nextFamily ? (
-                  <button
-                    onClick={() => selectFamily(nextFamily.id)}
-                    className="group flex items-center justify-end gap-3 rounded-xl border border-border bg-card p-4 text-right transition-all hover:border-gold/40 hover:shadow-md cursor-pointer"
-                  >
-                    <span className="min-w-0">
-                      <span className="block text-[10px] uppercase tracking-widest text-muted-foreground">
-                        Next family
-                      </span>
-                      <span className="block truncate text-sm font-medium text-foreground">
-                        {nextFamily.name}
-                      </span>
-                    </span>
-                    <ChevronRight className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
-                  </button>
-                ) : (
-                  <span />
-                )}
-              </div>
-            </>
-          )}
+          {children}
         </div>
       </div>
 

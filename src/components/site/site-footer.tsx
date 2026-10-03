@@ -16,9 +16,9 @@ const COLUMNS: { heading: string; links: { label: string; href: string; external
   {
     heading: "Developers",
     links: [
-      { label: "Installation guide", href: "/components?guide=installation" },
-      { label: "Theming & colors", href: "/components?guide=theming" },
-      { label: "Dark mode", href: "/components?guide=dark-mode" },
+      { label: "Installation guide", href: "/components/guides/installation" },
+      { label: "Theming & colors", href: "/components/guides/theming" },
+      { label: "Dark mode", href: "/components/guides/dark-mode" },
       { label: "npm — markaui", href: SOCIAL.npm, external: true },
     ],
   },
