@@ -7,6 +7,7 @@ import {
   ChevronRight,
   Compass,
   Gem,
+  GraduationCap,
   Heart,
   KeyRound,
   Layers,
@@ -41,6 +42,7 @@ import {
   getFamilyForDoc,
 } from "./registry";
 import type { FamilyDef } from "./registry";
+import { GUIDES, type GuideDef } from "./guides-data";
 
 const GROUPS_KEY = "markaui-docs-nav-groups";
 const GROUPS_LEGACY_KEY = "saptapadi-docs-nav-groups";
@@ -63,10 +65,14 @@ const CATEGORY_ICONS: Record<string, LucideIcon> = {
 };
 
 export interface DocsNavProps {
-  /** active family page id */
-  activeFamilyId: string;
+  /** active family page id (null while a guide is open) */
+  activeFamilyId: string | null;
+  /** active usage guide id (null while a family is open) */
+  activeGuideId: string | null;
   /** select a family page; memberId focuses (scrolls to) one of its members */
   onSelectFamily: (familyId: string, memberId?: string) => void;
+  /** open a usage guide */
+  onSelectGuide: (guideId: string) => void;
   query: string;
   onQueryChange: (q: string) => void;
   className?: string;
@@ -75,7 +81,9 @@ export interface DocsNavProps {
 
 export function DocsNav({
   activeFamilyId,
+  activeGuideId,
   onSelectFamily,
+  onSelectGuide,
   query,
   onQueryChange,
   className,
@@ -92,7 +100,7 @@ export function DocsNav({
   // (server default vs client stored state) that could take down the tree.
   const [collapsed, setCollapsed] = React.useState<Record<string, boolean>>(() => {
     const activeCategory = FAMILIES.find((f) => f.id === activeFamilyId)?.category;
-    const initial: Record<string, boolean> = {};
+    const initial: Record<string, boolean> = { guides: false };
     for (const c of CATEGORIES) initial[c.id] = c.id !== activeCategory;
     return initial;
   });
@@ -135,6 +143,13 @@ export function DocsNav({
     }
   }, [activeFamily?.category]);
 
+  // keep the Guides group reachable when a guide is opened from outside the nav
+  React.useEffect(() => {
+    if (activeGuideId) {
+      setCollapsed((prev) => (prev.guides ? { ...prev, guides: false } : prev));
+    }
+  }, [activeGuideId]);
+
   // scroll the active item into view when it changes
   const activeRef = React.useRef<HTMLButtonElement | null>(null);
   React.useEffect(() => {
@@ -161,9 +176,66 @@ export function DocsNav({
     );
   }, [normalized]);
 
+  const guideResults = React.useMemo(() => {
+    if (!normalized) return null;
+    return GUIDES.filter(
+      (g) =>
+        g.title.toLowerCase().includes(normalized) ||
+        g.description.toLowerCase().includes(normalized) ||
+        g.shortTitle.toLowerCase().includes(normalized)
+    );
+  }, [normalized]);
+
   const handleSelectFamily = (familyId: string, memberId?: string) => {
     onSelectFamily(familyId, memberId);
     onNavigate?.();
+  };
+
+  const handleSelectGuide = (guideId: string) => {
+    onSelectGuide(guideId);
+    onNavigate?.();
+  };
+
+  const renderGuideRow = (guide: GuideDef) => {
+    const isActive = guide.id === activeGuideId;
+    const Icon = guide.icon;
+    return (
+      <button
+        key={guide.id}
+        ref={isActive ? activeRef : undefined}
+        onClick={() => handleSelectGuide(guide.id)}
+        aria-current={isActive ? "page" : undefined}
+        className={cn(
+          "group/item relative flex w-full items-center gap-2 rounded-md pl-3 pr-2 py-1.5 text-left text-sm transition-colors duration-150 cursor-pointer",
+          isActive
+            ? "bg-gold/10 font-medium text-foreground"
+            : "text-foreground/75 hover:bg-accent hover:text-accent-foreground"
+        )}
+      >
+        <span
+          aria-hidden
+          className={cn(
+            "absolute left-0 top-1/2 h-4.5 w-0.5 -translate-y-1/2 rounded-full bg-gradient-to-b from-gold to-primary transition-all duration-200",
+            isActive ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0"
+          )}
+        />
+        <Icon
+          className={cn(
+            "size-3.5 shrink-0 transition-colors",
+            isActive ? "text-gold" : "text-muted-foreground"
+          )}
+        />
+        <span className="min-w-0 flex-1 truncate">{guide.shortTitle}</span>
+        <span
+          className={cn(
+            "shrink-0 rounded-full px-1.5 py-0.5 text-[10px] font-medium tabular-nums",
+            isActive ? "bg-gold/20 text-gold-foreground dark:text-gold" : "bg-muted text-muted-foreground"
+          )}
+        >
+          {guide.readingTime}
+        </span>
+      </button>
+    );
   };
 
   const renderFamilyRow = (family: FamilyDef) => {
@@ -309,13 +381,29 @@ export function DocsNav({
           {searching ? (
             <div className="space-y-1">
               <p className="px-2 pb-1 pt-1 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
-                {(familyResults?.length ?? 0) + (memberResults?.length ?? 0)} result
-                {(familyResults?.length ?? 0) + (memberResults?.length ?? 0) === 1 ? "" : "s"}
+                {(familyResults?.length ?? 0) +
+                  (memberResults?.length ?? 0) +
+                  (guideResults?.length ?? 0)}{" "}
+                result
+                {(familyResults?.length ?? 0) +
+                  (memberResults?.length ?? 0) +
+                  (guideResults?.length ?? 0) ===
+                1
+                  ? ""
+                  : "s"}
                 <span className="ml-1 font-normal normal-case tracking-normal text-muted-foreground/60">
                   for “{query.trim()}”
                 </span>
               </p>
 
+              {guideResults && guideResults.length > 0 && (
+                <>
+                  <p className="px-2 pb-0.5 pt-1.5 text-[10px] font-medium uppercase tracking-widest text-muted-foreground/70">
+                    Guides
+                  </p>
+                  {guideResults.map((g) => renderGuideRow(g))}
+                </>
+              )}
               {familyResults && familyResults.length > 0 && (
                 <>
                   <p className="px-2 pb-0.5 pt-1.5 text-[10px] font-medium uppercase tracking-widest text-muted-foreground/70">
@@ -332,7 +420,10 @@ export function DocsNav({
                   {memberResults.map((d, i) => renderMemberResult(d.id, d.name, i))}
                 </>
               )}
-              {(familyResults?.length ?? 0) + (memberResults?.length ?? 0) === 0 && (
+              {(familyResults?.length ?? 0) +
+                (memberResults?.length ?? 0) +
+                (guideResults?.length ?? 0) ===
+                0 && (
                 <div className="px-3 py-8 text-center">
                   <Sparkles className="mx-auto mb-2 size-5 text-muted-foreground/50" />
                   <p className="text-xs text-muted-foreground">
@@ -342,7 +433,45 @@ export function DocsNav({
               )}
             </div>
           ) : (
-            CATEGORIES.map((category) => {
+            <>
+              {/* Usage guides — pinned above the component categories */}
+              <div className="mb-1">
+                <button
+                  onClick={() => toggleGroup("guides")}
+                  aria-expanded={!collapsed.guides}
+                  aria-controls="docs-nav-panel-guides"
+                  className={cn(
+                    "group flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left transition-colors cursor-pointer hover:bg-accent/60",
+                    activeGuideId && !collapsed.guides && "text-foreground"
+                  )}
+                >
+                  <GraduationCap
+                    className={cn(
+                      "size-3.5 shrink-0 transition-colors",
+                      activeGuideId ? "text-gold" : "text-muted-foreground"
+                    )}
+                  />
+                  <span className="flex-1 truncate text-[11px] font-semibold uppercase tracking-widest text-muted-foreground transition-colors group-hover:text-foreground">
+                    Usage guides
+                  </span>
+                  <span className="shrink-0 rounded-full bg-muted px-1.5 py-0.5 text-[10px] font-medium tabular-nums text-muted-foreground">
+                    {GUIDES.length}
+                  </span>
+                  <ChevronRight
+                    className={cn(
+                      "size-3.5 shrink-0 text-muted-foreground/60 transition-transform duration-200",
+                      !collapsed.guides && "rotate-90"
+                    )}
+                  />
+                </button>
+                {!collapsed.guides && (
+                  <div id="docs-nav-panel-guides" className="space-y-0.5 pb-1.5 pl-1.5">
+                    {GUIDES.map((g) => renderGuideRow(g))}
+                  </div>
+                )}
+              </div>
+
+              {CATEGORIES.map((category) => {
               const families = getFamiliesByCategory(category.id);
               if (families.length === 0) return null;
               const Icon = CATEGORY_ICONS[category.id] ?? Box;
@@ -387,7 +516,8 @@ export function DocsNav({
                   )}
                 </div>
               );
-            })
+              })}
+            </>
           )}
         </nav>
       </ScrollArea>

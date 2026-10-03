@@ -1,11 +1,17 @@
 import type { MetadataRoute } from "next";
 
+import { SITE_URL } from "@/lib/site";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://markaui.example.com";
   const now = new Date();
   return [
-    { url: `${base}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
-    { url: `${base}/components`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${base}/demo/matrimuni`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE_URL}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
+    { url: `${SITE_URL}/components`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    {
+      url: `${SITE_URL}/demo/matrimuni`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
   ];
 }
