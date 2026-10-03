@@ -529,12 +529,16 @@ export function Sparkline({
   showLastDot = false,
 }: SparklineProps) {
   const lastIndex = data.length - 1
-  const renderDot = (dotProps: SparkDotProps) => {
+  // recharts maps this renderer over every data point and passes `key` through
+  // dotProps — the returned element MUST carry a key or React logs
+  // "Each child in a list should have a unique key" against <Line>.
+  const renderDot = (dotProps: SparkDotProps & { key?: React.Key }) => {
     if (!showLastDot || dotProps.index !== lastIndex || dotProps.cx == null || dotProps.cy == null) {
-      return <g />
+      return <g key={dotProps.key ?? dotProps.index} />
     }
     return (
       <circle
+        key={dotProps.key ?? dotProps.index}
         cx={dotProps.cx}
         cy={dotProps.cy}
         r={3}

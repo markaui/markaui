@@ -121,11 +121,11 @@ function ProfileEditDemo() {
   );
 }
 
-/** Demo host for the matchmaker desk (reads the real ops feed). */
+/** Demo host for the matchmaker desk (representative demo rows — no gated API calls). */
 function MatchmakerDeskDemo() {
   return (
     <div className="max-h-[560px] overflow-y-auto rounded-2xl border border-border scrollbar-thin">
-      <MatchmakerDesk startUnlocked onBack={() => window.scrollTo({ top: 0 })} />
+      <MatchmakerDesk startUnlocked forceDemo onBack={() => window.scrollTo({ top: 0 })} />
     </div>
   );
 }

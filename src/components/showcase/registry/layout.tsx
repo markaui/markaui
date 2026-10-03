@@ -429,7 +429,8 @@ import { Button } from "@/components/ui/button"
         description: "Drag the handle to redistribute space.",
         code: `import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/components/ui/resizable"
 
-<ResizablePanelGroup direction="horizontal" className="h-56 w-full rounded-xl border bg-muted/20">
+// A stable id keeps panel registration deterministic across re-renders
+<ResizablePanelGroup id="wedding-panes" direction="horizontal" className="h-56 w-full rounded-xl border bg-muted/20">
   <ResizablePanel defaultSize={40} minSize={20}>
     <div className="flex h-full flex-col items-center justify-center gap-1 p-4 text-center">
       <p className="font-serif text-base font-semibold">Bride's family</p>
@@ -446,7 +447,7 @@ import { Button } from "@/components/ui/button"
 </ResizablePanelGroup>`,
         wide: true,
         render: () => (
-          <ResizablePanelGroup direction="horizontal" className="h-56 w-full rounded-xl border bg-muted/20">
+          <ResizablePanelGroup id="wedding-panes" direction="horizontal" className="h-56 w-full rounded-xl border bg-muted/20">
             <ResizablePanel defaultSize={40} minSize={20}>
               <div className="flex h-full flex-col items-center justify-center gap-1 p-4 text-center">
                 <p className="font-serif text-base font-semibold">Bride's family</p>

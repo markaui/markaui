@@ -35,12 +35,10 @@ export async function generateMetadata({
 
 export default async function FamilyPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ family: string }>;
-  searchParams: Promise<{ m?: string }>;
 }) {
-  const [{ family }, { m }] = await Promise.all([params, searchParams]);
+  const { family } = await params;
   const def = getFamilySlug(family);
   // real family slugs are known server-side; ad-hoc doc-<id> slugs are
   // resolved (or 404'd) by the client loader which has the full registry
@@ -72,7 +70,10 @@ export default async function FamilyPage({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       )}
-      <FamilyDocLoader familyId={family} memberId={typeof m === "string" ? m : null} />
+      {/* NOTE: the page deliberately never awaits searchParams — that would
+          opt all 58 statically-generated family pages into dynamic rendering.
+          The `?m=` member deep link is resolved client-side by the loader. */}
+      <FamilyDocLoader familyId={family} />
     </>
   );
 }

@@ -207,7 +207,7 @@ export function DocsShell({ children }: { children: React.ReactNode }) {
           <button
             onClick={() => setPaletteOpen(true)}
             aria-label="Open command palette (Control K)"
-            className="ml-2 hidden items-center gap-2 rounded-lg border border-border bg-card px-2.5 py-1.5 text-xs text-muted-foreground transition-all hover:border-gold/40 hover:text-foreground md:flex cursor-pointer"
+            className="ml-2 hidden shrink-0 items-center gap-2 whitespace-nowrap rounded-lg border border-border bg-card px-2.5 py-1.5 text-xs text-muted-foreground transition-all hover:border-gold/40 hover:text-foreground lg:flex cursor-pointer"
           >
             <Command className="size-3.5" />
             Search components
@@ -218,7 +218,7 @@ export function DocsShell({ children }: { children: React.ReactNode }) {
 
           <div className="ml-auto flex items-center gap-2">
             <GitHubButton className="hidden sm:flex" />
-            <Badge variant="soft" className="hidden md:inline-flex gap-1">
+            <Badge variant="soft" className="hidden gap-1 xl:inline-flex">
               <Sparkles className="size-3" />
               {TOTAL_COMPONENTS} components · {FAMILIES.length} families
             </Badge>

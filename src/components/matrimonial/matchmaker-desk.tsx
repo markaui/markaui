@@ -340,6 +340,12 @@ export interface MatchmakerDeskProps {
    * representative demo data when the live desk APIs are gated.
    */
   startUnlocked?: boolean;
+  /**
+   * Docs-demo mode — render representative demo data WITHOUT calling the
+   * gated admin APIs at all (keeps the browser console free of 401 noise
+   * on the /components showcase pages).
+   */
+  forceDemo?: boolean;
 }
 
 /**
@@ -349,7 +355,7 @@ export interface MatchmakerDeskProps {
  * curator (featured pin, verified override, internal notes) that persists to
  * SQLite and flows back into the member-facing landing page.
  */
-export function MatchmakerDesk({ onBack, startUnlocked = false }: MatchmakerDeskProps) {
+export function MatchmakerDesk({ onBack, startUnlocked = false, forceDemo = false }: MatchmakerDeskProps) {
   const { toast } = useToast();
   const [gate, setGate] = React.useState<GateState>(startUnlocked ? "unlocked" : "checking");
   const [tab, setTab] = React.useState<DeskTab>("queue");
@@ -366,7 +372,7 @@ export function MatchmakerDesk({ onBack, startUnlocked = false }: MatchmakerDesk
 
   // Gate probe — a desk cookie from an earlier unlock keeps the view open.
   React.useEffect(() => {
-    if (startUnlocked) {
+    if (startUnlocked || forceDemo) {
       setGate("unlocked");
       return;
     }
@@ -383,7 +389,7 @@ export function MatchmakerDesk({ onBack, startUnlocked = false }: MatchmakerDesk
     return () => {
       cancelled = true;
     };
-  }, [startUnlocked]);
+  }, [forceDemo, startUnlocked]);
 
   const stats = React.useMemo<DeskStats>(
     () => ({
@@ -451,6 +457,10 @@ export function MatchmakerDesk({ onBack, startUnlocked = false }: MatchmakerDesk
   }, []);
 
   const refresh = React.useCallback(async () => {
+    if (forceDemo) {
+      applyDemoData();
+      return;
+    }
     try {
       const [intRes, catRes] = await Promise.all([
         fetch("/api/admin/interests", { cache: "no-store" }),
@@ -475,7 +485,7 @@ export function MatchmakerDesk({ onBack, startUnlocked = false }: MatchmakerDesk
     } finally {
       setReady(true);
     }
-  }, [applyDemoData, startUnlocked]);
+  }, [applyDemoData, forceDemo, startUnlocked]);
 
   React.useEffect(() => {
     if (gate === "unlocked") void refresh();

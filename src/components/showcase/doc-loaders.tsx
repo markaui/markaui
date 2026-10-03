@@ -1,6 +1,8 @@
 "use client";
 
-import { notFound } from "next/navigation";
+import * as React from "react";
+import { Suspense } from "react";
+import { notFound, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -8,6 +10,7 @@ import { FamilyDocView } from "./component-doc";
 import { GuideDocView } from "./guide-doc";
 import { getGuide } from "./guides-data";
 import { ALIAS_TO_REAL, FAMILIES, getFamily, getFamilyForDoc, getFamilyMembers } from "./registry";
+import type { ComponentDoc } from "./registry/types";
 import { familyHref, guideHref } from "./urls";
 
 /**
@@ -24,13 +27,36 @@ function resolveFamilyId(id: string) {
   return getFamily(id);
 }
 
+/**
+ * `?m=` member deep link. Reads the query param client-side (inside its own
+ * Suspense boundary so the family page stays fully static) and feeds the
+ * resolved member id up to FamilyDocView's scroll+flash effect. Accepts both
+ * real and alias member ids.
+ */
+function MemberDeepLink({
+  docs,
+  onChange,
+}: {
+  docs: ComponentDoc[];
+  onChange: (memberId: string | null) => void;
+}) {
+  const searchParams = useSearchParams();
+  React.useEffect(() => {
+    const raw = searchParams.get("m");
+    if (!raw) {
+      onChange(null);
+      return;
+    }
+    const realMember = ALIAS_TO_REAL[raw] ?? raw;
+    onChange(docs.some((d) => d.id === realMember) ? realMember : null);
+  }, [searchParams, docs, onChange]);
+  return null;
+}
+
 export function FamilyDocLoader({
   familyId,
-  memberId,
 }: {
   familyId: string;
-  /** optional `?m=` deep link — scroll to + flash this member on mount */
-  memberId?: string | null;
 }) {
   const router = useRouter();
   const family = resolveFamilyId(familyId);
@@ -38,9 +64,12 @@ export function FamilyDocLoader({
 
   const docs = getFamilyMembers(family);
 
-  // accept both real and alias member ids in the deep link
-  const realMember = memberId ? (ALIAS_TO_REAL[memberId] ?? memberId) : null;
-  const member = realMember && docs.some((d) => d.id === realMember) ? realMember : null;
+  // `?m=` deep link target, resolved client-side (see MemberDeepLink)
+  const [focusMemberId, setFocusMemberId] = React.useState<string | null>(null);
+  const onFocusMember = React.useCallback(
+    (id: string | null) => setFocusMemberId(id),
+    []
+  );
 
   const index = FAMILIES.findIndex((f) => f.id === family.id);
   const prevFamily = index > 0 ? FAMILIES[index - 1] : null;
@@ -52,8 +81,13 @@ export function FamilyDocLoader({
         key={family.id}
         family={family}
         docs={docs}
-        focusMemberId={member}
+        focusMemberId={focusMemberId}
       />
+
+      {/* `?m=` resolution — isolated Suspense boundary keeps the page static */}
+      <Suspense fallback={null}>
+        <MemberDeepLink docs={docs} onChange={onFocusMember} />
+      </Suspense>
 
       {/* Prev / Next family */}
       <div className="mx-auto grid w-full max-w-6xl grid-cols-2 gap-3 px-4 pb-16 sm:px-6">
