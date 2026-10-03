@@ -137,7 +137,8 @@ export function SiteFooter() {
         <Separator className="my-8" />
 
         <div className="flex flex-col items-center justify-between gap-3 text-xs text-muted-foreground sm:flex-row">
-          <p>© {new Date().getFullYear()} MarkaUI. Released under the MIT license.</p>
+          {/* Server/client year can differ across a midnight boundary — harmless */}
+          <p suppressHydrationWarning>© {new Date().getFullYear()} MarkaUI. Released under the MIT license.</p>
           <p className="flex items-center gap-1.5">
             Built with
             <span className="font-semibold text-foreground">MarkaUI</span>

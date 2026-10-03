@@ -100,6 +100,10 @@ export function SiteHeader() {
                 type="button"
                 aria-label="Open menu"
                 aria-expanded={open}
+                /* Radix assigns aria-controls from useId; Turbopack dev streaming
+                   can shift that id between SSR and hydration (prod HTML unaffected).
+                   The attribute is cosmetic pre-open, so suppress the false alarm. */
+                suppressHydrationWarning
                 className="flex size-9 items-center justify-center rounded-lg text-foreground transition-colors hover:bg-accent md:hidden cursor-pointer"
               >
                 <Menu className="size-5" />
