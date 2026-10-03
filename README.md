@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="public/logo.svg" alt="MarkaUI" width="96" />
+<img src="https://plain-apac-prod-public.komododecks.com/202610/03/ggflYIhrioIV1zBG4cnr/image.png" alt="MarkaUI" width="96" />
 
 # MarkaUI
 
