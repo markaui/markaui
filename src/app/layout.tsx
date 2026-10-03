@@ -90,7 +90,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [{ url: "/logo.svg", type: "image/svg+xml" }],
+    icon: [{ url: "/markaui.png", type: "image/png" }],
   },
   manifest: "/manifest.webmanifest",
 };
