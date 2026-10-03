@@ -1,0 +1,1515 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-serif: var(--font-playfair);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  /* Deepened gold for solid fills (white-text themes) + button ink color.
+     Themes that don't define them fall back to the classic gold pairing. */
+  --color-gold-strong: var(--gold-strong, var(--gold));
+  --color-gold-ink: var(--gold-ink, var(--gold-foreground));
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+}
+
+/* ============================================
+   THEME TOKENS — 12 luxury color themes
+   Each theme defines light + dark values for
+   every semantic token. Set via <html data-theme="...">
+   ============================================ */
+
+/* ---------- 1. MAROON & GOLD (Signature / default) ---------- */
+:root,
+[data-theme="maroon"] {
+  --radius: 0.75rem;
+  --background: #fdfaf4;
+  --foreground: #2b1a16;
+  --card: #fffdf8;
+  --card-foreground: #2b1a16;
+  --popover: #fffdf8;
+  --popover-foreground: #2b1a16;
+  --primary: #7d1f2e;
+  --primary-foreground: #fdf3e3;
+  --secondary: #f6e7e0;
+  --secondary-foreground: #5f2229;
+  --muted: #f6efe3;
+  --muted-foreground: #8a7362;
+  --accent: #f3ead6;
+  --accent-foreground: #5a430f;
+  --destructive: #b3261e;
+  --success: #2e7d4f;
+  --warning: #b07c10;
+  --info: #46688f;
+  --border: #ecdfcd;
+  --input: #e7d9c5;
+  --ring: #c9a227;
+  --gold: #c9a227;
+  --gold-foreground: #2d2103;
+  --chart-1: #7d1f2e;
+  --chart-2: #c9a227;
+  --chart-3: #b4633a;
+  --chart-4: #5c6e4f;
+  --chart-5: #8a5a83;
+  --sidebar: #f8f1e4;
+  --sidebar-foreground: #2b1a16;
+  --sidebar-primary: #7d1f2e;
+  --sidebar-primary-foreground: #fdf3e3;
+  --sidebar-accent: #f3ead6;
+  --sidebar-accent-foreground: #5a430f;
+  --sidebar-border: #ecdfcd;
+  --sidebar-ring: #c9a227;
+
+  --gradient-to: #7f6619;
+}
+.dark,
+[data-theme="maroon"].dark {
+  --background: #190e10;
+  --foreground: #f6ead8;
+  --card: #221317;
+  --card-foreground: #f6ead8;
+  --popover: #241418;
+  --popover-foreground: #f6ead8;
+  --primary: #d9a94a;
+  --primary-foreground: #241603;
+  --secondary: #2f1d24;
+  --secondary-foreground: #f0dcb8;
+  --muted: #2b1a20;
+  --muted-foreground: #b99f8e;
+  --accent: #3a2530;
+  --accent-foreground: #ecd9b4;
+  --destructive: #e4574c;
+  --success: #58b98a;
+  --warning: #e0b45c;
+  --info: #7ea4cc;
+  --border: #3d2731;
+  --input: #46303a;
+  --ring: #e3bd60;
+  --gold: #e3bd60;
+  --gold-foreground: #241603;
+  --chart-1: #d9a94a;
+  --chart-2: #b4633a;
+  --chart-3: #a34d63;
+  --chart-4: #7d9a6c;
+  --chart-5: #b08bb0;
+  --sidebar: #1f1115;
+  --sidebar-foreground: #f6ead8;
+  --sidebar-primary: #d9a94a;
+  --sidebar-primary-foreground: #241603;
+  --sidebar-accent: #3a2530;
+  --sidebar-accent-foreground: #ecd9b4;
+  --sidebar-border: #3d2731;
+  --sidebar-ring: #e3bd60;
+
+  /* gradient: light gold -> rose-maroon brand tint (2-hue pair, dark-ink safe) */
+  --gradient-to: #d6919e;
+}
+
+/* ---------- 2. ROSE GOLD ---------- */
+[data-theme="rose"] {
+  --background: #fdf7f7;
+  --foreground: #33202a;
+  --card: #fffcfc;
+  --card-foreground: #33202a;
+  --popover: #fffcfc;
+  --popover-foreground: #33202a;
+  --primary: #a34464;
+  --primary-foreground: #fff5f7;
+  --secondary: #f7e4ea;
+  --secondary-foreground: #7c3350;
+  --muted: #f6e9ec;
+  --muted-foreground: #96707c;
+  --accent: #f9edf1;
+  --accent-foreground: #7a3b50;
+  --destructive: #b3261e;
+  --success: #2e7d4f;
+  --warning: #b07c10;
+  --info: #46688f;
+  --border: #f0dde2;
+  --input: #ead4db;
+  --ring: #b76e79;
+  --gold: #b76e79;
+  --gold-foreground: #3c1218;
+  --chart-1: #a34464;
+  --chart-2: #c98a8a;
+  --chart-3: #d9b3a3;
+  --chart-4: #7c5c74;
+  --chart-5: #b05f76;
+  --sidebar: #f9eef1;
+  --sidebar-foreground: #33202a;
+  --sidebar-primary: #a34464;
+  --sidebar-primary-foreground: #fff5f7;
+  --sidebar-accent: #f9edf1;
+  --sidebar-accent-foreground: #7a3b50;
+  --sidebar-border: #f0dde2;
+  --sidebar-ring: #b76e79;
+
+  /* gradient: rose -> deep gold (was mono rose-wine, dH~3) */
+  --gradient-to: #7a5a20;
+  --gold-strong: #a1616a;
+  --gold-ink: #ffffff;
+}
+[data-theme="rose"].dark {
+  --background: #1c1013;
+  --foreground: #f7e8ea;
+  --card: #251519;
+  --card-foreground: #f7e8ea;
+  --popover: #28161b;
+  --popover-foreground: #f7e8ea;
+  --primary: #e09aa6;
+  --primary-foreground: #2a1016;
+  --secondary: #342026;
+  --secondary-foreground: #f2d7dc;
+  --muted: #2f1c22;
+  --muted-foreground: #b98d97;
+  --accent: #3b232b;
+  --accent-foreground: #f0d3d8;
+  --destructive: #e4574c;
+  --success: #58b98a;
+  --warning: #e0b45c;
+  --info: #7ea4cc;
+  --border: #432a31;
+  --input: #4c3138;
+  --ring: #d99ba0;
+  --gold: #d99ba0;
+  --gold-foreground: #2a1016;
+  --chart-1: #e09aa6;
+  --chart-2: #b05f76;
+  --chart-3: #d9b3a3;
+  --chart-4: #9a7a96;
+  --chart-5: #c4758a;
+  --sidebar: #221417;
+  --sidebar-foreground: #f7e8ea;
+  --sidebar-primary: #e09aa6;
+  --sidebar-primary-foreground: #2a1016;
+  --sidebar-accent: #3b232b;
+  --sidebar-accent-foreground: #f0d3d8;
+  --sidebar-border: #432a31;
+  --sidebar-ring: #d99ba0;
+
+  /* gradient: rose-gold -> deep gold (2-hue pair, dark-ink safe) */
+  --gradient-to: #b08d3e;
+  --gold-strong: #d99ba0;
+  --gold-ink: #2a1016;
+}
+
+/* ---------- 3. EMERALD & BRASS ---------- */
+[data-theme="emerald"] {
+  --background: #f8fbf7;
+  --foreground: #1a2b20;
+  --card: #fcfefd;
+  --card-foreground: #1a2b20;
+  --popover: #fcfefd;
+  --popover-foreground: #1a2b20;
+  --primary: #166a48;
+  --primary-foreground: #f2fbf5;
+  --secondary: #e2f2e8;
+  --secondary-foreground: #1c5c38;
+  --muted: #edf3ec;
+  --muted-foreground: #5f7263;
+  --accent: #eaf4ea;
+  --accent-foreground: #1c5c38;
+  --destructive: #b3261e;
+  --success: #2e7d4f;
+  --warning: #b07c10;
+  --info: #46688f;
+  --border: #dce8dc;
+  --input: #d0e2d2;
+  --ring: #b08d3e;
+  --gold: #b08d3e;
+  --gold-foreground: #2a1f06;
+  --chart-1: #166a48;
+  --chart-2: #b08d3e;
+  --chart-3: #5c8a5e;
+  --chart-4: #8fae6f;
+  --chart-5: #3d7a6a;
+  --sidebar: #eff6ee;
+  --sidebar-foreground: #1a2b20;
+  --sidebar-primary: #166a48;
+  --sidebar-primary-foreground: #f2fbf5;
+  --sidebar-accent: #eaf4ea;
+  --sidebar-accent-foreground: #1c5c38;
+  --sidebar-border: #dce8dc;
+  --sidebar-ring: #b08d3e;
+
+  --gradient-to: #82682e;
+  --gold-strong: #8b6f31;
+  --gold-ink: #ffffff;
+}
+[data-theme="emerald"].dark {
+  --background: #0e1712;
+  --foreground: #e4f0e4;
+  --card: #14211a;
+  --card-foreground: #e4f0e4;
+  --popover: #16241c;
+  --popover-foreground: #e4f0e4;
+  --primary: #d3b25f;
+  --primary-foreground: #171204;
+  --secondary: #1d2f24;
+  --secondary-foreground: #cfe8d2;
+  --muted: #19271f;
+  --muted-foreground: #93a896;
+  --accent: #20342a;
+  --accent-foreground: #d9ecd9;
+  --destructive: #e4574c;
+  --success: #58b98a;
+  --warning: #e0b45c;
+  --info: #7ea4cc;
+  --border: #27392d;
+  --input: #2e4234;
+  --ring: #d8b45e;
+  --gold: #d8b45e;
+  --gold-foreground: #171204;
+  --chart-1: #d3b25f;
+  --chart-2: #58b98a;
+  --chart-3: #7aa87c;
+  --chart-4: #9db87c;
+  --chart-5: #58958a;
+  --sidebar: #121c16;
+  --sidebar-foreground: #e4f0e4;
+  --sidebar-primary: #d3b25f;
+  --sidebar-primary-foreground: #171204;
+  --sidebar-accent: #20342a;
+  --sidebar-accent-foreground: #d9ecd9;
+  --sidebar-border: #27392d;
+  --sidebar-ring: #d8b45e;
+
+  /* gradient: gold -> emerald brand tint (was mono gold-on-gold, dH<1) */
+  --gradient-to: #8fc9a8;
+  --gold-strong: #d8b45e;
+  --gold-ink: #171204;
+}
+
+/* ---------- 4. ROYAL PURPLE & GOLD ---------- */
+[data-theme="royal"] {
+  --background: #fbf8fd;
+  --foreground: #251a33;
+  --card: #fefcfe;
+  --card-foreground: #251a33;
+  --popover: #fefcfe;
+  --popover-foreground: #251a33;
+  --primary: #5b2d86;
+  --primary-foreground: #f9f3fd;
+  --secondary: #efe4f7;
+  --secondary-foreground: #4b2670;
+  --muted: #f1ecf7;
+  --muted-foreground: #6f647e;
+  --accent: #f4ecf9;
+  --accent-foreground: #4b2670;
+  --destructive: #b3261e;
+  --success: #2e7d4f;
+  --warning: #b07c10;
+  --info: #46688f;
+  --border: #e7dff0;
+  --input: #ded2ec;
+  --ring: #c9a227;
+  --gold: #c9a227;
+  --gold-foreground: #2a1e04;
+  --chart-1: #5b2d86;
+  --chart-2: #c9a227;
+  --chart-3: #8a63a8;
+  --chart-4: #b98fce;
+  --chart-5: #6d4a92;
+  --sidebar: #f4eefa;
+  --sidebar-foreground: #251a33;
+  --sidebar-primary: #5b2d86;
+  --sidebar-primary-foreground: #f9f3fd;
+  --sidebar-accent: #f4ecf9;
+  --sidebar-accent-foreground: #4b2670;
+  --sidebar-border: #e7dff0;
+  --sidebar-ring: #c9a227;
+
+  --gradient-to: #7f6619;
+}
+[data-theme="royal"].dark {
+  --background: #150e1c;
+  --foreground: #efe6f7;
+  --card: #1d1426;
+  --card-foreground: #efe6f7;
+  --popover: #20172a;
+  --popover-foreground: #efe6f7;
+  --primary: #bfa0e8;
+  --primary-foreground: #241536;
+  --secondary: #2a1e38;
+  --secondary-foreground: #e3d3f2;
+  --muted: #251b31;
+  --muted-foreground: #a493b5;
+  --accent: #312342;
+  --accent-foreground: #e6d8f3;
+  --destructive: #e4574c;
+  --success: #58b98a;
+  --warning: #e0b45c;
+  --info: #7ea4cc;
+  --border: #352845;
+  --input: #3d2f4e;
+  --ring: #d4af5c;
+  --gold: #d4af5c;
+  --gold-foreground: #241603;
+  --chart-1: #bfa0e8;
+  --chart-2: #d4af5c;
+  --chart-3: #9a74c4;
+  --chart-4: #c9a5e0;
+  --chart-5: #8058aa;
+  --sidebar: #191120;
+  --sidebar-foreground: #efe6f7;
+  --sidebar-primary: #bfa0e8;
+  --sidebar-primary-foreground: #241536;
+  --sidebar-accent: #312342;
+  --sidebar-accent-foreground: #e6d8f3;
+  --sidebar-border: #352845;
+  --sidebar-ring: #d4af5c;
+
+  --gradient-to: #c7a556;
+}
+
+/* ---------- 5. CHAMPAGNE & BRONZE ---------- */
+[data-theme="champagne"] {
+  --background: #fdfaf5;
+  --foreground: #2e2418;
+  --card: #fffdfa;
+  --card-foreground: #2e2418;
+  --popover: #fffdfa;
+  --popover-foreground: #2e2418;
+  --primary: #a67c52;
+  --primary-foreground: #1d1409;
+  --secondary: #f4ebdf;
+  --secondary-foreground: #7a5a38;
+  --muted: #f5efe4;
+  --muted-foreground: #87765f;
+  --accent: #f6efe3;
+  --accent-foreground: #7a5a38;
+  --destructive: #b3261e;
+  --success: #2e7d4f;
+  --warning: #b07c10;
+  --info: #46688f;
+  --border: #eadfcd;
+  --input: #e3d6bf;
+  --ring: #cfae6e;
+  --gold: #cfae6e;
+  --gold-foreground: #33260e;
+  --chart-1: #a67c52;
+  --chart-2: #cfae6e;
+  --chart-3: #8a9a6b;
+  --chart-4: #c48f6a;
+  --chart-5: #6b7a52;
+  --sidebar: #f7f1e6;
+  --sidebar-foreground: #2e2418;
+  --sidebar-primary: #a67c52;
+  --sidebar-primary-foreground: #1d1409;
+  --sidebar-accent: #f6efe3;
+  --sidebar-accent-foreground: #7a5a38;
+  --sidebar-border: #eadfcd;
+  --sidebar-ring: #cfae6e;
+
+  /* gradient: bronze -> bright gold (dark-ink safe at both ends) */
+  --gradient-to: #e0b354;
+}
+[data-theme="champagne"].dark {
+  --background: #191410;
+  --foreground: #f3ecdf;
+  --card: #211b14;
+  --card-foreground: #f3ecdf;
+  --popover: #241e16;
+  --popover-foreground: #f3ecdf;
+  --primary: #d6b384;
+  --primary-foreground: #241a0e;
+  --secondary: #2d2418;
+  --secondary-foreground: #ecdfc8;
+  --muted: #281f15;
+  --muted-foreground: #ab9a80;
+  --accent: #322818;
+  --accent-foreground: #ead9bd;
+  --destructive: #e4574c;
+  --success: #58b98a;
+  --warning: #e0b45c;
+  --info: #7ea4cc;
+  --border: #3a2f20;
+  --input: #423625;
+  --ring: #d9bd85;
+  --gold: #d9bd85;
+  --gold-foreground: #241a0e;
+  --chart-1: #d6b384;
+  --chart-2: #a98f5c;
+  --chart-3: #9aa878;
+  --chart-4: #c49070;
+  --chart-5: #7e8a62;
+  --sidebar: #1d1712;
+  --sidebar-foreground: #f3ecdf;
+  --sidebar-primary: #d6b384;
+  --sidebar-primary-foreground: #241a0e;
+  --sidebar-accent: #322818;
+  --sidebar-accent-foreground: #ead9bd;
+  --sidebar-border: #3a2f20;
+  --sidebar-ring: #d9bd85;
+
+  --gradient-to: #9e8a61;
+}
+
+/* ---------- 6. TEAL & COPPER ---------- */
+[data-theme="teal"] {
+  --background: #f7fbfb;
+  --foreground: #14282a;
+  --card: #fcfefe;
+  --card-foreground: #14282a;
+  --popover: #fcfefe;
+  --popover-foreground: #14282a;
+  --primary: #0f6a70;
+  --primary-foreground: #f0fbfb;
+  --secondary: #dff1f1;
+  --secondary-foreground: #0d5c62;
+  --muted: #ebf4f4;
+  --muted-foreground: #5c7476;
+  --accent: #e8f4f3;
+  --accent-foreground: #0d5c62;
+  --destructive: #b3261e;
+  --success: #2e7d4f;
+  --warning: #b07c10;
+  --info: #46688f;
+  --border: #dbeaec;
+  --input: #cbe3e5;
+  --ring: #c17a4a;
+  --gold: #c17a4a;
+  --gold-foreground: #2e1508;
+  --chart-1: #0f6a70;
+  --chart-2: #c17a4a;
+  --chart-3: #4a9a9a;
+  --chart-4: #7ab8b0;
+  --chart-5: #33686b;
+  --sidebar: #edf6f6;
+  --sidebar-foreground: #14282a;
+  --sidebar-primary: #0f6a70;
+  --sidebar-primary-foreground: #f0fbfb;
+  --sidebar-accent: #e8f4f3;
+  --sidebar-accent-foreground: #0d5c62;
+  --sidebar-border: #dbeaec;
+  --sidebar-ring: #c17a4a;
+
+  --gradient-to: #955e39;
+  --gold-strong: #a2663e;
+  --gold-ink: #ffffff;
+}
+[data-theme="teal"].dark {
+  --background: #0b1617;
+  --foreground: #e2f0ef;
+  --card: #102021;
+  --card-foreground: #e2f0ef;
+  --popover: #122324;
+  --popover-foreground: #e2f0ef;
+  --primary: #5bc4c9;
+  --primary-foreground: #06201f;
+  --secondary: #182c2d;
+  --secondary-foreground: #cbe6e4;
+  --muted: #152728;
+  --muted-foreground: #8ca4a4;
+  --accent: #1b3233;
+  --accent-foreground: #d8ebe9;
+  --destructive: #e4574c;
+  --success: #58b98a;
+  --warning: #e0b45c;
+  --info: #7ea4cc;
+  --border: #24393a;
+  --input: #2b4243;
+  --ring: #d98e5f;
+  --gold: #d98e5f;
+  --gold-foreground: #23100a;
+  --chart-1: #5bc4c9;
+  --chart-2: #d98e5f;
+  --chart-3: #63a8a8;
+  --chart-4: #8cc4bc;
+  --chart-5: #47828a;
+  --sidebar: #0e1b1c;
+  --sidebar-foreground: #e2f0ef;
+  --sidebar-primary: #5bc4c9;
+  --sidebar-primary-foreground: #06201f;
+  --sidebar-accent: #1b3233;
+  --sidebar-accent-foreground: #d8ebe9;
+  --sidebar-border: #24393a;
+  --sidebar-ring: #d98e5f;
+
+  --gradient-to: #bd7c53;
+  --gold-strong: #d98e5f;
+  --gold-ink: #23100a;
+}
+
+/* ---------- 7. COCOA & CARAMEL ---------- */
+[data-theme="cocoa"] {
+  --background: #fbf7f1;
+  --foreground: #2d2015;
+  --card: #fffdf9;
+  --card-foreground: #2d2015;
+  --popover: #fffdf9;
+  --popover-foreground: #2d2015;
+  --primary: #6b4226;
+  --primary-foreground: #fdf7ef;
+  --secondary: #f1e5d6;
+  --secondary-foreground: #5d3a20;
+  --muted: #f3ecdf;
+  --muted-foreground: #82705e;
+  --accent: #f5ecdf;
+  --accent-foreground: #5d3a20;
+  --destructive: #b3261e;
+  --success: #2e7d4f;
+  --warning: #b07c10;
+  --info: #46688f;
+  --border: #ecdfd0;
+  --input: #e5d5c0;
+  --ring: #d09a4e;
+  --gold: #d09a4e;
+  --gold-foreground: #2c1a06;
+  --chart-1: #6b4226;
+  --chart-2: #d09a4e;
+  --chart-3: #9a6b45;
+  --chart-4: #c4a484;
+  --chart-5: #54452e;
+  --sidebar: #f5ede0;
+  --sidebar-foreground: #2d2015;
+  --sidebar-primary: #6b4226;
+  --sidebar-primary-foreground: #fdf7ef;
+  --sidebar-accent: #f5ecdf;
+  --sidebar-accent-foreground: #5d3a20;
+  --sidebar-border: #ecdfd0;
+  --sidebar-ring: #d09a4e;
+
+  /* gradient: cocoa brown -> saturated gold (hue+sat separation) */
+  --gradient-to: #8f6a1c;
+}
+[data-theme="cocoa"].dark {
+  --background: #170f0a;
+  --foreground: #f0e7da;
+  --card: #20160f;
+  --card-foreground: #f0e7da;
+  --popover: #241a12;
+  --popover-foreground: #f0e7da;
+  --primary: #c8925c;
+  --primary-foreground: #20130a;
+  --secondary: #2b1e14;
+  --secondary-foreground: #ecdcc4;
+  --muted: #251a11;
+  --muted-foreground: #a8937d;
+  --accent: #31220f;
+  --accent-foreground: #e8d5b8;
+  --destructive: #e4574c;
+  --success: #58b98a;
+  --warning: #e0b45c;
+  --info: #7ea4cc;
+  --border: #382a1c;
+  --input: #403122;
+  --ring: #d8a55e;
+  --gold: #d8a55e;
+  --gold-foreground: #20130a;
+  --chart-1: #c8925c;
+  --chart-2: #a8794a;
+  --chart-3: #b08d5e;
+  --chart-4: #c9ab85;
+  --chart-5: #7d5f3f;
+  --sidebar: #1c130d;
+  --sidebar-foreground: #f0e7da;
+  --sidebar-primary: #c8925c;
+  --sidebar-primary-foreground: #20130a;
+  --sidebar-accent: #31220f;
+  --sidebar-accent-foreground: #e8d5b8;
+  --sidebar-border: #382a1c;
+  --sidebar-ring: #d8a55e;
+
+  --gradient-to: #e7c89d;
+}
+
+/* ---------- 8. BURGUNDY & HONEY ---------- */
+[data-theme="wine"] {
+  --background: #fdf8f6;
+  --foreground: #2e1a20;
+  --card: #fffcfb;
+  --card-foreground: #2e1a20;
+  --popover: #fffcfb;
+  --popover-foreground: #2e1a20;
+  --primary: #7b2340;
+  --primary-foreground: #fdf3f6;
+  --secondary: #f3e2e9;
+  --secondary-foreground: #6b1d36;
+  --muted: #f6ebee;
+  --muted-foreground: #8d6a75;
+  --accent: #f7ebef;
+  --accent-foreground: #6b1d36;
+  --destructive: #b3261e;
+  --success: #2e7d4f;
+  --warning: #b07c10;
+  --info: #46688f;
+  --border: #f0dde3;
+  --input: #e9d0d9;
+  --ring: #d8a25e;
+  --gold: #d8a25e;
+  --gold-foreground: #2b1706;
+  --chart-1: #7b2340;
+  --chart-2: #d8a25e;
+  --chart-3: #a85c74;
+  --chart-4: #c9908a;
+  --chart-5: #5c4258;
+  --sidebar: #f8eef1;
+  --sidebar-foreground: #2e1a20;
+  --sidebar-primary: #7b2340;
+  --sidebar-primary-foreground: #fdf3f6;
+  --sidebar-accent: #f7ebef;
+  --sidebar-accent-foreground: #6b1d36;
+  --sidebar-border: #f0dde3;
+  --sidebar-ring: #d8a25e;
+
+  --gradient-to: #846339;
+}
+[data-theme="wine"].dark {
+  --background: #190d12;
+  --foreground: #f5e6e9;
+  --card: #22131a;
+  --card-foreground: #f5e6e9;
+  --popover: #25161d;
+  --popover-foreground: #f5e6e9;
+  --primary: #d9a05e;
+  --primary-foreground: #241205;
+  --secondary: #301b24;
+  --secondary-foreground: #eed2da;
+  --muted: #2a181f;
+  --muted-foreground: #b18d98;
+  --accent: #361f29;
+  --accent-foreground: #ecd4dc;
+  --destructive: #e4574c;
+  --success: #58b98a;
+  --warning: #e0b45c;
+  --info: #7ea4cc;
+  --border: #3d2530;
+  --input: #462b37;
+  --ring: #e0b479;
+  --gold: #e0b479;
+  --gold-foreground: #241205;
+  --chart-1: #d9a05e;
+  --chart-2: #a85c74;
+  --chart-3: #c9908a;
+  --chart-4: #d4a8a2;
+  --chart-5: #7c5a70;
+  --sidebar: #1e1017;
+  --sidebar-foreground: #f5e6e9;
+  --sidebar-primary: #d9a05e;
+  --sidebar-primary-foreground: #241205;
+  --sidebar-accent: #361f29;
+  --sidebar-accent-foreground: #ecd4dc;
+  --sidebar-border: #3d2530;
+  --sidebar-ring: #e0b479;
+
+  /* gradient: honey gold -> burgundy-rose brand tint (2-hue pair) */
+  --gradient-to: #d88bab;
+}
+
+/* ---------- 9. FOREST & SAGE ---------- */
+[data-theme="forest"] {
+  --background: #f9fbf7;
+  --foreground: #1d2a1a;
+  --card: #fcfefb;
+  --card-foreground: #1d2a1a;
+  --popover: #fcfefb;
+  --popover-foreground: #1d2a1a;
+  --primary: #2f5d3a;
+  --primary-foreground: #f3faf4;
+  --secondary: #e5f0e6;
+  --secondary-foreground: #28512f;
+  --muted: #eff4ea;
+  --muted-foreground: #63755e;
+  --accent: #ecf4ec;
+  --accent-foreground: #28512f;
+  --destructive: #b3261e;
+  --success: #2e7d4f;
+  --warning: #b07c10;
+  --info: #46688f;
+  --border: #e0e9db;
+  --input: #d4e2cf;
+  --ring: #a3b18a;
+  --gold: #a3b18a;
+  --gold-foreground: #232a17;
+  --chart-1: #2f5d3a;
+  --chart-2: #a3b18a;
+  --chart-3: #6b8f5e;
+  --chart-4: #8fae7c;
+  --chart-5: #4a6b3f;
+  --sidebar: #f0f5ea;
+  --sidebar-foreground: #1d2a1a;
+  --sidebar-primary: #2f5d3a;
+  --sidebar-primary-foreground: #f3faf4;
+  --sidebar-accent: #ecf4ec;
+  --sidebar-accent-foreground: #28512f;
+  --sidebar-border: #e0e9db;
+  --sidebar-ring: #a3b18a;
+
+  --gradient-to: #656e56;
+}
+[data-theme="forest"].dark {
+  --background: #0f150e;
+  --foreground: #e5efe0;
+  --card: #161f14;
+  --card-foreground: #e5efe0;
+  --popover: #18231a;
+  --popover-foreground: #e5efe0;
+  --primary: #b5c48f;
+  --primary-foreground: #16200f;
+  --secondary: #1e2b1a;
+  --secondary-foreground: #d5e4cf;
+  --muted: #192415;
+  --muted-foreground: #93a389;
+  --accent: #1f2f1a;
+  --accent-foreground: #dde9d4;
+  --destructive: #e4574c;
+  --success: #58b98a;
+  --warning: #e0b45c;
+  --info: #7ea4cc;
+  --border: #29371f;
+  --input: #304024;
+  --ring: #c2d0a0;
+  --gold: #c2d0a0;
+  --gold-foreground: #16200f;
+  --chart-1: #b5c48f;
+  --chart-2: #6b8f5e;
+  --chart-3: #8fae7c;
+  --chart-4: #a8c494;
+  --chart-5: #5c7f4f;
+  --sidebar: #131a11;
+  --sidebar-foreground: #e5efe0;
+  --sidebar-primary: #b5c48f;
+  --sidebar-primary-foreground: #16200f;
+  --sidebar-accent: #1f2f1a;
+  --sidebar-accent-foreground: #dde9d4;
+  --sidebar-border: #29371f;
+  --sidebar-ring: #c2d0a0;
+
+  /* gradient: gold -> sage brand tint (was mono gold-on-gold, dH<1) */
+  --gradient-to: #a4c9b0;
+}
+
+/* ---------- 10. PLUM & MAUVE ---------- */
+[data-theme="plum"] {
+  --background: #fcf8fd;
+  --foreground: #2a1a30;
+  --card: #fefcfe;
+  --card-foreground: #2a1a30;
+  --popover: #fefcfe;
+  --popover-foreground: #2a1a30;
+  --primary: #6d3087;
+  --primary-foreground: #faf3fc;
+  --secondary: #f0e3f5;
+  --secondary-foreground: #5c2672;
+  --muted: #f4edf8;
+  --muted-foreground: #7a6884;
+  --accent: #f5ebf8;
+  --accent-foreground: #5c2672;
+  --destructive: #b3261e;
+  --success: #2e7d4f;
+  --warning: #b07c10;
+  --info: #46688f;
+  --border: #ecdef2;
+  --input: #e3d2ec;
+  --ring: #c98bb9;
+  --gold: #c98bb9;
+  --gold-foreground: #2f1030;
+  --chart-1: #6d3087;
+  --chart-2: #c98bb9;
+  --chart-3: #9a5cb8;
+  --chart-4: #c3a3d8;
+  --chart-5: #55406b;
+  --sidebar: #f6eff9;
+  --sidebar-foreground: #2a1a30;
+  --sidebar-primary: #6d3087;
+  --sidebar-primary-foreground: #faf3fc;
+  --sidebar-accent: #f5ebf8;
+  --sidebar-accent-foreground: #5c2672;
+  --sidebar-border: #ecdef2;
+  --sidebar-ring: #c98bb9;
+
+  --gradient-to: #855c7a;
+}
+[data-theme="plum"].dark {
+  --background: #150d19;
+  --foreground: #f0e6f4;
+  --card: #1d1322;
+  --card-foreground: #f0e6f4;
+  --popover: #201627;
+  --popover-foreground: #f0e6f4;
+  --primary: #c693dd;
+  --primary-foreground: #1f0f28;
+  --secondary: #281c30;
+  --secondary-foreground: #e8d7ef;
+  --muted: #231a29;
+  --muted-foreground: #a891b3;
+  --accent: #2d1f36;
+  --accent-foreground: #ecdcf3;
+  --destructive: #e4574c;
+  --success: #58b98a;
+  --warning: #e0b45c;
+  --info: #7ea4cc;
+  --border: #342440;
+  --input: #3c2a49;
+  --ring: #d4a2c8;
+  --gold: #d4a2c8;
+  --gold-foreground: #1f0f28;
+  --chart-1: #c693dd;
+  --chart-2: #9a5cb8;
+  --chart-3: #c3a3d8;
+  --chart-4: #d4b8e8;
+  --chart-5: #73508c;
+  --sidebar: #191020;
+  --sidebar-foreground: #f0e6f4;
+  --sidebar-primary: #c693dd;
+  --sidebar-primary-foreground: #1f0f28;
+  --sidebar-accent: #2d1f36;
+  --sidebar-accent-foreground: #ecdcf3;
+  --sidebar-border: #342440;
+  --sidebar-ring: #d4a2c8;
+
+  --gradient-to: #e5c6dd;
+}
+
+/* ---------- 11. NOIR & SILVER ---------- */
+[data-theme="noir"] {
+  --background: #fbfbfa;
+  --foreground: #1c1c1b;
+  --card: #ffffff;
+  --card-foreground: #1c1c1b;
+  --popover: #ffffff;
+  --popover-foreground: #1c1c1b;
+  --primary: #2b2b2b;
+  --primary-foreground: #fafafa;
+  --secondary: #efefee;
+  --secondary-foreground: #262626;
+  --muted: #f2f2f1;
+  --muted-foreground: #6b6b6b;
+  --accent: #f0f0ef;
+  --accent-foreground: #262626;
+  --destructive: #b3261e;
+  --success: #2e7d4f;
+  --warning: #b07c10;
+  --info: #46688f;
+  --border: #e5e5e3;
+  --input: #d9d9d7;
+  --ring: #9aa0a6;
+  --gold: #8a8578;
+  --gold-foreground: #1c1c1c;
+  --chart-1: #2b2b2b;
+  --chart-2: #8a8578;
+  --chart-3: #6b6b6b;
+  --chart-4: #a8a29e;
+  --chart-5: #4a4a48;
+  --sidebar: #f3f3f1;
+  --sidebar-foreground: #1c1c1b;
+  --sidebar-primary: #2b2b2b;
+  --sidebar-primary-foreground: #fafafa;
+  --sidebar-accent: #f0f0ef;
+  --sidebar-accent-foreground: #262626;
+  --sidebar-border: #e5e5e3;
+  --sidebar-ring: #9aa0a6;
+
+  --gradient-to: #706c61;
+  --gold-strong: #787468;
+  --gold-ink: #ffffff;
+}
+[data-theme="noir"].dark {
+  --background: #101012;
+  --foreground: #ececea;
+  --card: #17171a;
+  --card-foreground: #ececea;
+  --popover: #1a1a1d;
+  --popover-foreground: #ececea;
+  --primary: #e4e4e2;
+  --primary-foreground: #161616;
+  --secondary: #212124;
+  --secondary-foreground: #e0e0de;
+  --muted: #1c1c1f;
+  --muted-foreground: #9c9c9a;
+  --accent: #26262a;
+  --accent-foreground: #e8e8e6;
+  --destructive: #e4574c;
+  --success: #58b98a;
+  --warning: #e0b45c;
+  --info: #7ea4cc;
+  --border: #2c2c30;
+  --input: #343438;
+  --ring: #c0c0c0;
+  --gold: #b3aca0;
+  --gold-foreground: #161616;
+  --chart-1: #e4e4e2;
+  --chart-2: #b3aca0;
+  --chart-3: #8a8a88;
+  --chart-4: #c4c4c2;
+  --chart-5: #5c5c5a;
+  --sidebar: #141416;
+  --sidebar-foreground: #ececea;
+  --sidebar-primary: #e4e4e2;
+  --sidebar-primary-foreground: #161616;
+  --sidebar-accent: #26262a;
+  --sidebar-accent-foreground: #e8e8e6;
+  --sidebar-border: #2c2c30;
+  --sidebar-ring: #c0c0c0;
+
+  --gradient-to: #8c867d;
+  --gold-strong: #b3aca0;
+  --gold-ink: #161616;
+}
+
+/* ---------- 12. CORAL & TERRACOTTA ---------- */
+[data-theme="coral"] {
+  --background: #fdf8f4;
+  --foreground: #33201a;
+  --card: #fffcf9;
+  --card-foreground: #33201a;
+  --popover: #fffcf9;
+  --popover-foreground: #33201a;
+  --primary: #c2543b;
+  --primary-foreground: #ffffff;
+  --secondary: #f9e5dc;
+  --secondary-foreground: #a84630;
+  --muted: #f8ede4;
+  --muted-foreground: #8d6f5d;
+  --accent: #fbeee7;
+  --accent-foreground: #a84630;
+  --destructive: #b3261e;
+  --success: #2e7d4f;
+  --warning: #b07c10;
+  --info: #46688f;
+  --border: #f2e2d7;
+  --input: #ecd6c8;
+  --ring: #d98e5f;
+  --gold: #d98e5f;
+  --gold-foreground: #33180a;
+  --chart-1: #c2543b;
+  --chart-2: #d98e5f;
+  --chart-3: #b07c52;
+  --chart-4: #e0b48a;
+  --chart-5: #8c4a3a;
+  --sidebar: #f9efe6;
+  --sidebar-foreground: #33201a;
+  --sidebar-primary: #c2543b;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #fbeee7;
+  --sidebar-accent-foreground: #a84630;
+  --sidebar-border: #f2e2d7;
+  --sidebar-ring: #d98e5f;
+
+  /* gradient: terracotta -> brass gold (was mono, dH~3) */
+  --gradient-to: #96691a;
+}
+[data-theme="coral"].dark {
+  --background: #1a0f0b;
+  --foreground: #f5e9e1;
+  --card: #221610;
+  --card-foreground: #f5e9e1;
+  --popover: #251812;
+  --popover-foreground: #f5e9e1;
+  --primary: #e08a6d;
+  --primary-foreground: #26100a;
+  --secondary: #302017;
+  --secondary-foreground: #f0d8ca;
+  --muted: #291c14;
+  --muted-foreground: #b39a89;
+  --accent: #36251a;
+  --accent-foreground: #f0ddd0;
+  --destructive: #e4574c;
+  --success: #58b98a;
+  --warning: #e0b45c;
+  --info: #7ea4cc;
+  --border: #3e2b1f;
+  --input: #473225;
+  --ring: #e0a377;
+  --gold: #e0a377;
+  --gold-foreground: #26100a;
+  --chart-1: #e08a6d;
+  --chart-2: #b07c52;
+  --chart-3: #e0b48a;
+  --chart-4: #d49a74;
+  --chart-5: #9c5f42;
+  --sidebar: #1e130d;
+  --sidebar-foreground: #f5e9e1;
+  --sidebar-primary: #e08a6d;
+  --sidebar-primary-foreground: #26100a;
+  --sidebar-accent: #36251a;
+  --sidebar-accent-foreground: #f0ddd0;
+  --sidebar-border: #3e2b1f;
+  --sidebar-ring: #e0a377;
+
+  /* gradient: peach gold -> coral-rose brand tint (2-hue pair) */
+  --gradient-to: #eb9fb2;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  /* Elegant thin scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: var(--border);
+    border-radius: 9999px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: var(--muted-foreground);
+  }
+
+  /* Glassy surfaces */
+  .glass {
+    background: color-mix(in srgb, var(--background) 72%, transparent);
+    backdrop-filter: blur(14px) saturate(1.4);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  }
+
+  /* Gold gradient text */
+  .text-gradient-gold {
+    background: linear-gradient(120deg, var(--gold) 0%, color-mix(in srgb, var(--gold) 55%, #fff8e1) 45%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Decorative ring for premium cards */
+  .ring-gold-soft {
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 35%, transparent);
+  }
+
+  .bg-radial-fade {
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, color-mix(in srgb, var(--gold) 14%, transparent), transparent 70%);
+  }
+
+  /* Animated gold underline for primary nav links */
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.25rem;
+    height: 2px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, var(--gold), color-mix(in srgb, var(--gold) 55%, var(--primary)));
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.25s ease;
+  }
+  .link-underline:hover::after,
+  .link-underline:focus-visible::after,
+  .link-underline[aria-current="true"]::after {
+    transform: scaleX(1);
+  }
+
+  /* Interactive lift for clickable cards (gold-tinted, shadow deepens) */
+  .card-lift {
+    transition:
+      transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.3s ease,
+      border-color 0.3s ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--gold) 45%, var(--border));
+    box-shadow:
+      0 12px 32px -12px color-mix(in srgb, var(--primary) 30%, transparent),
+      0 4px 12px -4px color-mix(in srgb, var(--gold) 25%, transparent);
+  }
+  .card-lift:focus-within {
+    border-color: color-mix(in srgb, var(--gold) 55%, var(--border));
+  }
+
+  /* Hairline gold edge highlight for premium surfaces */
+  .edge-gold-top {
+    position: relative;
+    overflow: hidden;
+  }
+  .edge-gold-top::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--gold) 70%, transparent), transparent);
+  }
+}
+
+/* Glass reads slightly more opaque in dark mode so nav stays legible over the hero */
+.dark .glass {
+  background: color-mix(in srgb, var(--background) 82%, transparent);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-underline::after {
+    transition: none;
+  }
+  .card-lift,
+  .card-lift:hover {
+    transform: none;
+  }
+}
+
+/* Selection */
+::selection {
+  background: color-mix(in srgb, var(--gold) 30%, transparent);
+}
+
+/* Motion keyframes for the matrimonial landing */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes float-soft-late {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+@keyframes shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+/* Respect reduced-motion for decorative animations */
+@media (prefers-reduced-motion: reduce) {
+  .animate-\[marquee_32s_linear_infinite\],
+  .animate-\[float-soft_5\.5s_ease-in-out_infinite\],
+  .animate-\[float-soft-late_6\.5s_ease-in-out_0\.8s_infinite\],
+  .animate-\[float-soft_7\.5s_ease-in-out_1\.6s_infinite\],
+  [class*="animation:float-soft"],
+  [class*="animation:marquee"] {
+    animation: none !important;
+  }
+}
+
+/* Shine sweep on hover — used by community cards & featured tiles */
+.shine-sweep {
+  position: relative;
+  overflow: hidden;
+}
+.shine-sweep::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-130%) skewX(-18deg);
+  background: linear-gradient(
+    100deg,
+    transparent 32%,
+    color-mix(in srgb, var(--gold) 16%, transparent) 50%,
+    transparent 68%
+  );
+  transition: transform 0.85s ease;
+  pointer-events: none;
+}
+.shine-sweep:hover::after,
+.shine-sweep:focus-visible::after {
+  transform: translateX(130%) skewX(-18deg);
+}
+
+/* Soft breathing glow for the featured pricing card */
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 color-mix(in srgb, var(--gold) 22%, transparent),
+      0 10px 34px -14px color-mix(in srgb, var(--gold) 38%, transparent);
+  }
+  50% {
+    box-shadow:
+      0 0 0 7px color-mix(in srgb, var(--gold) 7%, transparent),
+      0 14px 44px -10px color-mix(in srgb, var(--gold) 52%, transparent);
+  }
+}
+.glow-pulse {
+  animation: glow-pulse 3.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow-pulse {
+    animation: none !important;
+  }
+  .shine-sweep::after {
+    transition: none !important;
+  }
+  .stagger-rows > * {
+    animation: none !important;
+  }
+}
+
+/* Stagger-in for popover/notification rows — each child slides in slightly
+   after the previous one. Pair with `[&>*]` containers like the bell panel. */
+@keyframes row-rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.stagger-rows > * {
+  animation: row-rise 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.stagger-rows > *:nth-child(1) { animation-delay: 0s; }
+.stagger-rows > *:nth-child(2) { animation-delay: 0.045s; }
+.stagger-rows > *:nth-child(3) { animation-delay: 0.09s; }
+.stagger-rows > *:nth-child(4) { animation-delay: 0.135s; }
+.stagger-rows > *:nth-child(5) { animation-delay: 0.18s; }
+.stagger-rows > *:nth-child(6) { animation-delay: 0.225s; }
+.stagger-rows > *:nth-child(7) { animation-delay: 0.27s; }
+.stagger-rows > *:nth-child(8) { animation-delay: 0.315s; }
+
+/* Gold ornamental divider — diamond flanked by hairlines, for section
+   intros and footer details. */
+.ornament-divider {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--gold);
+}
+.ornament-divider::before,
+.ornament-divider::after {
+  content: "";
+  height: 1px;
+  width: 2.4rem;
+  background: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in srgb, var(--gold) 55%, transparent)
+  );
+}
+.ornament-divider::after {
+  background: linear-gradient(
+    to left,
+    transparent,
+    color-mix(in srgb, var(--gold) 55%, transparent)
+  );
+}
+.ornament-divider > svg,
+.ornament-divider > span {
+  display: block;
+}
+
+/* Deep-link spotlight — a transient gold ring pulse for a record that the
+   visitor just navigated to (e.g. from a notification tap-through). */
+@keyframes spotlight-ring {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--gold) 55%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 12px color-mix(in srgb, var(--gold) 0%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--gold) 0%, transparent);
+  }
+}
+.spotlight-row {
+  border-color: color-mix(in srgb, var(--gold) 60%, transparent) !important;
+  animation: spotlight-ring 1.5s ease-out 2;
+}
+@media (prefers-reduced-motion: reduce) {
+  .spotlight-row {
+    animation: none !important;
+  }
+}
+
+/* Gold shimmer sweep for completion/progress indicators — pairs with an
+   arbitrary gradient on the indicator via `[&>div]:bg-[…]`. */
+@keyframes shimmer-slide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+.progress-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.progress-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    110deg,
+    transparent 25%,
+    color-mix(in srgb, white 42%, transparent) 50%,
+    transparent 75%
+  );
+  transform: translateX(-100%);
+  animation: shimmer-slide 2.6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .progress-shimmer::after {
+    animation: none !important;
+    display: none;
+  }
+}
+
+/* Prism token — dark adaptation. The code previewer loads Prism's theme CSS
+   (light) from cdnjs at runtime; these overrides recolor the token spans for
+   the site's dark axis. Higher specificity (.dark .token.*) beats the CDN
+   theme selectors, and the panel's own card background/font stays untouched
+   because the code element carries no `language-*` class. */
+.dark .token.comment,
+.dark .token.prolog,
+.dark .token.cdata {
+  color: #7e8794;
+  font-style: italic;
+}
+.dark .token.punctuation {
+  color: #a3adba;
+}
+.dark .token.doctype,
+.dark .token.tag,
+.dark .token.deleted {
+  color: #f97583;
+}
+.dark .token.keyword,
+.dark .token.atrule,
+.dark .token.rule,
+.dark .token.important,
+.dark .token.boolean {
+  color: #f0a95e;
+}
+.dark .token.string,
+.dark .token.char,
+.dark .token.attr-value,
+.dark .token.regex,
+.dark .token.variable,
+.dark .token.inserted {
+  color: #98d68a;
+}
+.dark .token.number,
+.dark .token.constant,
+.dark .token.symbol {
+  color: #e6b96d;
+}
+.dark .token.function,
+.dark .token.class-name,
+.dark .token.maybe-class-name {
+  color: #d2b4f8;
+}
+.dark .token.attr-name,
+.dark .token.property,
+.dark .token.selector {
+  color: #7fd3c6;
+}
+.dark .token.operator,
+.dark .token.entity,
+.dark .token.url {
+  color: #c8d2dd;
+}
+
+/* MarkaUI landing — ambient motion (all reduced-motion safe) */
+@keyframes mk-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.mk-float {
+  animation: mk-float 7s ease-in-out infinite;
+}
+.mk-float-delayed {
+  animation: mk-float 9s ease-in-out 1.4s infinite;
+}
+@keyframes mk-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.mk-fade-up {
+  animation: mk-fade-up 0.7s ease-out both;
+}
+.mk-fade-up-1 {
+  animation-delay: 0.08s;
+}
+.mk-fade-up-2 {
+  animation-delay: 0.16s;
+}
+.mk-fade-up-3 {
+  animation-delay: 0.24s;
+}
+.mk-fade-up-4 {
+  animation-delay: 0.34s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mk-float,
+  .mk-float-delayed,
+  .mk-fade-up {
+    animation: none;
+  }
+}
+
