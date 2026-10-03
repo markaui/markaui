@@ -12,13 +12,14 @@
 [![npm version](https://img.shields.io/npm/v/markaui.svg)](https://www.npmjs.com/package/markaui)
 [![npm downloads](https://img.shields.io/npm/dm/markaui.svg)](https://www.npmjs.com/package/markaui)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+[![Live site](https://img.shields.io/badge/Live-markaui.vercel.app-7d1f2e?logo=vercel&logoColor=white)](https://markaui.vercel.app/)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/markaui/markaui/pulls)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6.svg)](https://www.typescriptlang.org/)
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind-v4-38BDF8.svg)](https://tailwindcss.com/)
 
 **A premium, open-source React component library — 339+ accessible components, 12 luxury themes × light & dark.**
 
-[📦 npm](https://www.npmjs.com/package/markaui) · [📚 Components](src/components/ui) · [🎓 Demo](src/app/demo) · [🐛 Report a bug](https://github.com/markaui/markaui/issues) · [⭐ Star this repo](https://github.com/markaui/markaui)
+[🌐 Live site](https://markaui.vercel.app/) · [📦 npm](https://www.npmjs.com/package/markaui) · [📚 Components](src/components/ui) · [🎓 Demo](src/app/demo) · [🐛 Report a bug](https://github.com/markaui/markaui/issues) · [⭐ Star this repo](https://github.com/markaui/markaui)
 
 </div>
 

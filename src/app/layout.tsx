@@ -91,11 +91,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/logo.svg", type: "image/svg+xml" },
+      { url: "/markaui.png", type: "image/png", sizes: "any" },
       { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/logo.svg", type: "image/svg+xml" },
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
-    shortcut: [{ url: "/logo.svg", type: "image/svg+xml" }],
+    shortcut: [{ url: "/markaui.png", type: "image/png" }],
   },
   manifest: "/manifest.webmanifest",
 };
