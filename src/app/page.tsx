@@ -5,7 +5,7 @@ import { Features } from "@/components/site/features";
 import { CodeUsage } from "@/components/site/code-usage";
 import { StatsBand } from "@/components/site/stats-band";
 import { SiteFooter } from "@/components/site/site-footer";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL, SOCIAL } from "@/lib/site";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL, SITE_VERSION, SOCIAL } from "@/lib/site";
 
 /** Schema.org structured data — helps search engines understand the product */
 const jsonLd = {
@@ -42,7 +42,7 @@ const jsonLd = {
       operatingSystem: "Any (React 18+)",
       description: SITE_DESCRIPTION,
       url: SITE_URL,
-      softwareVersion: "1.0.1",
+      softwareVersion: SITE_VERSION,
       offers: {
         "@type": "Offer",
         price: "0",

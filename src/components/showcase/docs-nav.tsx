@@ -28,6 +28,7 @@ import {
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { SITE_VERSION_LABEL } from "@/lib/site";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -319,7 +320,7 @@ export function DocsNav({
             </span>
           </span>
           <Badge variant="gold" className="text-[10px]">
-            v2.1
+            {SITE_VERSION_LABEL}
           </Badge>
         </Link>
         <span
@@ -557,7 +558,7 @@ export function DocsNav({
         </div>
         <p className="flex items-center gap-1.5 whitespace-nowrap text-[10px] text-muted-foreground/70">
           <Sparkles className="size-3 shrink-0 text-gold" />
-          Family pages · responsive stages · v2.1
+          {`Family pages · responsive stages · ${SITE_VERSION_LABEL}`}
         </p>
       </div>
     </div>

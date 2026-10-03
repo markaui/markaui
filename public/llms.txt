@@ -1,0 +1,78 @@
+# MarkaUI
+
+> MarkaUI is a premium, MIT-licensed design system for React. 221 components across 58
+> documentation families, reachable by 339+ names via an alias-aware registry — with 12
+> colour themes, each shipping a complete light and dark token set. Built on Radix UI
+> primitives, styled with Tailwind CSS v4 utility classes and CSS custom-property design
+> tokens. TypeScript-first, ESM + CJS.
+>
+> COMPONENT COUNT: the advertised "339+" is computed, not hand-written. The registry
+> defines 221 components grouped into 58 families; `expandAliases()` then emits an extra
+> reachable name for each documented alias, giving 339 (see
+> `src/components/showcase/registry/index.ts`, `TOTAL_COMPONENTS`). The component index
+> below lists the 221 real components.
+
+Canonical site: https://markaui.vercel.app
+Docs: https://markaui.vercel.app/components
+Live demo: https://markaui.vercel.app/demo/matrimuni
+npm: https://www.npmjs.com/package/markaui
+Source: https://github.com/markaui/markaui
+License: MIT (Copyright (c) 2025 MarkaUI)
+
+## Install
+
+    npm install markaui
+
+In your global stylesheet:
+
+    @import "tailwindcss";
+    @import "markaui/theme.css";
+    @import "tw-animate-css";   /* optional: enter/exit animation utilities */
+
+Since v1.0.1, `markaui/theme.css` ships a Tailwind v4 `@source` directive that registers the
+component bundle automatically — no content-path configuration is required.
+
+## Basic usage
+
+    import { MarkaUIProvider, Button } from "markaui";
+
+    export default function App() {
+      return (
+        <MarkaUIProvider defaultTheme="maroon" defaultMode="light">
+          <Button variant="gold">Get started</Button>
+        </MarkaUIProvider>
+      );
+    }
+
+`MarkaUIProvider` carries its own `"use client"` directive, so it works inside a Next.js
+server layout. It sets `data-theme` and the `dark` class on `<html>` and persists the choice
+to `localStorage` under `markaui-theme` and `markaui-mode`.
+
+## Theming
+
+Switching the entire interface costs one attribute:
+
+    <html data-theme="royal" class="dark">
+
+Or programmatically via the `useMarkaUI()` hook, which returns
+`{ theme, setTheme, mode, toggleMode, themes }`.
+
+Themes: maroon (Maroon & Gold), wine (Burgundy & Honey), rose (Rose Gold), royal (Royal
+Purple) — Signature group; emerald (Emerald & Brass), forest (Forest & Sage), teal (Teal &
+Copper), champagne (Champagne Bronze), cocoa (Cocoa & Caramel) — Heritage group; coral (Coral
+Terracotta), plum (Plum & Mauve), noir (Noir & Silver) — Modern group. Every theme has light
+and dark variants, so 24 combinations, all tuned for WCAG-AA contrast.
+
+## Docs
+
+- [Installation & setup](https://markaui.vercel.app/components/guides/installation)
+- [Theming — change themes & colours](https://markaui.vercel.app/components/guides/theming)
+- [Dark mode](https://markaui.vercel.app/components/guides/dark-mode)
+- [Working with components](https://markaui.vercel.app/components/guides/usage)
+- [Full component index](https://markaui.vercel.app/llms-full.txt)
+
+## Optional
+
+- [Component index by family](https://markaui.vercel.app/llms-full.txt): every one of the 58
+  families with its component names and doc URL.
+- [Contributing](https://github.com/markaui/markaui): MIT, contributions of every size welcome.

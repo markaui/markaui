@@ -1,0 +1,214 @@
+# MarkaUI — full reference for LLMs
+
+> MarkaUI is a premium, MIT-licensed design system for React. 221 components grouped into
+> 58 documentation families, reachable by 339+ names via an alias-aware registry. 12 colour
+> themes, each with a complete light and dark token set, built on Radix UI primitives and
+> styled with Tailwind CSS v4 utility classes plus CSS custom-property design tokens.
+> TypeScript-first, ESM + CJS, framework-agnostic (Next.js App Router, Vite, Remix, or
+> plain React). Includes a full production demo application built from the library's own
+> components.
+>
+> COMPONENT COUNT: "339+" is computed, not hand-written — 221 components + 118 alias names
+> (`src/components/showcase/registry/index.ts`, `TOTAL_COMPONENTS` = `expandAliases(allDocs).length`).
+> The component index below lists the 221 real components; aliases resolve to their real doc.
+
+- Canonical site: https://markaui.vercel.app
+- npm package: `markaui` (current published version 1.0.1)
+- Source: https://github.com/markaui/markaui
+- License: MIT
+- Peer dependencies: `react` >= 18, `react-dom` >= 18
+
+---
+
+## Installation
+
+    npm install markaui
+
+Global stylesheet:
+
+    @import "tailwindcss";
+    @import "markaui/theme.css";
+    @import "tw-animate-css";
+
+Then wrap the app:
+
+    import { MarkaUIProvider } from "markaui";
+
+    <MarkaUIProvider defaultTheme="maroon" defaultMode="light">
+      {children}
+    </MarkaUIProvider>
+
+### Troubleshooting: components render unstyled
+
+Occurs when the consumer's Tailwind build predates the `@source` mechanism (markaui <= 1.0.0)
+or overrides it. Fix by registering the bundle manually, after the imports:
+
+    @source "../node_modules/markaui/dist";
+
+The path is relative to the CSS file; adjust the `../` depth accordingly.
+
+---
+
+## Theming model
+
+`MarkaUIProvider` sets `data-theme="<id>"` on `<html>` and toggles the `dark` class. The
+provider is not required — setting the attributes directly works:
+
+    <html data-theme="royal" class="dark">
+
+`theme.css` declares `@custom-variant dark (&:is(.dark *))`, so `dark:` utilities follow the
+`dark` class rather than the operating-system preference.
+
+The `useMarkaUI()` hook returns `{ theme, setTheme, mode, toggleMode, themes }`.
+
+### Theme ids
+
+| id | Name | Group |
+|---|---|---|
+| `maroon` | Maroon & Gold | Signature |
+| `wine` | Burgundy & Honey | Signature |
+| `rose` | Rose Gold | Signature |
+| `royal` | Royal Purple | Signature |
+| `emerald` | Emerald & Brass | Heritage |
+| `forest` | Forest & Sage | Heritage |
+| `teal` | Teal & Copper | Heritage |
+| `champagne` | Champagne Bronze | Heritage |
+| `cocoa` | Cocoa & Caramel | Heritage |
+| `coral` | Coral Terracotta | Modern |
+| `plum` | Plum & Mauve | Modern |
+| `noir` | Noir & Silver | Modern |
+
+24 combinations (12 palettes x light/dark), each tuned for WCAG-AA contrast.
+
+### Avoiding a flash of the wrong theme
+
+Server output uses the default theme; the client reads `localStorage` and repaints. Add an
+inline script in `<head>` that sets the attributes before first paint:
+
+    <script>
+      (function () {
+        var t = localStorage.getItem("markaui-theme");
+        var m = localStorage.getItem("markaui-mode");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+        if (m === "dark") document.documentElement.classList.add("dark");
+      })();
+    </script>
+
+Also set `suppressHydrationWarning` on `<html>`.
+
+---
+
+## Component index — 58 families
+
+Every family page below is a real, indexable route at `https://markaui.vercel.app`. Component identifiers are the doc slugs used in the repository's registry (`src/components/showcase/registry/`). 58 families, 221 documented components.
+
+### Core
+
+- **Buttons & Links** — `/components/buttons` — 4 components: `button`, `icon-button`, `button-group`, `link`
+- **Badges & Avatars** — `/components/badges-avatars` — 2 components: `badge`, `avatar`
+- **Progress & Loaders** — `/components/progress-loaders` — 4 components: `progress`, `circular-progress`, `spinner`, `skeleton`
+- **Tooltips & Popovers** — `/components/floating-layers` — 3 components: `tooltip`, `popover`, `hover-card`
+- **Separator** — `/components/separator` — 1 component: `separator`
+### Forms
+
+- **Text Inputs** — `/components/text-inputs` — 8 components: `input`, `textarea`, `password-input`, `search-input`, `number-input`, `otp-input`, `input-group`, `label`
+- **Checkboxes, Radios & Switches** — `/components/selection-controls` — 4 components: `checkbox`, `radio`, `radio-group`, `switch`
+- **Toggles & Sliders** — `/components/toggles-sliders` — 4 components: `toggle`, `toggle-group`, `slider`, `range-slider`
+- **Selects & Comboboxes** — `/components/selects-comboboxes` — 4 components: `select`, `multi-select`, `combobox`, `autocomplete`
+- **Date & Time** — `/components/date-time-pickers` — 5 components: `date-picker`, `date-range-picker`, `time-picker`, `date-time-picker`, `calendar`
+- **Form Composition** — `/components/form-composition` — 4 components: `form`, `form-field`, `form-section`, `field-error`
+- **File & Color Pickers** — `/components/uploads-pickers` — 4 components: `file-upload`, `dropzone`, `color-picker`, `avatar-picker`
+### Navigation
+
+- **App Chrome** — `/components/app-chrome` — 3 components: `navbar`, `sidebar`, `navigation-menu`
+- **Wayfinding** — `/components/wayfinding` — 4 components: `breadcrumb`, `tabs`, `pagination`, `stepper`
+- **Menus** — `/components/menus` — 4 components: `dropdown-menu`, `menu`, `context-menu`, `menubar`
+- **Command Interfaces** — `/components/command-interfaces` — 1 component: `command-menu`
+### Layout
+
+- **Structure** — `/components/structure` — 9 components: `container`, `stack`, `grid`, `flex`, `box`, `spacer`, `section`, `content`, `aspect-ratio`
+- **Scroll & Split** — `/components/scroll-split` — 3 components: `scroll-area`, `resizable`, `split-pane`
+- **Cards & Panels** — `/components/cards-panels` — 4 components: `card`, `accordion`, `collapsible`, `list`
+- **Content Blocks** — `/components/content-blocks` — 7 components: `empty-state`, `callout`, `announcement`, `quote`, `code-block`, `markdown`, `rich-text`
+- **Media** — `/components/media` — 4 components: `image`, `video`, `audio`, `carousel`
+### Overlay
+
+- **Dialogs & Modals** — `/components/dialogs-modals` — 5 components: `dialog`, `modal`, `alert-dialog`, `confirm-dialog`, `lightbox`
+- **Drawers & Sheets** — `/components/drawers-sheets` — 3 components: `drawer`, `sheet`, `bottom-sheet`
+- **Toasts & Notifications** — `/components/toasts-notifications` — 2 components: `toast`, `notification`
+### Data Display
+
+- **Tables & Grids** — `/components/tables-grids` — 4 components: `table`, `data-table`, `data-grid`, `tree`
+- **Stats & KPIs** — `/components/stats-kpis` — 3 components: `stat`, `stat-group`, `kpi`
+- **Timelines & Feeds** — `/components/timelines-feeds` — 2 components: `timeline`, `activity-feed`
+- **Tags, Ratings & More** — `/components/data-misc` — 4 components: `description-list`, `tag`, `rating`, `calendar-view`
+### Charts
+
+- **Chart Foundations** — `/components/chart-foundations` — 2 components: `chart`, `sparkline`
+- **Cartesian Charts** — `/components/cartesian-charts` — 10 components: `line-chart`, `area-chart`, `bar-chart`, `horizontal-bar-chart`, `stacked-bar-chart`, `grouped-bar-chart`, `column-chart`, `combo-chart`, `step-chart`, `range-chart`
+- **Circular & Radial** — `/components/circular-charts` — 5 components: `piechart`, `donutchart`, `radarchart`, `radialchart`, `gaugechart`
+- **Distribution** — `/components/distribution-charts` — 4 components: `histogram`, `boxplot`, `scatterchart`, `bubblechart`
+- **Flows & Hierarchies** — `/components/flow-charts` — 5 components: `treemap`, `sankeychart`, `waterfallchart`, `funnelchart`, `networkchart`
+- **Time & Financial** — `/components/time-charts` — 3 components: `candlestickchart`, `ganttchart`, `heatmap`
+### Advanced
+
+- **Data Controls** — `/components/data-controls` — 8 components: `filter-bar`, `filter-panel`, `sort-control`, `view-switcher`, `bulk-actions`, `search-filter`, `query-builder`, `data-toolbar`
+- **Workspaces** — `/components/workspaces` — 4 components: `kanban`, `calendar-scheduler`, `file-manager`, `command-palette`
+- **Editors & Viewers** — `/components/editors` — 4 components: `rich-text-editor`, `code-editor`, `json-viewer`, `diff-viewer`
+- **Logs & Terminals** — `/components/logs-terminals` — 3 components: `log-viewer`, `terminal`, `activity-log`
+### Feedback
+
+- **Alerts** — `/components/alerts` — 5 components: `alert`, `success-message`, `error-message`, `warning-message`, `info-message`
+- **Status Views** — `/components/status-views` — 3 components: `loading-state`, `error-state`, `offline-state`
+### E-commerce
+
+- **Products** — `/components/products` — 4 components: `product-card`, `product-grid`, `product-gallery`, `product-carousel`
+- **Pricing** — `/components/pricing` — 3 components: `price`, `price-range`, `quantity-selector`
+- **Cart** — `/components/cart` — 2 components: `cart-item`, `cart-summary`
+- **Checkout & Orders** — `/components/checkout-orders` — 3 components: `checkout-form`, `order-status`, `order-timeline`
+### Authentication
+
+- **Sign In & Sign Up** — `/components/auth-forms` — 4 components: `login-form`, `signup-form`, `forgot-password-form`, `reset-password-form`
+- **Verification & Security** — `/components/auth-verification` — 3 components: `otp-verification`, `two-factor-auth`, `passkey-button`
+- **Layouts & Social** — `/components/auth-shell` — 2 components: `auth-layout`, `social-login`
+### Dashboard
+
+- **Dashboard Surfaces** — `/components/dashboard-surfaces` — 2 components: `dashboard`, `dashboard-grid`
+- **Metric & Stat Cards** — `/components/metric-cards` — 5 components: `metric-card`, `stats-card`, `kpi-grid`, `chart-card`, `activity-card`
+- **Dashboard Widgets** — `/components/dashboard-widgets` — 3 components: `recent-items`, `quick-actions`, `notification-center`
+### Developer / Utility
+
+- **Copy & Shortcuts** — `/components/copy-kbd` — 3 components: `copy-button`, `copyable-text`, `keyboard-shortcut`
+- **Status & Presence** — `/components/status-indicators` — 4 components: `status-indicator`, `api-status`, `environment-badge`, `version-badge`
+- **HTTP Inspectors** — `/components/http-inspectors` — 4 components: `request-viewer`, `response-viewer`, `code-snippet`, `syntax-highlighter`
+### Saptapadi Composites
+
+- **Profiles** — `/components/matrimony-profiles` — 3 components: `profile-card`, `profile-detail-modal`, `profile-edit-dialog`
+- **Engagement** — `/components/matrimony-engagement` — 4 components: `interests-sheet`, `concierge-chat`, `auth-modal`, `notifications-bell`
+- **Search & Saves** — `/components/matrimony-search` — 3 components: `save-search-dialog`, `saved-searches-panel`, `member-dashboard`
+- **Matchmaker Desk** — `/components/matrimony-ops` — 1 component: `matchmaker-desk`
+- **Site Chrome** — `/components/site-chrome` — 3 components: `announcement-bar`, `scroll-progress-bar`, `back-to-top`
+
+### Usage guides
+
+- Installation & Setup — `/components/guides/installation`
+- Theming — Change Themes & Colors — `/components/guides/theming`
+- Dark Mode — `/components/guides/dark-mode`
+- Working with Components — `/components/guides/usage`
+
+### Demo
+
+- Matrimony demo (full production app built with the library) — `/demo/matrimuni`
+---
+
+## Bundling notes
+
+The package is a tree-shakeable ESM bundle; named imports pull only what is used:
+
+    import { Button } from "markaui";
+    import { Dialog, DialogContent, DialogTrigger } from "markaui";
+
+Deep-path imports (`markaui/dist/...`) are not part of the public API — always import from the
+package root. Two components, `Link` and `Media`, depend on `next/link` and `next/image` and
+are therefore not re-exported from the root barrel; copy them from the source app if
+Next-optimised routing or images are needed.

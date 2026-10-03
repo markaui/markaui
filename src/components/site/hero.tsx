@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { SITE_VERSION_LABEL } from "@/lib/site";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -45,7 +46,7 @@ export function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-medium text-gold-foreground shadow-[0_0_24px_-10px] shadow-gold/40 transition-colors hover:bg-gold/15 dark:text-gold"
           >
             <Sparkles className="size-3.5 text-gold" aria-hidden />
-            339+ components · 12 luxury themes · v1.0.0
+            {`339+ components · 12 luxury themes · ${SITE_VERSION_LABEL}`}
             <ArrowRight className="size-3.5 text-gold transition-transform group-hover:translate-x-0.5" aria-hidden />
           </Link>
         </div>

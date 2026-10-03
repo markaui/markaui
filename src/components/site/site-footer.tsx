@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 
 import { Separator } from "@/components/ui/separator";
-import { SOCIAL } from "@/lib/site";
+import { SOCIAL, SITE_VERSION_LABEL } from "@/lib/site";
 import { LogoMark } from "@/components/site/logo";
 
 const COLUMNS: { heading: string; links: { label: string; href: string; external?: boolean }[] }[] = [
@@ -153,7 +153,7 @@ export function SiteFooter() {
           <p className="flex items-center gap-1.5">
             Built with
             <span className="font-semibold text-foreground">MarkaUI</span>
-            <span className="font-mono text-[10px] text-muted-foreground/70">v1.0.1</span>
+            <span className="font-mono text-[10px] text-muted-foreground/70">{SITE_VERSION_LABEL}</span>
           </p>
         </div>
       </div>

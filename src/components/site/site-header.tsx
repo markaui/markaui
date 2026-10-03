@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useTheme } from "@/components/theme/theme-provider";
+import { SITE_VERSION_LABEL } from "@/lib/site";
 import { LogoMark } from "./logo";
 import { GitHubButton } from "./github-button";
 
@@ -82,7 +83,7 @@ export function SiteHeader() {
         <div className="ml-auto flex items-center gap-2">
           <GitHubButton className="hidden sm:flex" />
           <Badge variant="gold" className="hidden text-[10px] lg:inline-flex">
-            v1.0.0
+            {SITE_VERSION_LABEL}
           </Badge>
           <ModeToggle />
           <Button
