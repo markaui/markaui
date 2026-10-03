@@ -1,6 +1,7 @@
 <div align="center">
 
-<img src="https://plain-apac-prod-public.komododecks.com/202610/03/ggflYIhrioIV1zBG4cnr/image.png" alt="MarkaUI" width="96" />
+<!-- <img src="https://plain-apac-prod-public.komododecks.com/202610/03/ggflYIhrioIV1zBG4cnr/image.png" alt="MarkaUI" width="96" /> -->
+<img src="https://markaui.vercel.app/markaui.png" alt="MarkaUI" width="96" />
 
 # MarkaUI
 
