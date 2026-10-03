@@ -42,7 +42,7 @@ This repository is the MarkaUI monorepo: it contains the component library that 
 npm install markaui
 ```
 
-Import the theme in your global stylesheet:
+Import the theme in your global stylesheet — as of v1.0.1 `markaui/theme.css` auto-registers the component bundle with your Tailwind build, so this is the whole setup:
 
 ```css
 @import "tailwindcss";

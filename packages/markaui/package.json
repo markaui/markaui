@@ -1,6 +1,6 @@
 {
   "name": "markaui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MarkaUI — a premium, themeable React component library. 339+ accessible components, 12 luxury themes × light & dark. TypeScript-first. Next.js, Vite & plain React.",
   "license": "MIT",
   "type": "module",
